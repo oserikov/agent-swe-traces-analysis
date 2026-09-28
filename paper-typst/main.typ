@@ -268,9 +268,9 @@ Two things:
 If anything seems broken or unclear --- the data, the key, the task --- email
   dmitriy\@whitecircle.ai. Don't lose time to a problem on their end.
 
+#pagebreak()
 
-
-
+#highlight[*the rest of the text is written by either AI or AI and Oleg. it used though the https://github.com/oserikov/ai-research-support harness by Oleg, so it might be alright*]
 
 = AI-generated detailed report of automation MVP attempt <sec-mvp>
 
