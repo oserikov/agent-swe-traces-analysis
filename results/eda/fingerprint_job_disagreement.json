@@ -1,0 +1,206 @@
+{
+  "jobs_with_multiple_fingerprints": [
+    {
+      "job": "run-01",
+      "n_distinct_fingerprints": 21
+    },
+    {
+      "job": "run-02",
+      "n_distinct_fingerprints": 5
+    },
+    {
+      "job": "run-03",
+      "n_distinct_fingerprints": 16
+    },
+    {
+      "job": "run-04",
+      "n_distinct_fingerprints": 5
+    },
+    {
+      "job": "run-05",
+      "n_distinct_fingerprints": 35
+    },
+    {
+      "job": "run-06",
+      "n_distinct_fingerprints": 17
+    },
+    {
+      "job": "run-07",
+      "n_distinct_fingerprints": 23
+    },
+    {
+      "job": "run-08",
+      "n_distinct_fingerprints": 22
+    },
+    {
+      "job": "run-09",
+      "n_distinct_fingerprints": 9
+    },
+    {
+      "job": "run-10",
+      "n_distinct_fingerprints": 28
+    },
+    {
+      "job": "run-11",
+      "n_distinct_fingerprints": 8
+    },
+    {
+      "job": "run-12",
+      "n_distinct_fingerprints": 27
+    },
+    {
+      "job": "run-13",
+      "n_distinct_fingerprints": 8
+    },
+    {
+      "job": "run-14",
+      "n_distinct_fingerprints": 4
+    },
+    {
+      "job": "run-15",
+      "n_distinct_fingerprints": 40
+    }
+  ],
+  "fingerprints_spanning_multiple_jobs": [
+    {
+      "fingerprint": "06314d81379d383b",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "0ac900a72f070180",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "16f461b4adab687a",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "1b735e04ac4d2e29",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "1b96264b4901c8ea",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "1e5a79aa30cfbbc3",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "259ff801367d17bc",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "27385cdb3c293d35",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "3a9412bda575a177",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "4e44ddfa04d6a363",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "5de976f867bc8bfc",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "5ecfb38d8cea81cb",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "63e0d23f49aa78b2",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "71644ef2d0928e09",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "7a430954d42a9694",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "934c7be71845a22d",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "9c247a10058494d4",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "a1ac61dd83625354",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "a709f3499b736389",
+      "n_distinct_jobs": 3
+    },
+    {
+      "fingerprint": "a94ec6af778f19e6",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "ab4d7b9f3b641a7a",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "abb169429885543a",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "ba1451d7709bd738",
+      "n_distinct_jobs": 3
+    },
+    {
+      "fingerprint": "c195c19c1aac6eee",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "c74d1ad545e3862e",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "d3ccf46192cffdcf",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "e1f4ee00c6b9eeaf",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "e7b5c589882d77ea",
+      "n_distinct_jobs": 3
+    },
+    {
+      "fingerprint": "ee586be6f4dfa0d1",
+      "n_distinct_jobs": 3
+    },
+    {
+      "fingerprint": "f04235a50a55a347",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "f53d45d9227816e7",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "f6f520e7fe1fc780",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "f79557c046d5ed01",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "f978992e5c3214fd",
+      "n_distinct_jobs": 2
+    },
+    {
+      "fingerprint": "ff08b26911e4fde4",
+      "n_distinct_jobs": 2
+    }
+  ]
+}

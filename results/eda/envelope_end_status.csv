@@ -1,0 +1,10 @@
+status,last_role,ends_mid_tool_call,final_turn_empty,count
+IL,assistant,True,False,26
+OK,assistant,False,False,205
+OK,assistant,True,False,9
+OK,tool,False,False,4
+TL,assistant,False,False,1
+TL,assistant,True,False,4
+WA,assistant,False,False,106
+WA,assistant,True,False,11
+WA,tool,False,False,4

@@ -22,3 +22,9 @@ results/**/*.npy
 
 # Per-session verification checklist (local only)
 VERIFY.md
+
+# Local HF dataset cache (regenerate via scripts/fetch_dataset.py)
+data/
+
+# Converted Inspect logs (regenerate via scripts/convert_to_inspect.py)
+results/inspect_logs/

@@ -1,0 +1,16 @@
+model,job,n_conv_turns,content_chars,reasoning_chars,tool_output_chars
+model-atlas,run-10,402,263626,262122,346842
+model-cyan,run-01,204,4296,55802,274991
+model-cyan,run-07,292,4887,267782,292218
+model-delta,run-03,65,1493,3555,67338
+model-delta,run-12,3573,2504,10309,3241822
+model-flint,run-04,411,3291,39450,157050
+model-flint,run-06,349,2720,103616,326270
+model-flint,run-08,408,11050,165176,311846
+model-flint,run-14,441,10167,156260,184853
+model-garnet,run-02,301,5570,53317,223544
+model-garnet,run-09,85,3607,18681,203403
+model-garnet,run-11,105,387712,146533,163089
+model-garnet,run-13,177,2961,98294,272183
+model-orion,run-05,263,2484,1037127,423438
+model-vega,run-15,403,11988,281815,278989

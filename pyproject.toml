@@ -5,6 +5,7 @@ description = ""
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "datasets>=4.0.0",
     "gensim>=4.4.0",
     "inspect-ai>=0.3.271",
     "matplotlib>=3.11.2",

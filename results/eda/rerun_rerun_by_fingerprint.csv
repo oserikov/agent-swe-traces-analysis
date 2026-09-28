@@ -1,0 +1,5 @@
+model,task_id,fingerprint,n_traces
+model-delta,parquery__icontract-297,71644ef2d0928e09,2
+model-flint,pybamm-team__pybamm-612,1a85f626847ebdb8,2
+model-garnet,encode__django-rest-framework-9455,e1f4ee00c6b9eeaf,2
+model-garnet,geopandas__geopandas-2286,16f461b4adab687a,2

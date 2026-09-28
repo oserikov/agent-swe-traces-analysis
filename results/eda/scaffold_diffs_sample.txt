@@ -1,0 +1,351 @@
+task_id=aeon-toolkit__aeon-1767 row_a=1 row_b=2 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `aeon-toolkit/aeon` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the p'
+  first_user_b[:200]='You are solving a real GitHub issue in the `aeon-toolkit/aeon` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the p'
+
+task_id=aeon-toolkit__aeon-2565 row_a=6 row_b=7 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `aeon-toolkit/aeon` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the p'
+  first_user_b[:200]='You are solving a real GitHub issue in the `aeon-toolkit/aeon` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the p'
+
+task_id=aiogram__aiogram-1665 row_a=13 row_b=14 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `aiogram/aiogram` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+  first_user_b[:200]='You are solving a real GitHub issue in the `aiogram/aiogram` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+
+task_id=astropy__ccdproc-867 row_a=20 row_b=21 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `astropy/ccdproc` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+  first_user_b[:200]='You are solving a real GitHub issue in the `astropy/ccdproc` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+
+task_id=cadquery__cadquery-1622 row_a=27 row_b=28 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `CadQuery/cadquery` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the p'
+  first_user_b[:200]='You are solving a real GitHub issue in the `CadQuery/cadquery` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the p'
+
+task_id=chezou__tabula-py-112 row_a=30 row_b=31 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `chezou/tabula-py` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pr'
+  first_user_b[:200]='You are solving a real GitHub issue in the `chezou/tabula-py` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pr'
+
+task_id=cloudpipe__cloudpickle-329 row_a=32 row_b=33 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `cloudpipe/cloudpickle` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read t'
+  first_user_b[:200]='You are solving a real GitHub issue in the `cloudpipe/cloudpickle` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read t'
+
+task_id=ctfd__ctfd-2333 row_a=40 row_b=41 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `CTFd/CTFd` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the problem s'
+  first_user_b[:200]='You are solving a real GitHub issue in the `CTFd/CTFd` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the problem s'
+
+task_id=ctfd__ctfd-2767 row_a=42 row_b=43 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `CTFd/CTFd` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the problem s'
+  first_user_b[:200]='You are solving a real GitHub issue in the `CTFd/CTFd` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the problem s'
+
+task_id=datadog__datadogpy-625 row_a=47 row_b=48 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `DataDog/datadogpy` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the p'
+  first_user_b[:200]='You are solving a real GitHub issue in the `DataDog/datadogpy` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the p'
+
+task_id=deshaw__pyflyby-391 row_a=51 row_b=52 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `deshaw/pyflyby` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the prob'
+  first_user_b[:200]='You are solving a real GitHub issue in the `deshaw/pyflyby` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the prob'
+
+task_id=edgi-govdata-archiving__wayback-140 row_a=54 row_b=55 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `edgi-govdata-archiving/wayback` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.'
+  first_user_b[:200]='You are solving a real GitHub issue in the `edgi-govdata-archiving/wayback` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.'
+
+task_id=elastic__curator-664 row_a=58 row_b=59 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `elastic/curator` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+  first_user_b[:200]='You are solving a real GitHub issue in the `elastic/curator` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+
+task_id=encode__django-rest-framework-9360 row_a=61 row_b=62 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `encode/django-rest-framework` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.**'
+  first_user_b[:200]='You are solving a real GitHub issue in the `encode/django-rest-framework` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.**'
+
+task_id=encode__django-rest-framework-9455 row_a=63 row_b=64 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `encode/django-rest-framework` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.**'
+  first_user_b[:200]='You are solving a real GitHub issue in the `encode/django-rest-framework` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.**'
+
+task_id=feature-engine__feature_engine-663 row_a=73 row_b=75 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `feature-engine/feature_engine` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.*'
+  first_user_b[:200]='You are solving a real GitHub issue in the `feature-engine/feature_engine` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.*'
+
+task_id=flexmeasures__flexmeasures-899 row_a=77 row_b=78 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `FlexMeasures/flexmeasures` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Re'
+  first_user_b[:200]='You are solving a real GitHub issue in the `FlexMeasures/flexmeasures` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Re'
+
+task_id=geopandas__geopandas-2286 row_a=79 row_b=80 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `geopandas/geopandas` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the'
+  first_user_b[:200]='You are solving a real GitHub issue in the `geopandas/geopandas` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the'
+
+task_id=geopandas__geopandas-2298 row_a=82 row_b=83 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `geopandas/geopandas` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the'
+  first_user_b[:200]='You are solving a real GitHub issue in the `geopandas/geopandas` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the'
+
+task_id=googlecloudplatform__cloud-sql-python-connector-1241 row_a=87 row_b=88 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `GoogleCloudPlatform/cloud-sql-python-connector` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Under'
+  first_user_b[:200]='You are solving a real GitHub issue in the `GoogleCloudPlatform/cloud-sql-python-connector` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Under'
+
+task_id=googlecloudplatform__cloud-sql-python-connector-304 row_a=91 row_b=93 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `GoogleCloudPlatform/cloud-sql-python-connector` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Under'
+  first_user_b[:200]='You are solving a real GitHub issue in the `GoogleCloudPlatform/cloud-sql-python-connector` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Under'
+
+task_id=googlecloudplatform__cloud-sql-python-connector-449 row_a=94 row_b=97 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `GoogleCloudPlatform/cloud-sql-python-connector` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Under'
+  first_user_b[:200]='You are solving a real GitHub issue in the `GoogleCloudPlatform/cloud-sql-python-connector` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Under'
+
+task_id=googlecloudplatform__cloud-sql-python-connector-476 row_a=89 row_b=90 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `GoogleCloudPlatform/cloud-sql-python-connector` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Under'
+  first_user_b[:200]='You are solving a real GitHub issue in the `GoogleCloudPlatform/cloud-sql-python-connector` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Under'
+
+task_id=jazzband__django-axes-1022 row_a=107 row_b=108 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `jazzband/django-axes` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read th'
+  first_user_b[:200]='You are solving a real GitHub issue in the `jazzband/django-axes` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read th'
+
+task_id=jazzband__django-axes-1055 row_a=110 row_b=111 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `jazzband/django-axes` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read th'
+  first_user_b[:200]='You are solving a real GitHub issue in the `jazzband/django-axes` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read th'
+
+task_id=jazzband__django-axes-885 row_a=114 row_b=115 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `jazzband/django-axes` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read th'
+  first_user_b[:200]='You are solving a real GitHub issue in the `jazzband/django-axes` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read th'
+
+task_id=jazzband__django-axes-911 row_a=116 row_b=117 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `jazzband/django-axes` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read th'
+  first_user_b[:200]='You are solving a real GitHub issue in the `jazzband/django-axes` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read th'
+
+task_id=jnothman__upsetplot-261 row_a=120 row_b=121 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `jnothman/UpSetPlot` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `jnothman/UpSetPlot` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=keras-team__keras-nlp-1166 row_a=125 row_b=126 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `keras-team/keras-nlp` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read th'
+  first_user_b[:200]='You are solving a real GitHub issue in the `keras-team/keras-nlp` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read th'
+
+task_id=keras-team__keras-nlp-143 row_a=127 row_b=128 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `keras-team/keras-nlp` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read th'
+  first_user_b[:200]='You are solving a real GitHub issue in the `keras-team/keras-nlp` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read th'
+
+task_id=keras-team__keras-nlp-59 row_a=132 row_b=133 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `keras-team/keras-nlp` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read th'
+  first_user_b[:200]='You are solving a real GitHub issue in the `keras-team/keras-nlp` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read th'
+
+task_id=kmyk__online-judge-tools-619 row_a=135 row_b=136 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `kmyk/online-judge-tools` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read'
+  first_user_b[:200]='You are solving a real GitHub issue in the `kmyk/online-judge-tools` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read'
+
+task_id=litestar-org__polyfactory-468 row_a=140 row_b=141 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `litestar-org/polyfactory` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Rea'
+  first_user_b[:200]='You are solving a real GitHub issue in the `litestar-org/polyfactory` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Rea'
+
+task_id=litestar-org__polyfactory-472 row_a=142 row_b=143 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `litestar-org/polyfactory` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Rea'
+  first_user_b[:200]='You are solving a real GitHub issue in the `litestar-org/polyfactory` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Rea'
+
+task_id=litestar-org__polyfactory-587 row_a=147 row_b=148 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `litestar-org/polyfactory` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Rea'
+  first_user_b[:200]='You are solving a real GitHub issue in the `litestar-org/polyfactory` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Rea'
+
+task_id=mila-udem__fuel-214 row_a=153 row_b=154 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `mila-udem/fuel` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the prob'
+  first_user_b[:200]='You are solving a real GitHub issue in the `mila-udem/fuel` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the prob'
+
+task_id=openidc__pyoidc-831 row_a=161 row_b=162 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `OpenIDC/pyoidc` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the prob'
+  first_user_b[:200]='You are solving a real GitHub issue in the `OpenIDC/pyoidc` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the prob'
+
+task_id=opensearch-project__opensearch-py-394 row_a=163 row_b=164 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `opensearch-project/opensearch-py` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issu'
+  first_user_b[:200]='You are solving a real GitHub issue in the `opensearch-project/opensearch-py` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issu'
+
+task_id=parquery__icontract-236 row_a=165 row_b=166 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `Parquery/icontract` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `Parquery/icontract` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=parquery__icontract-292 row_a=169 row_b=170 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `Parquery/icontract` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `Parquery/icontract` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=parquery__icontract-297 row_a=171 row_b=172 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `Parquery/icontract` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `Parquery/icontract` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=peopledoc__workalendar-263 row_a=176 row_b=177 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `peopledoc/workalendar` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read t'
+  first_user_b[:200]='You are solving a real GitHub issue in the `peopledoc/workalendar` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read t'
+
+task_id=peopledoc__workalendar-341 row_a=180 row_b=181 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `peopledoc/workalendar` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read t'
+  first_user_b[:200]='You are solving a real GitHub issue in the `peopledoc/workalendar` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read t'
+
+task_id=peopledoc__workalendar-373 row_a=182 row_b=183 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `peopledoc/workalendar` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read t'
+  first_user_b[:200]='You are solving a real GitHub issue in the `peopledoc/workalendar` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read t'
+
+task_id=peopledoc__workalendar-384 row_a=184 row_b=185 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `peopledoc/workalendar` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read t'
+  first_user_b[:200]='You are solving a real GitHub issue in the `peopledoc/workalendar` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read t'
+
+task_id=peopledoc__workalendar-518 row_a=191 row_b=192 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `peopledoc/workalendar` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read t'
+  first_user_b[:200]='You are solving a real GitHub issue in the `peopledoc/workalendar` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read t'
+
+task_id=peopledoc__workalendar-525 row_a=193 row_b=194 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `peopledoc/workalendar` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read t'
+  first_user_b[:200]='You are solving a real GitHub issue in the `peopledoc/workalendar` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read t'
+
+task_id=plasmapy__plasmapy-346 row_a=199 row_b=200 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `PlasmaPy/PlasmaPy` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the p'
+  first_user_b[:200]='You are solving a real GitHub issue in the `PlasmaPy/PlasmaPy` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the p'
+
+task_id=psd-tools__psd-tools-336 row_a=208 row_b=209 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `psd-tools/psd-tools` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the'
+  first_user_b[:200]='You are solving a real GitHub issue in the `psd-tools/psd-tools` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the'
+
+task_id=pybamm-team__pybamm-1020 row_a=212 row_b=213 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pybamm-team__pybamm-529 row_a=218 row_b=219 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pybamm-team__pybamm-594 row_a=223 row_b=224 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pybamm-team__pybamm-612 row_a=226 row_b=227 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pybamm-team__pybamm-661 row_a=231 row_b=232 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pybamm-team__pybamm-769 row_a=235 row_b=236 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pybamm-team__pybamm-844 row_a=239 row_b=240 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pybamm-team__pybamm-852 row_a=241 row_b=242 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pybamm-team__pybamm-868 row_a=243 row_b=244 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pybamm-team__pybamm-875 row_a=245 row_b=246 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pybamm-team__pybamm-919 row_a=247 row_b=248 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pybamm-team__pybamm-947 row_a=249 row_b=250 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pybamm-team__pybamm-951 row_a=251 row_b=252 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pybamm-team__pybamm-962 row_a=254 row_b=255 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pybamm-team__pybamm-971 row_a=256 row_b=257 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `pybamm-team/PyBaMM` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=pygfx__pygfx-1026 row_a=260 row_b=261 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pygfx/pygfx` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the problem'
+  first_user_b[:200]='You are solving a real GitHub issue in the `pygfx/pygfx` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the problem'
+
+task_id=pygfx__pygfx-121 row_a=263 row_b=264 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pygfx/pygfx` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the problem'
+  first_user_b[:200]='You are solving a real GitHub issue in the `pygfx/pygfx` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the problem'
+
+task_id=pygfx__pygfx-563 row_a=266 row_b=267 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pygfx/pygfx` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the problem'
+  first_user_b[:200]='You are solving a real GitHub issue in the `pygfx/pygfx` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the problem'
+
+task_id=pygfx__pygfx-672 row_a=268 row_b=269 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pygfx/pygfx` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the problem'
+  first_user_b[:200]='You are solving a real GitHub issue in the `pygfx/pygfx` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the problem'
+
+task_id=pytest-dev__pyfakefs-958 row_a=280 row_b=281 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `pytest-dev/pyfakefs` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the'
+  first_user_b[:200]='You are solving a real GitHub issue in the `pytest-dev/pyfakefs` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the'
+
+task_id=python-trio__trio-3042 row_a=285 row_b=286 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `python-trio/trio` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pr'
+  first_user_b[:200]='You are solving a real GitHub issue in the `python-trio/trio` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pr'
+
+task_id=python-trio__trio-3197 row_a=288 row_b=289 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `python-trio/trio` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pr'
+  first_user_b[:200]='You are solving a real GitHub issue in the `python-trio/trio` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pr'
+
+task_id=qchackers__tqec-376 row_a=293 row_b=294 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `QCHackers/tqec` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the prob'
+  first_user_b[:200]='You are solving a real GitHub issue in the `QCHackers/tqec` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the prob'
+
+task_id=randyzwitch__streamlit-folium-165 row_a=299 row_b=300 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `randyzwitch/streamlit-folium` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.**'
+  first_user_b[:200]='You are solving a real GitHub issue in the `randyzwitch/streamlit-folium` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.**'
+
+task_id=rigetticomputing__pyquil-264 row_a=305 row_b=306 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `rigetticomputing/pyquil` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read'
+  first_user_b[:200]='You are solving a real GitHub issue in the `rigetticomputing/pyquil` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read'
+
+task_id=rigetticomputing__pyquil-399 row_a=308 row_b=309 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `rigetticomputing/pyquil` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read'
+  first_user_b[:200]='You are solving a real GitHub issue in the `rigetticomputing/pyquil` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read'
+
+task_id=stravalib__stravalib-503 row_a=310 row_b=311 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `stravalib/stravalib` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the'
+  first_user_b[:200]='You are solving a real GitHub issue in the `stravalib/stravalib` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the'
+
+task_id=stravalib__stravalib-522 row_a=313 row_b=314 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `stravalib/stravalib` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the'
+  first_user_b[:200]='You are solving a real GitHub issue in the `stravalib/stravalib` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the'
+
+task_id=textualize__rich-2038 row_a=320 row_b=321 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+  first_user_b[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+
+task_id=textualize__rich-2294 row_a=324 row_b=325 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+  first_user_b[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+
+task_id=textualize__rich-2296 row_a=327 row_b=328 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+  first_user_b[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+
+task_id=textualize__rich-2491 row_a=330 row_b=331 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+  first_user_b[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+
+task_id=textualize__rich-2943 row_a=334 row_b=335 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+  first_user_b[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+
+task_id=textualize__rich-3105 row_a=337 row_b=338 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+  first_user_b[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+
+task_id=textualize__rich-3130 row_a=340 row_b=341 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+  first_user_b[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+
+task_id=textualize__rich-3296 row_a=342 row_b=343 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+  first_user_b[:200]='You are solving a real GitHub issue in the `Textualize/rich` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pro'
+
+task_id=tornadoweb__tornado-3488 row_a=348 row_b=349 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `tornadoweb/tornado` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `tornadoweb/tornado` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=tornadoweb__tornado-3503 row_a=350 row_b=351 diffs=['system_prompt differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `tornadoweb/tornado` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+  first_user_b[:200]='You are solving a real GitHub issue in the `tornadoweb/tornado` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the '
+
+task_id=twisted__pydoctor-491 row_a=362 row_b=363 diffs=['system_prompt differs', 'tools schema differs']
+  first_user_a[:200]='You are solving a real GitHub issue in the `twisted/pydoctor` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pr'
+  first_user_b[:200]='You are solving a real GitHub issue in the `twisted/pydoctor` repository. The repo is already cloned and set up in the current working directory.\n\n## Workflow\n\n1. **Understand the issue.** Read the pr'

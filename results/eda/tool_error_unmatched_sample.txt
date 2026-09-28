@@ -1,0 +1,2902 @@
+Total unmatched error-looking tool outputs: 3205
+Sampled 200 for manual review.
+
+row_idx=169 model=model-atlas job=run-10 task_id=parquery__icontract-292 msg_idx=59
+"""Define data structures shared among the modules."""
+import inspect
+import reprlib
+from typing import (
+    Callable,
+    Optional,
+    Union,
+    Set,
+    List,
+    Any,
+    Type,
+    cast,
+)  # pylint: disable=unused-import
+
+import icontract._globals
+
+from icontract._globals import ExceptionT
+
+
+class Contract:
+    """Represent a contract to be enforced as a precondition, postcondition or as an invariant."""
+
+    def __init__(
+        self,
+        condition: Callable[..., Any],
+        descr
+
+---
+
+row_idx=359 model=model-orion job=run-05 task_id=tweag__fawltydeps-495 msg_idx=189
+'-e ./': requirement=None, link=<Link -e ./>
+'-e .': EXCEPTION: InstallationError
+'-e git+https://github.com/foo/bar.git#egg=baz': requirement=<Requirement('baz')>, link=<Link -e git+https://github.com/foo/bar.git#egg=baz>
+
+
+---
+
+row_idx=198 model=model-flint job=run-08 task_id=plasmapy__plasmapy-228 msg_idx=131
+
+    @pytest.mark.parametrize('w, expected', plasma_dispersion_func_table)
+    def test_plasma_dispersion_func(w, expected):
+        r"""Test plasma_dispersion_func against tabulated results and
+        known symmetry properties."""
+    
+        # Many of the tabulated results originally came from the book
+        # entitled "The Plasma Dispersion Function: The Hilbert Transform
+        # of the Gaussian" by B. D. Fried and S. D. Conte (1961).  The two
+        # symmetry properties of the plasma
+
+---
+
+row_idx=28 model=model-cyan job=run-01 task_id=cadquery__cadquery-1622 msg_idx=41
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR tests/test_jupyter.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+15 warnings, 1 error in 2.69s
+
+
+---
+
+row_idx=125 model=model-cyan job=run-07 task_id=keras-team__keras-nlp-1166 msg_idx=37
+ERROR: Could not find a version that satisfies the requirement keras-nlp==0.6.0 (from versions: none)
+ERROR: No matching distribution found for keras-nlp==0.6.0
+
+
+---
+
+row_idx=241 model=model-atlas job=run-10 task_id=pybamm-team__pybamm-852 msg_idx=9
+#
+# Tests for the Base Parameter Values class
+#
+import pybamm
+import os
+import numpy as np
+
+import unittest
+import tests.shared as shared
+
+
+class TestParameterValues(unittest.TestCase):
+    def test_read_parameters_csv(self):
+        data = pybamm.ParameterValues({}).read_parameters_csv(
+            "input/parameters/lithium-ion/cathodes/lico2_Marquis2019/parameters.csv"
+        )
+        self.assertEqual(data["Reference temperature [K]"], "298.15")
+
+    def test_init(self):
+        # from dict
+
+
+---
+
+row_idx=231 model=model-vega job=run-15 task_id=pybamm-team__pybamm-661 msg_idx=43
+E              [2.],
+E              [2.],...
+
+tests/unit/test_expression_tree/test_interpolant.py:57: AssertionError
+______________________ TestInterpolant.test_interpolation ______________________
+
+self = <tests.unit.test_expression_tree.test_interpolant.TestInterpolant testMethod=test_interpolation>
+
+    def test_interpolation(self):
+        a = pybamm.StateVector(slice(0, 1))
+        y_test = np.linspace(0, 1, 10)[:, np.newaxis]
+        for interpolator in ["pchip", "cubic spline"]:
+         
+
+---
+
+row_idx=171 model=model-delta job=run-12 task_id=parquery__icontract-297 msg_idx=239
+    def test_with_invalid_arguments(self) -> None:
+        val_err = None  # type: Optional[ValueError]
+        try:
+
+            @icontract.invariant(lambda self, z: self.x > z)
+            class _:
+                def __init__(self) -> None:
+                    self.x = 100
+
+        except ValueError as err:
+            val_err = err
+
+        self.assertIsNotNone(val_err)
+        self.assertEqual(
+            "Expected an invariant condition with at most an argument 'self', but got: ['self', '
+
+---
+
+row_idx=148 model=model-flint job=run-08 task_id=litestar-org__polyfactory-587 msg_idx=55
+
+Error: debug_get_field_value() missing 1 required positional argument: 'field_meta'
+
+
+---
+
+row_idx=226 model=model-cyan job=run-07 task_id=pybamm-team__pybamm-612 msg_idx=90
+Saved working directory and index state WIP on (no branch): 01ceca5 Merge pull request #616 from pybamm-team/issue-614-model-docs
+FAILED tests/unit/test_models/test_submodels/test_electrode/test_ohm/test_base_ohm.py::TestBaseModel::test_public_functions
+FAILED tests/unit/test_models/test_submodels/test_electrode/test_ohm/test_surface_form_ohm.py::TestSurfaceForm::test_public_functions
+FAILED tests/unit/test_models/test_submodels/test_electrode/test_ohm/test_full_ohm.py::TestFull::test_public_fun
+
+---
+
+row_idx=168 model=model-delta job=run-12 task_id=parquery__icontract-236 msg_idx=169
+    def test_that_extra_args_raise_correct_type_error(self) -> None:
+        @icontract.require(lambda: True)
+        def some_func(x: int, y: int) -> None:
+            pass
+
+        type_error = None  # type: Optional[TypeError]
+        try:
+            some_func(1, 2, 3)  # type: ignore
+        except TypeError as error:
+            type_error = error
+
+        assert type_error is not None
+        self.assertEqual("some_func() takes 2 positional arguments but 3 were given", str(type_error))
+
+ 
+
+---
+
+row_idx=257 model=model-cyan job=run-07 task_id=pybamm-team__pybamm-971 msg_idx=160
+FAILED tests/unit/test_models/test_submodels/test_electrode/test_ohm/test_base_ohm.py::TestBaseModel::test_public_functions
+FAILED tests/unit/test_models/test_submodels/test_electrode/test_ohm/test_composite_ohm.py::TestComposite::test_public_functions
+FAILED tests/unit/test_models/test_submodels/test_electrode/test_ohm/test_leading_ohm.py::TestLeadingOrder::test_public_functions
+FAILED tests/unit/test_models/test_submodels/test_electrode/test_ohm/test_surface_form_ohm.py::TestSurfaceForm::test_
+
+---
+
+row_idx=115 model=model-delta job=run-12 task_id=jazzband__django-axes-885 msg_idx=385
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=2901869221
+django: settings: tests.settings (from ini)
+rootdir: /workspace/repo
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, xdist-3.8.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, cov-3.0.0, django-4.5.2, timeout-2.4.0
+asyncio: mode=strict, debug=False, asyncio_default_fi
+
+---
+
+row_idx=239 model=model-cyan job=run-07 task_id=pybamm-team__pybamm-844 msg_idx=20
+ERROR: Could not find a version that satisfies the requirement pybamm==0.2.1 (from versions: none)
+ERROR: No matching distribution found for pybamm==0.2.1
+
+
+---
+
+row_idx=72 model=model-delta job=run-12 task_id=feature-engine__feature_engine-531 msg_idx=13
+import warnings
+from typing import List, Union
+
+import pandas as pd
+from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.utils.validation import check_is_fitted
+
+from feature_engine._base_transformers.mixins import GetFeatureNamesOutMixin
+from feature_engine._docstrings.init_parameters import (
+    _ignore_format_docstring,
+    _unseen_docstring,
+    _variables_categorical_docstring,
+)
+from feature_engine._docstrings.substitute import Substitution
+from feature_engine._variable_h
+
+---
+
+row_idx=138 model=model-flint job=run-08 task_id=litestar-org__polyfactory-383 msg_idx=122
+from __future__ import annotations
+
+from dataclasses import MISSING, fields, is_dataclass
+from typing import TYPE_CHECKING, Any, ForwardRef, Generic
+
+from polyfactory.factories.base import BaseFactory, T
+from polyfactory.field_meta import FieldMeta, Null
+
+if TYPE_CHECKING:
+    from typing_extensions import TypeGuard
+
+
+class DataclassFactory(Generic[T], BaseFactory[T]):
+    """Dataclass base factory"""
+
+    __is_base_factory__ = True
+
+    @classmethod
+    def is_supported_type(cls, value: Any) ->
+
+---
+
+row_idx=72 model=model-delta job=run-12 task_id=feature-engine__feature_engine-531 msg_idx=75
+    def __init__(
+        self,
+        variables: Union[None, int, str, List[Union[str, int]]] = None,
+        ignore_format: bool = False,
+    ) -> None:
+
+        if not isinstance(ignore_format, bool):
+            raise ValueError(
+                "ignore_format takes only booleans True and False. "
+                f"Got {ignore_format} instead."
+            )
+
+        self.variables = _check_init_parameter_variables(variables)
+        self.ignore_format = ignore_format
+
+
+@Substitution(
+    i
+
+---
+
+row_idx=359 model=model-orion job=run-05 task_id=tweag__fawltydeps-495 msg_idx=121
+'requests>=1.0': build_install_req='requests', Requirement='requests'
+'black[dev]': build_install_req='black', Requirement='black'
+'foo @ https://github.com/foo/bar.git': build_install_req='foo', Requirement='foo'
+'-e git+https://github.com/foo/bar.git#egg=baz': build_install_req='baz', Requirement='ERROR: InvalidRequirement'
+'-e ./': build_install_req=None, Requirement='ERROR: InvalidRequirement'
+'Django>=1.11,<2.0': build_install_req='Django', Requirement='Django'
+
+
+---
+
+row_idx=57 model=model-delta job=run-12 task_id=elastic__curator-560 msg_idx=1491
+test error
+
+
+---
+
+row_idx=274 model=model-atlas job=run-10 task_id=pypsa__linopy-432 msg_idx=11
+#!/usr/bin/env python3
+"""
+Linopy expressions module.
+
+This module contains definition related to affine expressions.
+"""
+
+from __future__ import annotations
+
+import functools
+import logging
+from collections.abc import Callable, Hashable, Iterator, Mapping, Sequence
+from dataclasses import dataclass, field
+from itertools import product, zip_longest
+from typing import (
+    TYPE_CHECKING,
+    Any,
+)
+from warnings import warn
+
+import numpy as np
+import pandas as pd
+import polars as pl
+import scipy
+
+---
+
+row_idx=117 model=model-flint job=run-06 task_id=jazzband__django-axes-911 msg_idx=88
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0 -- /workspace/_venv/bin/python
+cachedir: .pytest_cache
+hypothesis profile 'default'
+Using --randomly-seed=650687346
+django: settings: tests.settings (from ini)
+rootdir: /workspace/repo
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, xdist-3.8.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, cov-3.0.0
+
+---
+
+row_idx=246 model=model-delta job=run-12 task_id=pybamm-team__pybamm-875 msg_idx=129
+diff --git a/pybamm/parameters/parameter_values.py b/pybamm/parameters/parameter_values.py
+index dd596e7..0be726d 100644
+--- a/pybamm/parameters/parameter_values.py
++++ b/pybamm/parameters/parameter_values.py
+@@ -103,6 +103,13 @@ class ParameterValues:
+         "Get the items of the dictionary"
+         return self._dict_items.items()
+ 
++    def search(self, key, print_values=True):
++        """
++        Search dictionary for keys containing 'key'. If print_values is True,
++        then print th
+
+---
+
+row_idx=329 model=model-orion job=run-05 task_id=textualize__rich-2489 msg_idx=33
+                    )
+                else:
+                    return repr(value)
+
+        # replace plain text formatter with rich formatter
+        rich_formatter = RichFormatter()
+        ip.display_formatter.formatters["text/plain"] = rich_formatter
+    except Exception:
+        sys.displayhook = display_hook
+
+
+class Pretty(JupyterMixin):
+    """A rich renderable that pretty prints an object.
+
+    Args:
+        _object (Any): An object to pretty print.
+        highlighter (HighlighterType, 
+
+---
+
+row_idx=265 model=model-cyan job=run-07 task_id=pygfx__pygfx-121 msg_idx=83
+Saved working directory and index state WIP on (no branch): a27bc28 Multiple canvases, subplots, and overlays (#117)
+FAILED tests/linalg/test_euler.py::test_instancing - assert False
+FAILED tests/linalg/test_euler.py::test_set_from_vector3_to_vector3 - assert ...
+FAILED tests/geometry/test_boxgeometry.py::test_compare_to_three - AttributeE...
+3 failed, 146 passed, 1 xfailed, 1 warning in 0.85s
+HEAD detached at FETCH_HEAD
+Changes not staged for commit:
+  (use "git add <file>..." to update what wi
+
+---
+
+row_idx=78 model=model-vega job=run-15 task_id=flexmeasures__flexmeasures-899 msg_idx=139
+Saved working directory and index state WIP on (no branch): 205dcc1  Steps to load plugins into docker container (#958)
+    super().__init__(*args, **kwargs)
+
+flexmeasures/data/schemas/tests/test_scheduling.py::test_efficiency_pair[fields3-True]
+  /workspace/_venv/lib/python3.10/site-packages/marshmallow/fields.py:1176: RemovedInMarshmallow4Warning: The 'default' argument to fields is deprecated. Use 'dump_default' instead.
+    super().__init__(**kwargs)
+
+-- Docs: https://docs.pytest.org/en/stab
+
+---
+
+row_idx=149 model=model-flint job=run-14 task_id=litestar-org__polyfactory-636 msg_idx=102
+"""Reproduce the exact MCVE from the issue."""
+
+from decimal import Decimal
+from polyfactory.factories.sqlalchemy_factory import SQLAlchemyFactory
+from sqlalchemy import Numeric
+from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy.orm import Mapped
+from sqlalchemy.orm import mapped_column
+
+class Base(DeclarativeBase):
+    pass
+
+class User(Base):
+    __tablename__ = "users"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    some_field: Mapped[Decimal] = mapped_column(Numeric(precisi
+
+---
+
+row_idx=59 model=model-cyan job=run-07 task_id=elastic__curator-664 msg_idx=21
+Saved working directory and index state WIP on (no branch): 66e0a3b Merge pull request #662 from untergeek/fix/661
+FAILED test/unit/test_class_snapshot_list.py::TestIterateFiltersSnaps::test_pattern_filtertype
+FAILED test/unit/test_class_snapshot_list.py::TestIterateFiltersSnaps::test_age_filtertype
+16 failed, 298 passed, 12 warnings in 0.88s
+HEAD detached at FETCH_HEAD
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to d
+
+---
+
+row_idx=343 model=model-atlas job=run-10 task_id=textualize__rich-3296 msg_idx=269
+Saved working directory and index state WIP on (no branch): fde5d6e format
+asyncio: mode=strict, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 1 item
+
+tests/test_syntax.py::test_python_render_simple_indent_guides '\x1b[34mdef\x1b[0m\x1b[37m \x1b[0m\x1b[32mloop_first_last\x1b[0m(values: Iterable[T]) -> Iterable[Tuple[\x1b[36mb\x1b[0m\n\x1b[2;37m│   \x1b[0m\x1b[33m"""Iterate and generate a tuple with a flag for first an\x1b[
+
+---
+
+row_idx=57 model=model-delta job=run-12 task_id=elastic__curator-560 msg_idx=153
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=1785285319
+rootdir: /workspace/repo
+plugins: asyncio-1.4.0, xdist-3.8.0, cov-7.1.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, timeout-2.4.0
+asyncio: mode=strict, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 193 items
+
+
+
+---
+
+row_idx=315 model=model-flint job=run-08 task_id=stravalib__stravalib-605 msg_idx=45
+#!/usr/bin/env python
+"""
+A basic authorization server.  Run this with your Strava Client ID and Client Secret and access from your
+browser (because the Strava OAuth page uses javascript) in order to get a resulting access token.  That access
+token can then be used to initialize a Client that can read (and/or write) data from the Strava API.
+
+You must run this from a virtualenv that has stravalib installed.
+
+Example Usage:
+
+  (env) shell$ python -m stravalib.tests.auth_responder --port=8000 --cl
+
+---
+
+row_idx=154 model=model-delta job=run-12 task_id=mila-udem__fuel-214 msg_idx=265
+35-        "-d", "--directory", help="where to save the downloaded files",
+36-        type=str, default=os.getcwd())
+37-    parent_parser.add_argument(
+38-        "--clear", help="clear the downloaded files", action='store_true')
+39-    subparsers = parser.add_subparsers()
+40-    for name, subparser_fn in built_in_datasets.items():
+41-        subparser_fn(subparsers.add_parser(
+42-            name, parents=[parent_parser],
+43-            help='Download the {} dataset'.format(name)))
+44-    args 
+
+---
+
+row_idx=223 model=model-vega job=run-15 task_id=pybamm-team__pybamm-594 msg_idx=91
+
+tests/unit/test_solvers/test_scipy_solver.py::TestScipySolver::test_integrate_with_event
+tests/unit/test_solvers/test_scipy_solver.py::TestScipySolver::test_integrate_with_event
+tests/unit/test_solvers/test_scipy_solver.py::TestScipySolver::test_integrate_with_event
+tests/unit/test_solvers/test_scipy_solver.py::TestScipySolver::test_integrate_with_event
+  /workspace/_venv/lib/python3.10/site-packages/scipy/optimize/_zeros_py.py:798: DeprecationWarning: Conversion of an array with ndim > 0 to a 
+
+---
+
+row_idx=252 model=model-cyan job=run-01 task_id=pybamm-team__pybamm-951 msg_idx=30
+        with self.assertRaisesRegex(ValueError, "t_eval cannot be None"):
+            solver.solve(model, None)
+
+    def test_nonmonotonic_teval(self):
+        solver = pybamm.BaseSolver(rtol=1e-2, atol=1e-4)
+        model = pybamm.BaseModel()
+        a = pybamm.Scalar(0)
+        model.rhs = {a: a}
+        with self.assertRaisesRegex(
+            pybamm.SolverError, "t_eval must increase monotonically"
+        ):
+            solver.solve(model, np.array([1, 2, 3, 2]))
+
+    def test_ode_solver_fa
+
+---
+
+row_idx=60 model=model-delta job=run-12 task_id=elastic__curator-664 msg_idx=57
+    73	
+    74	    def __build_index_info(self, index):
+    75	        """
+    76	        Ensure that `index` is a key in `index_info`. If not, create a
+    77	        sub-dictionary structure under that key.
+    78	        """
+    79	        self.loggit.debug('Building index info dictionary')
+    80	        if not index in self.index_info:
+    81	            self.index_info[index] = {
+    82	                "age" : {},
+    83	                "number_of_replicas" : 0,
+    84	                "num
+
+---
+
+row_idx=166 model=model-flint job=run-04 task_id=parquery__icontract-236 msg_idx=15
+                len(closure_cells), len(freevars))
+
+        for cell, freevar in zip(closure_cells, freevars):
+            closure_dict[freevar] = cell.cell_contents
+
+    variable_lookup.append(closure_dict)
+
+    ##
+    # Add globals to the lookup
+    ##
+
+    if condition.__globals__ is not None:  # type: ignore
+        variable_lookup.append(condition.__globals__)  # type: ignore
+
+    return variable_lookup
+
+
+def repr_values(condition: Callable[..., bool], lambda_inspection: Optional[ConditionL
+
+---
+
+row_idx=208 model=model-cyan job=run-01 task_id=psd-tools__psd-tools-336 msg_idx=116
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/psd_tools/test_main.py::test_main[argv0] - AttributeError: modul...
+1 failed, 901 passed, 19 xfailed, 2 xpassed, 15 warnings in 17.23s
+
+
+---
+
+row_idx=153 model=model-vega job=run-15 task_id=mila-udem__fuel-214 msg_idx=9
+#!/usr/bin/env python
+"""Fuel dataset downloading utility."""
+import argparse
+import os
+
+from fuel import downloaders
+from fuel.downloaders.base import NeedURLPrefix
+
+url_prefix_message = """
+Some files for this dataset do not have a download URL.
+
+Provide a URL prefix with --url-prefix to prepend to the filenames,
+e.g. http://path.to/files/
+""".strip()
+
+
+def main(args=None):
+    """Entry point for `fuel-download` script.
+
+    This function can also be imported and used from Python.
+
+    Paramet
+
+---
+
+row_idx=270 model=model-vega job=run-15 task_id=pypa__pip-12991 msg_idx=146
+[33mXFAIL[0m tests/unit/test_wheel.py::[1mTestInstallUnpackedWheel::test_invalid_entrypoints_fail[gui_scripts-hello = hello][0m
+[33mXFAIL[0m tests/unit/test_wheel.py::[1mTestInstallUnpackedWheel::test_invalid_entrypoints_fail[gui_scripts-hello = hello:][0m
+[33mXFAIL[0m tests/unit/test_wheel.py::[1mTestInstallUnpackedWheel::test_invalid_entrypoints_fail[console_scripts-hello = hello][0m
+[33mXFAIL[0m tests/unit/test_link.py::[1mTestLink::test_invalid_egg_fragments[eggname>=1.2.3][0
+
+---
+
+row_idx=288 model=model-cyan job=run-01 task_id=python-trio__trio-3197 msg_idx=72
+(fn: 'Callable[P, AsyncGenerator[T, None]]') -> 'Callable[P, AbstractAsyncContextManager[ReceiveChannel[T]]]'
+(<class 'trio._util.MultipleExceptionError'>, <class 'Exception'>, <class 'BaseException'>, <class 'object'>)
+
+
+---
+
+row_idx=112 model=model-orion job=run-05 task_id=jazzband__django-axes-1080 msg_idx=43
+from django.conf import settings
+from django.utils.translation import gettext_lazy as _
+
+# disable plugin when set to False
+settings.AXES_ENABLED = getattr(settings, "AXES_ENABLED", True)
+
+# see if the user has overridden the failure limit
+settings.AXES_FAILURE_LIMIT = getattr(settings, "AXES_FAILURE_LIMIT", 3)
+
+# see if the user has set axes to lock out logins after failure limit
+settings.AXES_LOCK_OUT_AT_FAILURE = getattr(settings, "AXES_LOCK_OUT_AT_FAILURE", True)
+
+# lockout parameters
+# defa
+
+---
+
+row_idx=251 model=model-atlas job=run-10 task_id=pybamm-team__pybamm-951 msg_idx=7
+#
+# Base solver class
+#
+import casadi
+import pybamm
+import numbers
+import numpy as np
+from scipy import optimize
+from scipy.sparse import issparse
+import sys
+import itertools
+
+
+class BaseSolver(object):
+    """Solve a discretised model.
+
+    Parameters
+    ----------
+    method : str, optional
+        The method to use for integration, specific to each solver
+    rtol : float, optional
+        The relative tolerance for the solver (default is 1e-6).
+    atol : float, optional
+        The absolut
+
+---
+
+row_idx=226 model=model-cyan job=run-07 task_id=pybamm-team__pybamm-612 msg_idx=108
+NO NEW FAILURES
+ERROR tests/unit/test_expression_tree/test_jac_2D.py::test_multi_var_function
+16 failed, 418 passed, 61 skipped, 4364 warnings, 5 errors in 31.20s
+
+
+---
+
+row_idx=212 model=model-cyan job=run-07 task_id=pybamm-team__pybamm-1020 msg_idx=81
+tests/unit/test_solvers/test_casadi_solver.py::TestCasadiSolver::test_model_solver_with_external
+tests/unit/test_solvers/test_casadi_solver.py::TestCasadiSolver::test_model_solver_python
+tests/unit/test_solvers/test_casadi_solver.py::TestCasadiSolver::test_model_solver
+tests/unit/test_solvers/test_casadi_solver.py::TestCasadiSolver::test_model_step
+tests/unit/test_solvers/test_casadi_solver.py::TestCasadiSolver::test_model_step
+  /workspace/_venv/lib/python3.10/site-packages/numpy/_core/fromnume
+
+---
+
+row_idx=244 model=model-vega job=run-15 task_id=pybamm-team__pybamm-868 msg_idx=91
+Saved working directory and index state WIP on (no branch): a9b1081 Merge pull request #873 from viviantran27/develop
+    self._entries_string = entries.tostring()
+
+tests/unit/test_processed_variable.py: 2050 warnings
+  /workspace/repo/pybamm/processed_variable.py:102: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+    entri
+
+---
+
+row_idx=127 model=model-orion job=run-05 task_id=keras-team__keras-nlp-143 msg_idx=117
+2026-06-10 13:49:56.369389: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2026-06-10 13:49:56.369776: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-06-10 13:49:56.408823: I tensorflow/core/platform/cpu
+
+---
+
+row_idx=52 model=model-orion job=run-05 task_id=deshaw__pyflyby-391 msg_idx=18
+# pyflyby/test_importstmt.py
+
+# License for THIS FILE ONLY: CC0 Public Domain Dedication
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+
+from   pytest                   import raises
+from   unittest.mock            import patch
+
+from   pyflyby._flags           import CompilerFlags
+from   pyflyby._format          import FormatParams
+from   pyflyby._importstmt      import (Import, ImportSplit, ImportStatement,
+                                        read_black_config)
+
+def test_Import_from_p
+
+---
+
+row_idx=250 model=model-atlas job=run-10 task_id=pybamm-team__pybamm-947 msg_idx=274
+    """
+
+pybamm/quick_plot.py:156
+  /workspace/repo/pybamm/quick_plot.py:156: DeprecationWarning: invalid escape sequence '\m'
+    self.spatial_unit = "$\mu m$"
+
+tests/unit/test_solvers/test_casadi_algebraic_solver.py::TestCasadiAlgebraicSolver::test_model_solver_with_time
+tests/unit/test_solvers/test_casadi_algebraic_solver.py::TestCasadiAlgebraicSolver::test_model_solver_with_time
+tests/unit/test_solvers/test_casadi_algebraic_solver.py::TestCasadiAlgebraicSolver::test_model_solver_with_time
+te
+
+---
+
+row_idx=13 model=model-delta job=run-12 task_id=aiogram__aiogram-1665 msg_idx=655
+GOT PART name: None
+EXCEPTION <class 'AssertionError'> Reading after EOF
+
+
+---
+
+row_idx=57 model=model-delta job=run-12 task_id=elastic__curator-560 msg_idx=1309
+    85	        self.assertEqual(cm.exception.code, 1)
+    86	    def test_check_version_greater_than(self):
+    87	        client = Mock()
+    88	        client.info.return_value = {'version': {'number': '3.0.1'} }
+    89	        with self.assertRaises(SystemExit) as cm:
+    90	            curator.check_version(client)
+    91	        self.assertEqual(cm.exception.code, 1)
+
+
+---
+
+row_idx=338 model=model-orion job=run-05 task_id=textualize__rich-3105 msg_idx=33
+  ?             ^^^^^^^^^^
+    [2;37m│   [0m[33m"""Iterate and generate a tuple with a flag for first an[0m
+    [2m│   [0miter_values = [36miter[0m(values)
+    [2m│   [0m[34mtry[0m:
+    [2m│   │   [0mprevious_value = [36mnext[0m(iter_values)
+    [2m│   [0m[34mexcept[0m [36mStopIteration[0m:
+    [2m│   │   [0m[34mreturn[0m
+    [2m│   [0mfirst = [34mTrue[0m
+    [2m│   [0m[34mfor[0m value [35min[0m iter_values:
+    [2m│   │   [0m[34myield[0m first, [34mFalse
+
+---
+
+row_idx=171 model=model-delta job=run-12 task_id=parquery__icontract-297 msg_idx=125
+   910	        )
+   911	
+   912	    # noinspection PyUnusedLocal
+   913	    def test_subclasses_affect_the_base_class_if_no_DBC(self) -> None:
+   914	        # NOTE (mristin):
+   915	        # This is a regression test for:
+   916	        # https://github.com/Parquery/icontract/issues/295
+   917	        #
+   918	        # where the invariants of the derived class erroneously "slipped into"
+   919	        # the base class when DBC or DBCMeta were not set in the ``Base`` class.
+   920	
+   921	    
+
+---
+
+row_idx=331 model=model-garnet job=run-13 task_id=textualize__rich-2491 msg_idx=35
+        console.line()
+
+    console.print(
+        value
+        if _safe_isinstance(value, RichRenderable)
+        else Pretty(
+            value,
+            overflow=overflow,
+            indent_guides=indent_guides,
+            max_length=max_length,
+            max_string=max_string,
+            expand_all=expand_all,
+            margin=12,
+        ),
+        crop=crop,
+        new_line_start=True,
+    )
+
+
+def _safe_isinstance(
+    obj: object, class_or_tuple: Union[type, Tuple[type, ...]]
+
+
+---
+
+row_idx=299 model=model-flint job=run-08 task_id=randyzwitch__streamlit-folium-165 msg_idx=109
+    self._sync(
+../_venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py:98: in launch
+    await self._channel.send(
+../_venv/lib/python3.10/site-packages/playwright/_impl/_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+../_venv/lib/python3.10/site-packages/playwright/_impl/_connection.py:559: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.Error: BrowserType.launch: Executable d
+
+---
+
+row_idx=275 model=model-atlas job=run-10 task_id=pytest-dev__pyfakefs-1015 msg_idx=339
+class FakePath(pathlib.Path):
+    """Replacement for pathlib.Path. Reimplement some methods to use
+    fake filesystem. The rest of the methods work as they are, as they will
+    use the fake accessor.
+    New in pyfakefs 3.0.
+    """
+
+    # the underlying fake filesystem
+    filesystem = None
+
+    def __new__(cls, *args, **kwargs):
+        """Creates the correct subclass based on OS."""
+        if cls is FakePathlibModule.Path:
+            cls = (
+                FakePathlibModule.WindowsPath
+ 
+
+---
+
+row_idx=0 model=model-orion job=run-05 task_id=academysoftwarefoundation__rez-1863 msg_idx=16
+                graph_str = write_compacted(g)
+
+            data["graph"] = graph_str
+
+        data.update(dict(
+            timestamp=self.timestamp,
+            requested_timestamp=self.requested_timestamp,
+            building=self.building,
+            testing=self.testing,
+            caching=self.caching,
+            implicit_packages=list(map(str, self.implicit_packages)),
+            package_requests=list(map(str, self._package_requests)),
+            package_paths=self.package_paths,
+
+ 
+
+---
+
+row_idx=271 model=model-cyan job=run-07 task_id=pypa__pip-12991 msg_idx=32
+class PreviousBuildDirError(PipError):
+    """Raised when there's a previous conflicting build directory"""
+
+
+class NetworkConnectionError(PipError):
+    """HTTP connection error"""
+
+    def __init__(
+        self,
+        error_msg: str,
+        response: Optional["Response"] = None,
+        request: Optional["Request"] = None,
+    ) -> None:
+        """
+        Initialize NetworkConnectionError with  `request` and `response`
+        objects.
+        """
+        self.response = response
+       
+
+---
+
+row_idx=235 model=model-vega job=run-15 task_id=pybamm-team__pybamm-769 msg_idx=74
+tests/unit/test_expression_tree/test_functions.py: 3 warnings
+tests/unit/test_expression_tree/test_operations/test_simplify.py: 116 warnings
+tests/unit/test_expression_tree/test_binary_operators.py: 18 warnings
+tests/unit/test_models/test_submodels/test_current_collector/test_effective_current_collector.py: 2 warnings
+tests/unit/test_expression_tree/test_matrix.py: 9 warnings
+tests/unit/test_spatial_methods/test_finite_volume/test_finite_volume.py: 327 warnings
+tests/unit/test_parameters/test_st
+
+---
+
+row_idx=154 model=model-delta job=run-12 task_id=mila-udem__fuel-214 msg_idx=305
+38:        "--clear", help="clear the downloaded files", action='store_true')
+39:    subparsers = parser.add_subparsers()
+40:    for name, subparser_fn in built_in_datasets.items():
+41:        subparser_fn(subparsers.add_parser(
+42:            name, parents=[parent_parser],
+43:            help='Download the {} dataset'.format(name)))
+44:    args = parser.parse_args()
+45:    args_dict = vars(args)
+46:    try:
+47:        func = args_dict.pop('func')
+48:    except KeyError:
+49:        parser.print_
+
+---
+
+row_idx=115 model=model-delta job=run-12 task_id=jazzband__django-axes-885 msg_idx=1491
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=3742823530
+django: settings: tests.settings (from ini)
+rootdir: /workspace/repo
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, xdist-3.8.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, cov-3.0.0, django-4.5.2, timeout-2.4.0
+asyncio: mode=strict, debug=False, asyncio_default_fi
+
+---
+
+row_idx=343 model=model-atlas job=run-10 task_id=textualize__rich-3296 msg_idx=283
+Saved working directory and index state WIP on (no branch): fde5d6e format
+FAILED
+FAILED tests/test_syntax.py::test_blank_lines - AssertionError: assert '\x1b[...
+
+
+---
+
+row_idx=154 model=model-delta job=run-12 task_id=mila-udem__fuel-214 msg_idx=183
+#!/usr/bin/env python
+"""Fuel dataset downloading utility."""
+import argparse
+import os
+
+from fuel import downloaders
+from fuel.downloaders.base import NeedURLPrefix
+
+url_prefix_message = """
+Some files for this dataset do not have a download URL.
+
+Provide a URL prefix with --url-prefix to prepend to the filenames,
+e.g. http://path.to/files/
+""".strip()
+
+
+def main(args=None):
+    """Entry point for `fuel-download` script.
+
+    This function can also be imported and used from Python.
+
+    Paramet
+
+---
+
+row_idx=328 model=model-atlas job=run-10 task_id=textualize__rich-2296 msg_idx=287
+tests/test_text.py .........................F
+
+=================================== FAILURES ===================================
+E   AssertionError: assert 4 == 3
+     +  where 4 = len(Lines([<text 'X   ' []>, <text '1234' []>, <text '5678' []>, <text '9   ' []>]))
+/workspace/repo/tests/test_text.py:444: AssertionError: assert 4 == 3
+=========================== short test summary info ============================
+FAILED tests/test_text.py::test_wrap_long_words - AssertionError: assert 4 == 3
+!!!!
+
+---
+
+row_idx=52 model=model-orion job=run-05 task_id=deshaw__pyflyby-391 msg_idx=37
+  File "/workspace/_venv/lib/python3.10/site-packages/_pytest/config/__init__.py", line 1562, in parse
+    self.hook.pytest_load_initial_conftests(
+  File "/workspace/_venv/lib/python3.10/site-packages/pluggy/_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "/workspace/_venv/lib/python3.10/site-packages/pluggy/_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  Fi
+
+---
+
+row_idx=105 model=model-atlas job=run-10 task_id=gtalarico__pyairtable-386 msg_idx=202
+During handling of the above exception, another exception occurred:
+tests/test_orm_fields.py:795: in test_single_link_field
+    m.assert_called_once_with({"Name": "Bob"}, typecast=True)
+E   AssertionError: expected call not found.
+E   Expected: create({'Name': 'Bob'}, typecast=True)
+E   Actual: create({'Name': 'Bob'}, typecast=True, use_field_ids=False)
+E   
+E   pytest introspection follows:
+E   
+E   Kwargs:
+E   assert {'typecast': ...d_ids': False} == {'typecast': True}
+E     
+E     Omitting 1 
+
+---
+
+row_idx=255 model=model-orion job=run-05 task_id=pybamm-team__pybamm-962 msg_idx=117
+E       For more details see
+E       https://scipy.github.io/devdocs/tutorial/interpolate/interp_transition_guide.html
+
+../_venv/lib/python3.10/site-packages/scipy/interpolate/_interpolate.py:129: NotImplementedError
+=============================== warnings summary ===============================
+pybamm/spatial_methods/scikit_finite_element.py:308
+  /workspace/repo/pybamm/spatial_methods/scikit_finite_element.py:308: DeprecationWarning: invalid escape sequence '\O'
+    """
+
+pybamm/quick_plot.py:
+
+---
+
+row_idx=115 model=model-delta job=run-12 task_id=jazzband__django-axes-885 msg_idx=571
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=3199474966
+django: settings: tests.settings (from ini)
+rootdir: /workspace/repo
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, xdist-3.8.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, cov-3.0.0, django-4.5.2, timeout-2.4.0
+asyncio: mode=strict, debug=False, asyncio_default_fi
+
+---
+
+row_idx=115 model=model-delta job=run-12 task_id=jazzband__django-axes-885 msg_idx=1293
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=2539956138
+django: settings: tests.settings (from ini)
+rootdir: /workspace/repo
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, xdist-3.8.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, cov-3.0.0, django-4.5.2, timeout-2.4.0
+asyncio: mode=strict, debug=False, asyncio_default_fi
+
+---
+
+row_idx=74 model=model-vega job=run-15 task_id=feature-engine__feature_engine-614 msg_idx=13
+  
+  See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+    data["var_3"].iloc[15] = np.inf
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_selection/test_check_estimator_selectors.py::test_check_estimator_from_sklearn[estimator1]
+FAILED tests/test_selection/test_check_estimator_selector
+
+---
+
+row_idx=250 model=model-atlas job=run-10 task_id=pybamm-team__pybamm-947 msg_idx=8
+#
+# Tests for the Base Solver class
+#
+import casadi
+import pybamm
+import numpy as np
+from scipy.sparse import csr_matrix
+
+import unittest
+
+
+class TestBaseSolver(unittest.TestCase):
+    def test_base_solver_init(self):
+        solver = pybamm.BaseSolver(rtol=1e-2, atol=1e-4)
+        self.assertEqual(solver.rtol, 1e-2)
+        self.assertEqual(solver.atol, 1e-4)
+
+        solver.rtol = 1e-5
+        self.assertEqual(solver.rtol, 1e-5)
+        solver.rtol = 1e-7
+        self.assertEqual(solver.rtol, 
+
+---
+
+row_idx=213 model=model-cyan job=run-01 task_id=pybamm-team__pybamm-1020 msg_idx=67
+    entries[idx], self.known_evals[t] = self.base_variable.evaluate(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/unit/test_solvers/test_base_solver.py::TestBaseSolver::test_fail_consistent_initial_conditions
+1 failed, 31 passed, 2209 warnings in 2.34s
+
+
+---
+
+row_idx=57 model=model-delta job=run-12 task_id=elastic__curator-560 msg_idx=1201
+    51	    def test_create_repository_exception(self):
+    52	        client = Mock()
+    53	        client.snapshot.get_repository.return_value = {'not_your_repo':{'foo':'bar'}}
+    54	        client.snapshot.create_repository.side_effect = elasticsearch.TransportError(500, "Error message", {"message":"Error"})
+    55	        self.assertRaises(Exception, curator.create_repository(client, repository="repo", repo_type="fs"))
+    56	
+    57	class TestVerifyRepository(TestCase):
+    58	    def test
+
+---
+
+row_idx=57 model=model-delta job=run-12 task_id=elastic__curator-560 msg_idx=319
+    def test_create_repository_repo_already_in_results(self):
+        client = Mock()
+        client.snapshot.get_repository.return_value = {'repo':{'foo':'bar'}}
+        with self.assertRaises(SystemExit) as cm:
+            curator.create_repository(client, repository="repo", repo_type="fs")
+        self.assertEqual(cm.exception.code, 1)
+
+
+
+---
+
+row_idx=154 model=model-delta job=run-12 task_id=mila-udem__fuel-214 msg_idx=35
+"""Module level configuration.
+
+Fuel allows module-wide configuration values to be set using a YAML_
+configuration file and `environment variables`_. Environment variables
+override the configuration file which in its turn overrides the defaults.
+
+The configuration is read from ``~/.fuelrc`` if it exists. A custom
+configuration file can be used by setting the ``FUEL_CONFIG`` environment
+variable. A configuration file is of the form:
+
+.. code-block:: yaml
+
+   data_path: /home/user/datasets
+
+Which 
+
+---
+
+row_idx=240 model=model-cyan job=run-01 task_id=pybamm-team__pybamm-844 msg_idx=11
+# [Unreleased](https://github.com/pybamm-team/PyBaMM)
+
+## Features
+
+-   Added NCA parameter set ([#824](https://github.com/pybamm-team/PyBaMM/pull/824))
+-   Added functionality to `Solution` that automatically gets `t_eval` from the data when simulating drive cycles and performs checks to ensure the output has the required resolution to accurately capture the input current ([#819](https://github.com/pybamm-team/PyBaMM/pull/819))
+-   Added options to export a solution to matlab or csv ([#811](htt
+
+---
+
+row_idx=232 model=model-garnet job=run-13 task_id=pybamm-team__pybamm-661 msg_idx=147
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=686973347
+rootdir: /workspace/repo
+plugins: asyncio-1.4.0, xdist-3.8.0, cov-7.1.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, timeout-2.4.0, anyio-4.13.0
+asyncio: mode=strict, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecte
+
+---
+
+row_idx=62 model=model-flint job=run-08 task_id=encode__django-rest-framework-9360 msg_idx=225
+E    +    where <function search at 0x7c6208a465f0> = re.search
+E    +    and   "UniqueConstraintSerializer():\n    id = IntegerField(label='ID', read_only=True)\n    race_name = CharField(max_lengt...straintModel: UniqueConstraintModel object (2)>]>, fields=('race_name', 'position'), condition_fields=['race_name'])>]" = repr(UniqueConstraintSerializer():\n    id = IntegerField(label='ID', read_only=True)\n    race_name = CharField(max_length=1...nstraintModel: UniqueConstraintModel object (2)>]
+
+---
+
+row_idx=146 model=model-garnet job=run-13 task_id=litestar-org__polyfactory-510 msg_idx=79
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=176548937
+rootdir: /workspace/repo
+configfile: pyproject.toml
+plugins: Faker-40.19.1, asyncio-1.4.0, xdist-3.8.0, cov-7.1.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, timeout-2.4.0
+asyncio: mode=auto, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_lo
+
+---
+
+row_idx=250 model=model-atlas job=run-10 task_id=pybamm-team__pybamm-947 msg_idx=324
+    self._entries_string = entries.tostring()
+
+tests/unit/test_solvers/test_scipy_solver.py: 48 warnings
+  /workspace/_venv/lib/python3.10/site-packages/scipy/optimize/_zeros_py.py:798: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+    r = _zeros._brentq(f, a, b, xtol, rtol, maxiter, args, full_output, disp)
+
+-- Docs: https
+
+---
+
+row_idx=141 model=model-cyan job=run-07 task_id=litestar-org__polyfactory-468 msg_idx=191
+FAILED tests/test_data_parsing.py::test_optional_url_field_parsed_correctly[KafkaDsn]
+FAILED tests/test_data_parsing.py::test_optional_url_field_parsed_correctly[PostgresDsn]
+FAILED tests/test_data_parsing.py::test_optional_url_field_parsed_correctly[RedisDsn]
+FAILED tests/test_data_parsing.py::test_optional_url_field_parsed_correctly[AmqpDsn]
+FAILED tests/sqlalchemy_factory/test_sqlalchemy_factory_common.py::test_relationship_list_resolution
+ERROR tests/sqlalchemy_factory/test_sqlalchemy_factor
+
+---
+
+row_idx=329 model=model-orion job=run-05 task_id=textualize__rich-2489 msg_idx=121
+tests/test_pretty.py::test_recursive PASSED                              [ 76%]
+tests/test_pretty.py::test_ipy_display_hook__multiple_special_reprs PASSED [ 79%]
+tests/test_pretty.py::test_pretty_namedtuple_fields_invalid_type PASSED  [ 81%]
+tests/test_pretty.py::test_user_dict PASSED                              [ 83%]
+tests/test_pretty.py::test_small_width PASSED                            [ 86%]
+tests/test_pretty.py::test_ipy_display_hook__classes_to_not_render PASSED [ 88%]
+tests/test_pretty
+
+---
+
+row_idx=63 model=model-delta job=run-12 task_id=encode__django-rest-framework-9455 msg_idx=241
+from rest_framework import viewsets, response, parsers, routers
+import os
+import sys
+
+import django
+from django.conf import settings
+
+settings.configure(
+    DEBUG=True,
+    ALLOWED_HOSTS=['*'],
+    ROOT_URLCONF=__name__,
+    SECRET_KEY='secret',
+)
+django.setup()
+
+from rest_framework.test import APIClient
+
+class BrokenParser(parsers.JSONParser):
+    def parse(self, stream, media_type=None, parser_context=None):
+        raise AttributeError("Simulated parser attribute error")
+
+class TestViewSet(v
+
+---
+
+row_idx=250 model=model-atlas job=run-10 task_id=pybamm-team__pybamm-947 msg_idx=236
+Model rhs keys: ['var']
+Model algebraic keys: ['var']
+Model rhs domains: [[]]
+Model algebraic domains: [[]]
+Solve failed: ModelError: model is overdetermined (repeated keys)
+
+
+---
+
+row_idx=154 model=model-delta job=run-12 task_id=mila-udem__fuel-214 msg_idx=301
+    built_in_datasets = dict(downloaders.all_downloaders)
+    parser = argparse.ArgumentParser(
+        description='Download script for built-in datasets.')
+    parent_parser = argparse.ArgumentParser(add_help=False)
+    parent_parser.add_argument(
+        "-d", "--directory", help="where to save the downloaded files",
+        type=str, default=os.getcwd())
+    parent_parser.add_argument(
+        "--clear", help="clear the downloaded files", action='store_true')
+    subparsers = parser.add_subp
+
+---
+
+row_idx=249 model=model-garnet job=run-11 task_id=pybamm-team__pybamm-947 msg_idx=77
+Saved working directory and index state WIP on (no branch): eae95f8 Merge pull request #932 from pybamm-team/basic-lead_acid
+>       with self.assertRaisesRegex(
+            pybamm.SolverError, "Could not find acceptable solution: .../casadi"
+        ):
+E       AssertionError: "Could not find acceptable solution: .../casadi" does not match "Could not find acceptable solution: Error in Function::call for 'roots' [Newton] at .../casadi/core/function.cpp:362:
+E       .../casadi/core/rootfinder.cpp:
+
+---
+
+row_idx=112 model=model-orion job=run-05 task_id=jazzband__django-axes-1080 msg_idx=13
+from typing import Optional
+from django.conf import settings
+from django.contrib.auth.backends import BaseBackend, ModelBackend
+from django.http import HttpRequest
+
+from axes.exceptions import (
+    AxesBackendPermissionDenied,
+    AxesBackendRequestParameterRequired,
+)
+from axes.handlers.proxy import AxesProxyHandler
+from axes.helpers import get_credentials, get_lockout_message, toggleable
+
+
+class AxesStandaloneBackend(BaseBackend):
+    """
+    Authentication backend class that forbids login at
+
+---
+
+row_idx=266 model=model-atlas job=run-10 task_id=pygfx__pygfx-563 msg_idx=117
+/workspace/_venv/lib/python3.10/site-packages/pylinalg/matrix.py:382: RuntimeWarning: divide by zero encountered in divide
+  rotation_matrix = matrix[:-1, :-1] * (1 / scaling)[None, :]
+/workspace/_venv/lib/python3.10/site-packages/pylinalg/matrix.py:382: RuntimeWarning: invalid value encountered in multiply
+  rotation_matrix = matrix[:-1, :-1] * (1 / scaling)[None, :]
+Matrix with zero scale:
+[[ 0.  0.  0.  0.]
+ [ 0.  2.  0.  0.]
+ [ 0.  0. -3.  0.]
+ [ 0.  0.  0.  1.]]
+Determinant: 0.0
+Error: Numb
+
+---
+
+row_idx=250 model=model-atlas job=run-10 task_id=pybamm-team__pybamm-947 msg_idx=232
+            for side, (eqn, typ) in side_eqn.items():
+                vars_in_eqns_dict = unpacker.unpack_symbol(eqn)
+                vars_in_eqns.update(vars_in_eqns_dict.keys())
+    
+        # If any keys are repeated between rhs and algebraic then the model is
+        # overdetermined
+        if not set(vars_in_rhs_keys).isdisjoint(vars_in_algebraic_keys):
+>           raise pybamm.ModelError("model is overdetermined (repeated keys)")
+E           pybamm.expression_tree.exceptions.ModelError: m
+
+---
+
+row_idx=257 model=model-cyan job=run-07 task_id=pybamm-team__pybamm-971 msg_idx=222
+==================================== ERRORS ====================================
+__________________ ERROR at setup of test_multi_var_function ___________________
+__________________ ERROR at setup of test_multi_var_function ___________________
+_______________________ ERROR at setup of test_function ________________________
+FAILED tests/unit/test_expression_tree/test_operations/test_copy.py::TestCopy::test_symbol_new_copy
+FAILED tests/unit/test_expression_tree/test_operations/test_jac.py::TestJaco
+
+---
+
+row_idx=141 model=model-cyan job=run-07 task_id=litestar-org__polyfactory-468 msg_idx=49
+Validation failed for tool "edit":
+  - edits.0: must not have additional properties
+  - edits.1: must not have additional properties
+  - edits.2: must not have additional properties
+
+Received arguments:
+{
+  "path": "polyfactory/factories/sqlalchemy_factory.py",
+  "edits": [
+    {
+      "oldText": "    __session__: ClassVar[Session | Callable[[], Session] | None] = None\n    __async_session__: ClassVar[AsyncSession | Callable[[], AsyncSession] | None] = None",
+      "newText": "    __session__: C
+
+---
+
+row_idx=212 model=model-cyan job=run-07 task_id=pybamm-team__pybamm-1020 msg_idx=115
+.../casadi/core/rootfinder.cpp:292: rootfinder process failed. Set 'error_on_fail' option to false to ignore this error.
+E       .../casadi/core/rootfinder.cpp:292: rootfinder process failed. Set 'error_on_fail' option to false to ignore this error."
+E                   .../casadi/core/rootfinder.cpp:292: rootfinder process failed. Set 'error_on_fail' option to false to ignore this error.
+.../casadi/core/rootfinder.cpp:292: rootfinder process failed. Set 'error_on_fail' option to false to ignore
+
+---
+
+row_idx=57 model=model-delta job=run-12 task_id=elastic__curator-560 msg_idx=1235
+ES failed <class 'urllib.error.URLError'>
+
+
+---
+
+row_idx=261 model=model-cyan job=run-07 task_id=pygfx__pygfx-1026 msg_idx=134
+=========================== short test summary info ============================
+FAILED tests/usecases/test_wobject_updates.py::test_updating_image_material_map
+FAILED tests/usecases/test_wobject_updates.py::test_updating_mesh_geometry_color
+FAILED tests/usecases/test_wobject_updates.py::test_updating_mesh_material_opacity
+FAILED tests/usecases/test_wobject_updates.py::test_updating_mesh_material_color
+4 failed, 76 passed in 3.51s
+
+
+---
+
+row_idx=169 model=model-atlas job=run-10 task_id=parquery__icontract-292 msg_idx=39
+"""Define data structures shared among the modules."""
+import inspect
+import reprlib
+from typing import (
+    Callable,
+    Optional,
+    Union,
+    Set,
+    List,
+    Any,
+    Type,
+    cast,
+)  # pylint: disable=unused-import
+
+import icontract._globals
+
+from icontract._globals import ExceptionT
+
+
+class Contract:
+    """Represent a contract to be enforced as a precondition, postcondition or as an invariant."""
+
+    def __init__(
+        self,
+        condition: Callable[..., Any],
+        descr
+
+---
+
+row_idx=153 model=model-vega job=run-15 task_id=mila-udem__fuel-214 msg_idx=67
+self = <tests.test_downloaders.TestDefaultDownloader object at 0x7c39a71e2170>
+
+    @mock_requests()
+    def test_default_downloader_save_no_url_url_prefix(self):
+>       args = dict(directory=self.tempdir, clear=False, urls=[None],
+                    filenames=[mock_filename], url_prefix=mock_url[:-9])
+E       AttributeError: 'TestDefaultDownloader' object has no attribute 'tempdir'
+
+tests/test_downloaders.py:234: AttributeError
+=============================== warnings summary ================
+
+---
+
+row_idx=256 model=model-vega job=run-15 task_id=pybamm-team__pybamm-971 msg_idx=319
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________ TestParameterValues.test_process_model ____________________
+
+self = <tests.unit.test_parameters.test_parameter_values.TestParameterValues testMethod=test_process_model>
+
+    def test_process_model(self):
+        model = pybamm.BaseModel()
+        a = pybamm.Parameter("a")
+        b = pybamm.Parameter("b")
+        c =
+
+---
+
+row_idx=115 model=model-delta job=run-12 task_id=jazzband__django-axes-885 msg_idx=1389
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=320166109
+django: settings: tests.settings (from ini)
+rootdir: /workspace/repo
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, xdist-3.8.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, cov-3.0.0, django-4.5.2, timeout-2.4.0
+asyncio: mode=strict, debug=False, asyncio_default_fix
+
+---
+
+row_idx=141 model=model-cyan job=run-07 task_id=litestar-org__polyfactory-468 msg_idx=179
+tests/sqlalchemy_factory/test_sqlalchemy_factory_common.py:218: AssertionError
+=========================== short test summary info ============================
+FAILED tests/sqlalchemy_factory/test_sqlalchemy_factory_common.py::test_relationship_list_resolution
+ERROR tests/sqlalchemy_factory/test_sqlalchemy_factory_common.py::test_async_persistence[<lambda>0]
+ERROR tests/sqlalchemy_factory/test_sqlalchemy_factory_common.py::test_async_persistence[<lambda>1]
+1 failed, 37 passed, 2 errors in 1.23s
+
+
+---
+
+row_idx=98 model=model-delta job=run-03 task_id=googlecloudplatform__cloud-sql-python-connector-1246 msg_idx=28
+Error: unexpected argument 'cmd' for tool 'bash' -- missing required argument 'command'. Call rejected before execution.
+
+---
+
+row_idx=104 model=model-orion job=run-05 task_id=gtalarico__pyairtable-268 msg_idx=15
+from unittest import mock
+
+import pytest
+
+from pyairtable.orm import Model
+from pyairtable.orm import fields as f
+from pyairtable.testing import fake_id, fake_meta, fake_record
+
+
+@pytest.fixture(autouse=True)
+def no_requests(requests_mock):
+    """
+    Fail if any tests in this module try to make network calls.
+    """
+
+
+def test_model_missing_meta():
+    """
+    Test that we throw an exception if Meta is missing.
+    """
+    with pytest.raises(AttributeError):
+
+        class Address(Model):
+   
+
+---
+
+row_idx=101 model=model-orion job=run-05 task_id=greyli__apiflask-260 msg_idx=53
+        return body, error.status_code, error.headers
+
+    def error_processor(
+        self,
+        f: ErrorCallbackType
+    ) -> ErrorCallbackType:
+        """A decorator to register a custom error response processor function.
+
+        The decorated callback function will be called in the following situations:
+
+        - Any HTTP exception is raised by Flask when `APIFlask(json_errors=True)` (default).
+        - A validation error happened when parsing a request.
+        - An exception trigge
+
+---
+
+row_idx=24 model=model-delta job=run-12 task_id=awslabs__cfn-python-lint-644 msg_idx=41
+class Condition(object):
+    """ Individual condition """
+    And = None
+    Or = None
+    Not = None
+    Equals = None
+    Influenced_Equals = None
+
+    def __init__(self, template, name):
+        self.And = []
+        self.Or = []
+        self.Not = []
+        self.Influenced_Equals = {}
+        value = template.get('Conditions', {}).get(name, {})
+        try:
+            self.process_condition(template, value)
+        except ConditionParseError:
+            LOGGER.debug('Error parsing conditi
+
+---
+
+row_idx=271 model=model-cyan job=run-07 task_id=pypa__pip-12991 msg_idx=55
+[36m[1m=========================== short test summary info ============================[0m
+[33mSKIPPED[0m [3] tests/unit/test_req.py:943: Test only available on Windows
+[31mFAILED[0m tests/unit/test_req.py::[1mTestRequirementSet::test_unpinned_hash_checking[0m - TypeError: RequirementPreparer.__init__() missing 1 required positional arg...
+[31m!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!![0m
+[31m[31m[1m1 failed[0m, [32m94 passed[0m, [33m3 skip
+
+---
+
+row_idx=296 model=model-cyan job=run-01 task_id=qchackers__tqec-376 msg_idx=12
+Name: tqec
+Version: 0.0.1
+Summary: A design automation framework for Topological Quantum Error Correction.
+Home-page: 
+Author: 
+Saved /tmp/tqec_pkg/tqec-0.2.0-py3-none-any.whl
+Successfully downloaded tqec
+
+
+---
+
+row_idx=127 model=model-orion job=run-05 task_id=keras-team__keras-nlp-143 msg_idx=101
+2026-06-10 13:25:44.517682: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2026-06-10 13:25:44.518195: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-06-10 13:25:44.556117: I tensorflow/core/platform/cpu
+
+---
+
+row_idx=226 model=model-cyan job=run-07 task_id=pybamm-team__pybamm-612 msg_idx=88
+FAILED tests/unit/test_models/test_simple_ode_model.py::TestSimpleODEModel::test_solution
+FAILED tests/unit/test_expression_tree/test_functions.py::TestFunction::test_function_unnamed
+FAILED tests/unit/test_models/test_submodels/test_electrode/test_ohm/test_leading_ohm.py::TestLeadingOrder::test_public_functions
+FAILED tests/unit/test_models/test_submodels/test_electrode/test_ohm/test_full_ohm.py::TestFull::test_public_functions
+ERROR tests/unit/test_expression_tree/test_jac.py::test_multi_var_f
+
+---
+
+row_idx=55 model=model-orion job=run-05 task_id=edgi-govdata-archiving__wayback-140 msg_idx=64
+    # NOTE: worth considering whether we should push this logic to a custom
+    # requests.adapters.HTTPAdapter
+    def send(self, *args, **kwargs):
+        total_time = 0
+        maximum = self.retries
+        retries = 0
+        while True:
+            try:
+                result = super().send(*args, **kwargs)
+                if retries >= maximum or not self.should_retry(result):
+                    if result.status_code == 429:
+                        raise RateLimitError(result)
+          
+
+---
+
+row_idx=57 model=model-delta job=run-12 task_id=elastic__curator-560 msg_idx=1077
+    :arg client: The Elasticsearch client connection
+    """
+    version_number = get_version(client)
+    logger.debug('Detected Elasticsearch version {0}'.format(".".join(map(str,version_number))))
+    if version_number >= version_max or version_number < version_min:
+        logger.error('Expected Elasticsearch version range > {0} < {1}'.format(".".join(map(str,version_min)),".".join(map(str,version_max))))
+
+
+---
+
+row_idx=311 model=model-cyan job=run-07 task_id=stravalib__stravalib-503 msg_idx=33
+            (
+                BoundC(bound_a=[BoundA(x=1), BoundA(x=2)]).bound_a[1],
+                BoundA(x=2),
+                None,
+            ),
+            (
+                BoundC(bound_a=[BoundA(x=1), BoundA(x=2)], bound_client=1).bound_a[
+                    1
+                ],
+                BoundA(x=2, bound_client=1),
+                True,
+            ),
+        ),
+    )
+    def test_backward_compatible_attribute_lookup(
+        lookup_expression, expected_result, expected_bound_c
+
+---
+
+row_idx=359 model=model-orion job=run-05 task_id=tweag__fawltydeps-495 msg_idx=181
+Failed to parse Pip dependencies in /tmp/tmpd1nio_o7.yml: Expected package name at the start of dependency specifier
+    ./
+    ^
+Result: [DeclaredDependency(name='pip', source=Location(path=PosixPath('/tmp/tmpd1nio_o7.yml'), cellno=None, lineno=None)), DeclaredDependency(name='setuptools', source=Location(path=PosixPath('/tmp/tmpd1nio_o7.yml'), cellno=None, lineno=None))]
+
+
+---
+
+row_idx=64 model=model-garnet job=run-13 task_id=encode__django-rest-framework-9455 msg_idx=87
+        parser = self.negotiator.select_parser(self, self.parsers)
+
+        if not parser:
+            raise exceptions.UnsupportedMediaType(media_type)
+
+        try:
+            with wrap_attributeerrors():
+                parsed = parser.parse(stream, media_type, self.parser_context)
+        except Exception:
+            # If we get an exception during parsing, fill in empty data and
+            # re-raise.  Ensures we don't simply repeat the error when
+            # attempting to render the b
+
+---
+
+row_idx=80 model=model-garnet job=run-11 task_id=geopandas__geopandas-2286 msg_idx=21
+
+geopandas/_compat.py:227
+geopandas/_compat.py:227
+  /workspace/repo/geopandas/_compat.py:227: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    PYPROJ_LT_3 = LooseVersion(pyproj.__version__) < LooseVersion("3")
+
+geopandas/_compat.py:228
+geopandas/_compat.py:228
+  /workspace/repo/geopandas/_compat.py:228: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    PYPROJ_GE_31 = LooseVersion(pyproj.__version__) >
+
+---
+
+row_idx=27 model=model-vega job=run-15 task_id=cadquery__cadquery-1622 msg_idx=7
+        for el in s:
+            if el.ShapeType() in ts:
+                rv = el
+                break
+            else:
+                raise ValueError(
+                    f"Required type(s): {types}, encountered {el.ShapeType()}"
+                )
+    else:
+        raise ValueError(f"Required type(s): {types}; encountered {t}")
+
+    return rv
+
+
+def _get_one_wire(s: Shape) -> Wire:
+    """
+    Get one wire or edge and convert to wire.
+    """
+
+    rv = _get_one(s, ("Wire", "Edge"))
+
+    if i
+
+---
+
+row_idx=57 model=model-delta job=run-12 task_id=elastic__curator-560 msg_idx=317
+    def test_create_repository_repo_already_in_results(self):
+        client = Mock()
+        client.snapshot.get_repository.return_value = {'repo':{'foo':'bar'}}
+        with self.assertRaises(SystemExit) as cm:
+            curator.create_repository(client, repository="repo", repo_type="fs")
+        self.assertEqual(cm.exception.code, 1)
+
+    def test_create_repository_exception(self):
+
+
+---
+
+row_idx=325 model=model-atlas job=run-10 task_id=textualize__rich-2294 msg_idx=129
+│                                Optional[pyparsing.core.ParserElement] =      │
+│                                None, ignore_expr:                            │
+│                                Optional[pyparsing.core.ParserElement] =      │
+│                                NoMatch, **kwargs) ->                         │
+│                                pyparsing.core.ParserElement:                 │
+│                                .. deprecated:: 3.0.0                         │
+│             
+
+---
+
+row_idx=249 model=model-garnet job=run-11 task_id=pybamm-team__pybamm-947 msg_idx=87
+        ):
+            solver.calculate_consistent_state(Model())
+        # with casadi
+        solver = pybamm.BaseSolver(root_method="casadi")
+>       with self.assertRaisesRegex(
+            pybamm.SolverError,
+            "Could not find consistent initial conditions: .../casadi",
+        ):
+E       AssertionError: "Could not find consistent initial conditions: .../casadi" does not match "Could not find consistent initial conditions: Error in Function::call for 'roots' [Newton] at .../casadi
+
+---
+
+row_idx=315 model=model-flint job=run-08 task_id=stravalib__stravalib-605 msg_idx=27
+import datetime
+import json
+import os
+import warnings
+from unittest import mock
+
+import pytest
+import responses
+from responses import matchers
+
+from stravalib.client import ActivityUploader
+from stravalib.exc import (
+    AccessUnauthorized,
+    ActivityPhotoUploadFailed,
+)
+from stravalib.model import DetailedAthlete, SummaryAthlete, SummarySegment
+from stravalib.strava_model import SummaryActivity, Zones
+from stravalib.tests import RESOURCES_DIR
+from stravalib.unit_helper import miles
+
+warnings
+
+---
+
+row_idx=170 model=model-orion job=run-05 task_id=parquery__icontract-292 msg_idx=27
+# pylint: disable=invalid-name
+# pylint: disable=missing-docstring
+# pylint: disable=unused-argument
+
+import abc
+import textwrap
+import unittest
+from typing import Optional  # pylint: disable=unused-import
+
+import icontract
+import tests.error
+
+
+class TestOK(unittest.TestCase):
+    def test_count_checks(self) -> None:
+        class Increment:
+            count = 0
+
+            def __call__(self) -> bool:
+                Increment.count += 1
+                return True
+
+        inc = Increment()
+
+
+
+---
+
+row_idx=244 model=model-vega job=run-15 task_id=pybamm-team__pybamm-868 msg_idx=195
+.........sssssssssssss.......                                            [100%]
+=============================== warnings summary ===============================
+pybamm/spatial_methods/scikit_finite_element.py:308
+  /workspace/repo/pybamm/spatial_methods/scikit_finite_element.py:308: DeprecationWarning: invalid escape sequence '\O'
+    """
+
+tests/unit/test_expression_tree/test_binary_operators.py:8
+  /workspace/repo/tests/unit/test_expression_tree/test_binary_operators.py:8: DeprecationWarning: P
+
+---
+
+row_idx=134 model=model-garnet job=run-09 task_id=kmyk__online-judge-tools-288 msg_idx=13
+# Python Version: 3.x
+from typing import TYPE_CHECKING, List, Optional, Type
+
+import onlinejudge.implementation.logging as log
+
+if TYPE_CHECKING:
+    from onlinejudge.type import Service, Problem, Submission
+
+submissions = []  # type: List[Type['Submission']]
+
+
+def submission_from_url(s: str) -> Optional['Submission']:
+    for cls in submissions:
+        submission = cls.from_url(s)
+        if submission is not None:
+            log.status('submission recognized: %s: %s', str(submission), s)
+   
+
+---
+
+row_idx=244 model=model-vega job=run-15 task_id=pybamm-team__pybamm-868 msg_idx=125
+__________________ TestAlgebraicSolver.test_simple_root_find ___________________
+
+self = <tests.unit.test_solvers.test_algebraic_solver.TestAlgebraicSolver testMethod=test_simple_root_find>
+
+    def test_simple_root_find(self):
+        # Simple system: a single algebraic equation
+        def algebraic(y):
+            return y + 2
+    
+        solver = pybamm.AlgebraicSolver()
+        y0 = np.array([2])
+        solution = solver.root(algebraic, y0)
+>       np.testing.assert_array_equal(solution.y
+
+---
+
+row_idx=115 model=model-delta job=run-12 task_id=jazzband__django-axes-885 msg_idx=1063
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=3626809551
+django: settings: tests.settings (from ini)
+rootdir: /workspace/repo
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, xdist-3.8.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, cov-3.0.0, django-4.5.2, timeout-2.4.0
+asyncio: mode=strict, debug=False, asyncio_default_fi
+
+---
+
+row_idx=115 model=model-delta job=run-12 task_id=jazzband__django-axes-885 msg_idx=139
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=1494735586
+django: settings: tests.settings (from ini)
+rootdir: /workspace/repo
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, xdist-3.8.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, cov-3.0.0, django-4.5.2, timeout-2.4.0
+asyncio: mode=strict, debug=False, asyncio_default_fi
+
+---
+
+row_idx=311 model=model-cyan job=run-07 task_id=stravalib__stravalib-503 msg_idx=49
+________________________ ModelTest.test_distance_units _________________________
+
+self = <stravalib.tests.unit.test_model.ModelTest testMethod=test_distance_units>
+
+    def test_distance_units(self):
+        # Model fields now keep their raw (float) values in meters, so any
+        # unit conversion needs to be done explicitly.
+    
+        # Gear
+        g = model.Gear()
+        g.distance = 1000
+        self.assertEqual(1.0, float(uh.kilometers(uh.meters(g.distance))))
+    
+        # Metric Sp
+
+---
+
+row_idx=257 model=model-cyan job=run-07 task_id=pybamm-team__pybamm-971 msg_idx=290
+==================================== ERRORS ====================================
+__________________ ERROR at setup of test_multi_var_function ___________________
+________________ ERROR at setup of test_multi_var_function_cube ________________
+_______________________ ERROR at setup of test_function ________________________
+__________________ ERROR at setup of test_multi_var_function ___________________
+_______________________ ERROR at setup of test_function ________________________
+______________
+
+---
+
+row_idx=198 model=model-flint job=run-08 task_id=plasmapy__plasmapy-228 msg_idx=73
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0 -- /workspace/_venv/bin/python
+cachedir: .pytest_cache
+hypothesis profile 'default'
+Using --randomly-seed=3429400116
+rootdir: /workspace/repo
+configfile: setup.cfg
+plugins: asyncio-1.4.0, xdist-3.8.0, cov-7.1.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, timeout-2.4.0
+asyncio: mode=strict, debug=Fals
+
+---
+
+row_idx=257 model=model-cyan job=run-07 task_id=pybamm-team__pybamm-971 msg_idx=80
+Validation failed for tool "edit":
+  - edits.0: must not have additional properties
+
+Received arguments:
+{
+  "path": "/workspace/repo/pybamm/expression_tree/operations/simplify.py",
+  "edits": [
+    {
+      "oldText": "    def simplify(self, symbol):\n        \"\"\"\n        This function recurses down the tree, applying any simplifications defined in\n        classes derived from pybamm.Symbol. E.g. any expression multiplied by a\n        pybamm.Scalar(0) will be simplified to a pybamm.Scalar(0
+
+---
+
+row_idx=134 model=model-garnet job=run-09 task_id=kmyk__online-judge-tools-288 msg_idx=12
+# Python Version: 3.x
+# -*- coding: utf-8 -*-
+import argparse
+import pathlib
+import sys
+import traceback
+from typing import List, Optional
+
+import onlinejudge
+import onlinejudge.__about__ as version
+import onlinejudge.implementation.logging as log
+import onlinejudge.implementation.utils as utils
+from onlinejudge.implementation.command.code_statistics import code_statistics
+from onlinejudge.implementation.command.download import download
+from onlinejudge.implementation.command.generate_output imp
+
+---
+
+row_idx=214 model=model-orion job=run-05 task_id=pybamm-team__pybamm-1026 msg_idx=27
+#
+# Class for quick plotting of variables from models
+#
+import numpy as np
+import pybamm
+from collections import defaultdict
+
+
+class LoopList(list):
+    "A list which loops over itself when accessing an index so that it never runs out."
+
+    def __getitem__(self, i):
+        # implement looping by calling "(i) modulo (length of list)"
+        return super().__getitem__(i % len(self))
+
+
+def ax_min(data):
+    "Calculate appropriate minimum axis value for plotting"
+    data_min = np.nanmin(data)
+  
+
+---
+
+row_idx=235 model=model-vega job=run-15 task_id=pybamm-team__pybamm-769 msg_idx=33
+Validation failed for tool "edit":
+  - root: must not have additional properties
+  - edits.0.oldText: must have required properties oldText, newText
+
+Received arguments:
+{
+  "path": "pybamm/discretisations/discretisation.py",
+  "edits": [
+    {}
+  ],
+  "newText": "Returns\n        -------\n        tuple of :class:`pybamm.Matrix`\n            The mass matrix and the inverse of the mass matrix for the\n            differential part of the model, respectively\n        \"\"\"\n        # Create list 
+
+---
+
+row_idx=298 model=model-delta job=run-12 task_id=quantconnect__lean-cli-486 msg_idx=127
+
+
+def _get_organization_id(user_input: str) -> Tuple[str, str]:
+    """Get the id of a given organization if the user_input is an organization name.
+
+    Raises an error if no organization with a matching name or id can be found.
+
+    If the user_input is an id (and it exists), it will be returned.
+
+    :param user_input: the input given by the user
+    :return the organization id and name
+    """
+    from re import match
+    api_client = container.api_client
+
+    if not api_client.is_authentica
+
+---
+
+row_idx=289 model=model-cyan job=run-07 task_id=python-trio__trio-3197 msg_idx=19
+ERROR: Could not find a version that satisfies the requirement trio==0.30.0 (from versions: none)
+ERROR: No matching distribution found for trio==0.30.0
+
+
+---
+
+row_idx=326 model=model-cyan job=run-07 task_id=textualize__rich-2294 msg_idx=20
+FAILED tests/test_markdown.py::test_markdown_render - AssertionError: assert ...
+FAILED tests/test_markdown.py::test_inline_code - AssertionError: assert 'inl...
+12 failed, 640 passed, 20 skipped, 2 warnings in 5.42s
+
+
+---
+
+row_idx=167 model=model-flint job=run-08 task_id=parquery__icontract-236 msg_idx=225
+DEBUG: Number of args: 13
+DEBUG: Uniques args: [<ast.arg object at 0x7d20faabd090>, <ast.arg object at 0x7d20faabd060>, <ast.arg object at 0x7d20faabd030>, <ast.arg object at 0x7d20faabf8b0>, <ast.arg object at 0x7d20faabc190>, <ast.arg object at 0x7d20faabc280>, <ast.arg object at 0x7d20faabc5b0>, <ast.arg object at 0x7d20faabc610>, <ast.arg object at 0x7d20faabf940>, <ast.arg object at 0x7d20faabf970>, <ast.arg object at 0x7d20faabf9a0>, <ast.arg object at 0x7d20faabcf70>, <ast.arg object at 0
+
+---
+
+row_idx=57 model=model-delta job=run-12 task_id=elastic__curator-560 msg_idx=413
+' def test_verify_repository_missing_arg(self):\n        client = Mock()\n        with self.assertRaises(SystemExit) as cm:\n            curator.verify_repository(client)\n        self.assertEqual(cm.exception.code, 1)\n\n    def test_verify_repository_in_result'
+
+
+---
+
+row_idx=154 model=model-delta job=run-12 task_id=mila-udem__fuel-214 msg_idx=171
+        subparser_fn(subparsers.add_parser(
+            name, parents=[parent_parser],
+            help='Download the {} dataset'.format(name)))
+    args = parser.parse_args()
+    args_dict = vars(args)
+    try:
+        func = args_dict.pop('func')
+    except KeyError:
+        parser.print_usage()
+        parser.exit()
+    try:
+        func(**args_dict)
+    except NeedURLPrefix:
+        parser.error(url_prefix_message)
+
+
+if __name__ == "__main__":
+    main()
+
+
+---
+
+row_idx=63 model=model-delta job=run-12 task_id=encode__django-rest-framework-9455 msg_idx=65
+from rest_framework import viewsets, response, parsers, routers
+import os
+import sys
+
+# Configure django so we can test
+import django
+from django.conf import settings
+from django.urls import path
+
+
+settings.configure(
+    DEBUG=True,
+    ALLOWED_HOSTS=['*'],
+    ROOT_URLCONF=__name__,
+    SECRET_KEY='secret',
+)
+django.setup()
+
+from rest_framework.test import APIClient
+
+class BrokenParser(parsers.JSONParser):
+    def parse(self, stream, media_type=None, parser_context=None):
+        raise Attribu
+
+---
+
+row_idx=231 model=model-vega job=run-15 task_id=pybamm-team__pybamm-661 msg_idx=57
+FAILED tests/unit/test_models/test_submodels/test_current_collector/test_effective_current_collector.py::TestEffectiveResistance2D::test_get_processed_potentials
+FAILED tests/unit/test_models/test_submodels/test_electrode/test_ohm/test_full_ohm.py::TestFull::test_public_functions
+FAILED tests/unit/test_processed_variable.py::TestProcessedVariable::test_processed_variable_2Dspace_scikit
+FAILED tests/unit/test_processed_variable.py::TestProcessedVariable::test_processed_variable_2D
+FAILED tests/un
+
+---
+
+row_idx=257 model=model-cyan job=run-07 task_id=pybamm-team__pybamm-971 msg_idx=204
+ERROR tests/unit/test_expression_tree/test_functions.py::test_function
+ERROR tests/unit/test_expression_tree/test_functions.py::test_multi_var_function
+ERROR tests/unit/test_expression_tree/test_functions.py::test_multi_var_function_cube
+ERROR tests/unit/test_expression_tree/test_operations/test_evaluate.py::test_function
+ERROR tests/unit/test_expression_tree/test_operations/test_jac.py::test_multi_var_function
+ERROR tests/unit/test_expression_tree/test_operations/test_jac_2D.py::test_multi_var_
+
+---
+
+row_idx=278 model=model-flint job=run-06 task_id=pytest-dev__pyfakefs-1163 msg_idx=196
+            filedes: int = file_
+            wrapper = self.filesystem.get_open_file(filedes)
+            can_write = True
+            if isinstance(wrapper, FakePipeWrapper):
+                return None, None, filedes, None, can_write
+            if isinstance(wrapper, FakeFileWrapper):
+                self._delete_on_close = wrapper.delete_on_close
+                can_write = wrapper.allow_update
+
+            file_object = cast(
+                FakeFile, self.filesystem.get_open_file(filedes).
+
+---
+
+row_idx=154 model=model-delta job=run-12 task_id=mila-udem__fuel-214 msg_idx=327
+%20%20%20%20%20%20%20%20type%3Dstr%2C%20default%3Dos.getcwd%28%29%29%0A%20%20%20%20parent_parser.add_argument%28%0A%20%20%20%20%20%20%20%20%22--clear%22%2C%20help%3D%22clear%20the%20downloaded%20files%22%2C%20action%3D%27store_true%27%29%0A%20%20%20%20subparsers%20%3D%20parser.add_subparsers%28%29%0A%20%20%20%20for%20name%2C%20subparser_fn%20in%20built_in_datasets.items%28%29%3A%0A%20%20%20%20%20%20%20%20subparser_fn%28subparsers.add_parser%28%0A%20%20%20%20%20%20%20%20%20%20%20%20name%2C%20pare
+
+---
+
+row_idx=105 model=model-atlas job=run-10 task_id=gtalarico__pyairtable-386 msg_idx=27
+from functools import partial
+from unittest import mock
+
+import pytest
+from requests_mock import Mocker
+
+from pyairtable.orm import Model
+from pyairtable.orm import fields as f
+from pyairtable.testing import fake_id, fake_meta, fake_record
+
+
+@pytest.fixture(autouse=True)
+def no_requests(requests_mock):
+    """
+    Fail if any tests in this module try to make network calls.
+    """
+
+
+def test_model_missing_meta():
+    """
+    Test that we throw an exception if Meta is missing.
+    """
+    with py
+
+---
+
+row_idx=115 model=model-delta job=run-12 task_id=jazzband__django-axes-885 msg_idx=1443
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=1687220298
+django: settings: tests.settings (from ini)
+rootdir: /workspace/repo
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, xdist-3.8.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, cov-3.0.0, django-4.5.2, timeout-2.4.0
+asyncio: mode=strict, debug=False, asyncio_default_fi
+
+---
+
+row_idx=13 model=model-delta job=run-12 task_id=aiogram__aiogram-1665 msg_idx=825
+EXCEPTION <class 'ValueError'> Could not find starting boundary b'--webhookBoundaryvsF_aMHhspPjfOq7O0JNRg'
+
+
+---
+
+row_idx=343 model=model-atlas job=run-10 task_id=textualize__rich-3296 msg_idx=325
+>       assert (
+E       AssertionError: assert '\x1b[1;38;2;...    \x1b[0m\n' == '\x1b[1;38;2;...    \x1b[0m\n'
+FAILED tests/test_syntax.py::test_blank_lines - AssertionError: assert '\x1b[...
+
+
+---
+
+row_idx=132 model=model-flint job=run-08 task_id=keras-team__keras-nlp-59 msg_idx=125
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0 -- /workspace/_venv/bin/python
+cachedir: .pytest_cache
+hypothesis profile 'default'
+Using --randomly-seed=2763393907
+rootdir: /workspace/repo
+configfile: setup.cfg
+plugins: asyncio-1.4.0, xdist-3.8.0, cov-7.1.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, timeout-2.4.0
+asyncio: mode=strict, debug=Fals
+
+---
+
+row_idx=63 model=model-delta job=run-12 task_id=encode__django-rest-framework-9455 msg_idx=79
+from rest_framework import viewsets, response, parsers, routers
+import os
+import sys
+
+# Configure django so we can test
+import django
+from django.conf import settings
+from django.urls import path
+
+
+settings.configure(
+    DEBUG=True,
+    ALLOWED_HOSTS=['*'],
+    ROOT_URLCONF=__name__,
+    SECRET_KEY='secret',
+)
+django.setup()
+
+from rest_framework.test import APIClient
+
+class BrokenParser(parsers.JSONParser):
+    def parse(self, stream, media_type=None, parser_context=None):
+        raise Attribu
+
+---
+
+row_idx=329 model=model-orion job=run-05 task_id=textualize__rich-2489 msg_idx=55
+        Args:
+            max_width (int, optional): Maximum width of the repr. Defaults to 80.
+            indent_size (int, optional): Size of indents. Defaults to 4.
+            expand_all (bool, optional): Expand all levels. Defaults to False.
+
+        Returns:
+            str: A repr string of the original object.
+        """
+        lines = [_Line(node=self, is_root=True)]
+        line_no = 0
+        while line_no < len(lines):
+            line = lines[line_no]
+            if line.expandab
+
+---
+
+row_idx=115 model=model-delta job=run-12 task_id=jazzband__django-axes-885 msg_idx=539
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=2950295482
+django: settings: tests.settings (from ini)
+rootdir: /workspace/repo
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, xdist-3.8.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, cov-3.0.0, django-4.5.2, timeout-2.4.0
+asyncio: mode=strict, debug=False, asyncio_default_fi
+
+---
+
+row_idx=168 model=model-delta job=run-12 task_id=parquery__icontract-236 msg_idx=1515
+diff --git a/icontract/_checkers.py b/icontract/_checkers.py
+index 4df44fc..7877c2c 100644
+--- a/icontract/_checkers.py
++++ b/icontract/_checkers.py
+@@ -1,6 +1,7 @@
+ """Provide functions to add/find contract checkers."""
+ import functools
+ import inspect
++import sys
+ import threading
+ from typing import Callable, Any, Iterable, Optional, Tuple, List, Mapping, \
+     MutableMapping, Dict, cast
+@@ -638,7 +639,17 @@ def decorate_with_checker(func: CallableT) -> CallableT:
+                 # Ideally
+
+---
+
+row_idx=93 model=model-delta job=run-12 task_id=googlecloudplatform__cloud-sql-python-connector-304 msg_idx=115
+""""
+Copyright 2019 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language go
+
+---
+
+row_idx=199 model=model-vega job=run-15 task_id=plasmapy__plasmapy-346 msg_idx=109
+621         >>> electron.charge
+Expected:
+    <Quantity -1.60217662e-19 C>
+Got:
+    <Quantity -1.60217663e-19 C>
+
+/workspace/repo/plasmapy/atomic/particle_class.py:621: DocTestFailure
+=============================== warnings summary ===============================
+plasmapy/utils/import_helpers.py:16
+plasmapy/utils/import_helpers.py:16
+plasmapy/utils/import_helpers.py:16
+  /workspace/repo/plasmapy/utils/import_helpers.py:16: DeprecationWarning: distutils Version classes are deprecated. Use packag
+
+---
+
+row_idx=51 model=model-atlas job=run-10 task_id=deshaw__pyflyby-391 msg_idx=93
+  File "/workspace/_venv/lib/python3.10/site-packages/pluggy/_callers.py", line 167, in _multicall
+    raise exception
+  File "/workspace/_venv/lib/python3.10/site-packages/pluggy/_callers.py", line 139, in _multicall
+    teardown.throw(exception)
+  File "/workspace/_venv/lib/python3.10/site-packages/_pytest/helpconfig.py", line 124, in pytest_cmdline_parse
+    config = yield
+  File "/workspace/_venv/lib/python3.10/site-packages/pluggy/_callers.py", line 121, in _multicall
+    res = hook_impl.fu
+
+---
+
+row_idx=78 model=model-vega job=run-15 task_id=flexmeasures__flexmeasures-899 msg_idx=123
+
+flexmeasures/data/schemas/tests/test_scheduling.py::test_process_scheduler_flex_model_load
+  /workspace/_venv/lib/python3.10/site-packages/marshmallow/fields.py:751: RemovedInMarshmallow4Warning: Passing field metadata as keyword arguments is deprecated. Use the explicit `metadata=...` argument instead. Additional metadata: {'validator': <Length(min=1, max=None, equal=None, error=None)>}
+    super().__init__(**kwargs)
+
+flexmeasures/data/schemas/tests/test_scheduling.py::test_process_scheduler_f
+
+---
+
+row_idx=324 model=model-orion job=run-05 task_id=textualize__rich-2294 msg_idx=101
+            CODE,
+            lexer="python",
+            line_numbers=False,
+            theme="ansi_light",
+            code_width=60,
+            word_wrap=False,
+            indent_guides=True,
+        )
+        rendered_syntax = render(syntax)
+        print(repr(rendered_syntax))
+        expected = '\x1b[34mdef\x1b[0m \x1b[32mloop_first_last\x1b[0m(values: Iterable[T]) -> Iterable[Tuple[\x1b[36mb\x1b[0m\n\x1b[2m│   \x1b[0m\x1b[33m"""Iterate and generate a tuple with a flag for first an\x1b[
+
+---
+
+row_idx=115 model=model-delta job=run-12 task_id=jazzband__django-axes-885 msg_idx=405
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=2390796555
+django: settings: tests.settings (from ini)
+rootdir: /workspace/repo
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, xdist-3.8.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, cov-3.0.0, django-4.5.2, timeout-2.4.0
+asyncio: mode=strict, debug=False, asyncio_default_fi
+
+---
+
+row_idx=37 model=model-garnet job=run-11 task_id=conda-incubator__grayskull-238 msg_idx=42
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=3037847295
+rootdir: /workspace/repo
+configfile: pytest.ini
+plugins: asyncio-1.4.0, xdist-3.8.0, cov-7.1.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, timeout-2.4.0
+asyncio: mode=strict, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=functio
+
+---
+
+row_idx=256 model=model-vega job=run-15 task_id=pybamm-team__pybamm-971 msg_idx=283
+ERROR tests/unit/test_expression_tree/test_functions.py::test_multi_var_function_cube
+ERROR tests/unit/test_expression_tree/test_operations/test_evaluate.py::test_function
+ERROR tests/unit/test_expression_tree/test_operations/test_jac.py::test_multi_var_function
+ERROR tests/unit/test_expression_tree/test_operations/test_jac_2D.py::test_multi_var_function
+57 failed, 628 passed, 31 skipped, 1 deselected, 11291 warnings, 6 errors in 54.38s
+
+
+---
+
+row_idx=287 model=model-flint job=run-08 task_id=python-trio__trio-3051 msg_idx=9
+class CancelScope:
+    """A *cancellation scope*: the link between a unit of cancellable
+    work and Trio's cancellation system.
+
+    A :class:`CancelScope` becomes associated with some cancellable work
+    when it is used as a context manager surrounding that work::
+
+        cancel_scope = trio.CancelScope()
+        ...
+        with cancel_scope:
+            await long_running_operation()
+
+    Inside the ``with`` block, a cancellation of ``cancel_scope`` (via
+    a call to its :meth:`cancel` m
+
+---
+
+row_idx=247 model=model-flint job=run-04 task_id=pybamm-team__pybamm-919 msg_idx=107
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=3224959695
+rootdir: /workspace/repo
+plugins: asyncio-1.4.0, xdist-3.8.0, cov-7.1.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, timeout-2.4.0, anyio-4.13.0
+asyncio: mode=strict, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collect
+
+---
+
+row_idx=265 model=model-cyan job=run-07 task_id=pygfx__pygfx-121 msg_idx=97
+=========================== short test summary info ============================
+FAILED tests/geometry/test_boxgeometry.py::test_compare_to_three - AttributeE...
+1 failed, 148 passed, 1 xfailed, 1 warning in 0.78s
+/workspace/_venv/lib/python3.10/site-packages/wgpu/_coreutils.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package o
+
+---
+
+row_idx=312 model=model-cyan job=run-01 task_id=stravalib__stravalib-503 msg_idx=6
+"""
+==============================
+Model Functions and Classes
+==============================
+This module contains entity classes for representing the various Strava
+datatypes, such as Activity, Gear, and more. These entities inherit
+fields from superclasses in `strava_model.py`, which is generated from
+the official Strava API specification. The classes in this module add
+behavior such as type enrichment, unit conversion, and lazy loading
+related entities from the API.
+"""
+
+from __future__ impor
+
+---
+
+row_idx=57 model=model-delta job=run-12 task_id=elastic__curator-560 msg_idx=181
+    76	    """Create repository with repository and body settings"""
+    77	    if not 'repository' in kwargs:
+    78	        click.echo(click.style('Missing required parameter --repository', fg='red', bold=True))
+    79	        sys.exit(1)
+    80	    else:
+    81	        repository = kwargs['repository']
+    82	
+    83	    try:
+    84	        body = create_repo_body(**kwargs)
+    85	        logger.info("Checking if repository {0} already exists...".format(repository))
+    86	        result = ge
+
+---
+
+row_idx=23 model=model-orion job=run-05 task_id=awslabs__cfn-python-lint-644 msg_idx=67
+FAIL
+Test template not found ... 2026-06-11 10:28:09,746 - cfnlint.decode - ERROR - Template file not found: test/fixtures/templates/good/core/not_found.yaml
+FAIL: test_templates (integration.test_good_templates.TestQuickStartTemplates)
+AssertionError: Expected 0 failures, got 1 on test/fixtures/templates/good/transform.yaml
+FAILED (failures=1)
+
+
+---
+
+row_idx=63 model=model-delta job=run-12 task_id=encode__django-rest-framework-9455 msg_idx=231
+from rest_framework import viewsets, response, parsers, routers
+import os
+import sys
+
+# Configure django so we can test
+import django
+from django.conf import settings
+from django.urls import path
+
+
+settings.configure(
+    DEBUG=True,
+    ALLOWED_HOSTS=['*'],
+    ROOT_URLCONF=__name__,
+    SECRET_KEY='secret',
+)
+django.setup()
+
+from rest_framework.test import APIClient
+
+class BrokenParser(parsers.JSONParser):
+    def parse(self, stream, media_type=None, parser_context=None):
+        raise Attribu
+
+---
+
+row_idx=287 model=model-flint job=run-08 task_id=python-trio__trio-3051 msg_idx=93
+        seconds (float): The number of seconds to sleep. May be zero to
+            insert a checkpoint without actually blocking.
+
+    Raises:
+        ValueError: if *seconds* is negative or NaN.
+
+    """
+    if seconds < 0:
+        raise ValueError("duration must be non-negative")
+    if seconds == 0:
+        await trio.lowlevel.checkpoint()
+    else:
+        await sleep_until(trio.current_time() + seconds)
+
+
+class TooSlowError(Exception):
+    """Raised by :func:`fail_after` and :func:`fail_at
+
+---
+
+row_idx=103 model=model-delta job=run-03 task_id=gtalarico__pyairtable-262 msg_idx=30
+Error: missing required parameter 'path' for tool 'read'.
+
+---
+
+row_idx=269 model=model-flint job=run-08 task_id=pygfx__pygfx-672 msg_idx=8
+import numpy as np
+import pygfx as gfx
+import pytest
+
+
+def test_different_data_types():
+    # Numpy array, let's do float16 while we're at it
+    a = np.zeros((10, 10), np.float16)
+    b = gfx.Texture(a, dim=2)
+    assert b.format == "f2"
+
+    # Memoryview
+    a = memoryview(np.zeros((10, 10), np.int16))
+    b = gfx.Texture(a, dim=2)
+    assert b.format == "i2"
+
+    # Lists not supported
+    with pytest.raises(TypeError):
+        gfx.Texture([1, 2, 3, 4, 5], dim=1)
+
+
+def test_unsupported_dtypes(
+
+---
+
+row_idx=256 model=model-vega job=run-15 task_id=pybamm-team__pybamm-971 msg_idx=337
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/unit/test_discretisations/test_discretisation.py::TestDiscretise::test_discretise_spatial_operator
+FAILED tests/unit/test_discretisations/test_discretisation.py::TestDiscretise::test_exceptions
+FAILED tests/unit/test_discretisations/test_discretisation.py::TestDiscretise::test_mass_matirx_inverse
+FAILED tests/unit/test_expression_tr
+
+---
+
+row_idx=63 model=model-delta job=run-12 task_id=encode__django-rest-framework-9455 msg_idx=137
+from rest_framework import viewsets, response, parsers, routers
+import os
+import sys
+
+# Configure django so we can test
+import django
+from django.conf import settings
+from django.urls import path
+
+
+settings.configure(
+    DEBUG=True,
+    ALLOWED_HOSTS=['*'],
+    ROOT_URLCONF=__name__,
+    SECRET_KEY='secret',
+)
+django.setup()
+
+from rest_framework.test import APIClient
+
+class BrokenParser(parsers.JSONParser):
+    def parse(self, stream, media_type=None, parser_context=None):
+        raise Attribu
+
+---
+
+row_idx=57 model=model-delta job=run-12 task_id=elastic__curator-560 msg_idx=1209
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   369  100   369    0     0   7446      0 --:--:-- --:--:-- --:--:--  7530
+{"error":{"root_cause":[{"type":"security_exception","reason":"missing authentication token for REST request [/]","header":{"WWW-Authenticate":"Basic realm=\"security\" charset=\"UTF-
+
+---
+
+row_idx=168 model=model-delta job=run-12 task_id=parquery__icontract-236 msg_idx=1395
+ccd5f81 Fix python 3.10 posonlyargs issue and kwargs type error message formatting
+65f16f5 Added representation of subscripts (#237)
+
+
+---
+
+row_idx=63 model=model-delta job=run-12 task_id=encode__django-rest-framework-9455 msg_idx=71
+from rest_framework import viewsets, response, parsers, routers
+import os
+import sys
+
+# Configure django so we can test
+import django
+from django.conf import settings
+from django.urls import path
+
+
+settings.configure(
+    DEBUG=True,
+    ALLOWED_HOSTS=['*'],
+    ROOT_URLCONF=__name__,
+    SECRET_KEY='secret',
+)
+django.setup()
+
+from rest_framework.test import APIClient
+
+class BrokenParser(parsers.JSONParser):
+    def parse(self, stream, media_type=None, parser_context=None):
+        raise Attribu
+
+---
+
+row_idx=26 model=model-orion job=run-05 task_id=bvanelli__actualpy-56 msg_idx=12
+class Transactions(BaseModel, table=True):
+    __table_args__ = (
+        Index("trans_category", "category"),
+        Index("trans_category_date", "category", "date"),
+        Index("trans_date", "date"),
+        Index("trans_parent_id", "parent_id"),
+        Index("trans_sorted", "date", "starting_balance_flag", "sort_order", "id"),
+    )
+
+    id: Optional[str] = Field(default=None, sa_column=Column("id", Text, primary_key=True))
+    is_parent: Optional[int] = Field(default=None, sa_column=Col
+
+---
+
+row_idx=268 model=model-atlas job=run-10 task_id=pygfx__pygfx-672 msg_idx=181
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=3497061048
+rootdir: /workspace/repo
+plugins: asyncio-1.4.0, xdist-3.8.0, cov-7.1.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, timeout-2.4.0
+asyncio: mode=strict, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 170 items
+
+
+
+---
+
+row_idx=20 model=model-flint job=run-14 task_id=astropy__ccdproc-867 msg_idx=17
+    ccd_data = subtract_overscan(
+        ccd_data,
+        overscan=ccd_data[oscan_region],
+        overscan_axis=None,
+        median=False,
+        model=models.Polynomial1D(2),
+    )
+    np.testing.assert_almost_equal(ccd_data.data[science_region].mean(), original_mean)
+
+
+def test_subtract_overscan_fails():
+    ccd_data = ccd_data_func()
+    # Do we get an error if the *image* is neither CCDData nor an array?
+    with pytest.raises(TypeError):
+        subtract_overscan(3, np.zeros((5, 5)))
+ 
+
+---
+
+row_idx=107 model=model-atlas job=run-10 task_id=jazzband__django-axes-1022 msg_idx=171
+# ensure that the client can not spoof the headers by setting them and sending them through the proxy
+settings.AXES_META_PRECEDENCE_ORDER = getattr(
+    settings,
+    "AXES_META_PRECEDENCE_ORDER",
+    getattr(settings, "IPWARE_META_PRECEDENCE_ORDER", ("REMOTE_ADDR",)),
+)
+
+# set CORS allowed origins when calling authentication over ajax
+settings.AXES_ALLOWED_CORS_ORIGINS = getattr(settings, "AXES_ALLOWED_CORS_ORIGINS", "*")
+
+# set the list of sensitive parameters to cleanse from get/post data bef
+
+---
+
+row_idx=100 model=model-vega job=run-15 task_id=greyli__apiflask-178 msg_idx=17
+E         +  'additionalProperties': False,
+E            'properties': {'name': {'type': 'string'}},...
+E         
+E         ...Full output truncated (3 lines hidden), use '-vv' to show
+
+tests/test_decorator_output.py:158: AssertionError
+=============================== warnings summary ===============================
+tests/test_settings_auto_behaviour.py: 4 warnings
+tests/test_openapi_paths.py: 6 warnings
+  /workspace/_venv/lib/python3.10/site-packages/jsonschema/validators.py:190: DeprecationWa
+
+---
+
+row_idx=336 model=model-orion job=run-05 task_id=textualize__rich-3006 msg_idx=25
+        rendered_syntax = render(syntax, True)
+        print(repr(rendered_syntax))
+        expected = '\x1b[1;39;41m  \x1b[0m\x1b[39;41m 2 \x1b[0m\x1b[38;2;248;248;242;41m    \x1b[0m\x1b[38;2;230;219;116;41m"""Iterate and generate a tuple with a flag for first and last value."""\x1b[0m\n\x1b[1;39;41m  \x1b[0m\x1b[39;41m 3 \x1b[0m\x1b[38;2;248;248;242;41m    \x1b[0m\x1b[38;2;248;248;242;41miter_values\x1b[0m\x1b[38;2;248;248;242;41m \x1b[0m\x1b[38;2;249;38;114;41m=\x1b[0m\x1b[38;2;248;248;242;41
+
+---
+
+row_idx=63 model=model-delta job=run-12 task_id=encode__django-rest-framework-9455 msg_idx=211
+238:    def test_calling_data_fails_when_attribute_error_is_raised(self):
+239-        """
+240-        This proves that when an AttributeError is raised inside of request.data
+241-        (e.g., from a parser), that we can handle this and report the true error.
+242-        """
+243-        class BrokenParser:
+244-            media_type = 'application/json'
+245-            def parse(self, stream, media_type=None, parser_context=None):
+246-                raise AttributeError("simulated parser attri
+
+---
+
+row_idx=228 model=model-flint job=run-08 task_id=pybamm-team__pybamm-612 msg_idx=175
+    def __init__(self, geometry, submesh_types, var_pts):
+        super().__init__()
+        # convert var_pts to an id dict
+        var_id_pts = {var.id: pts for var, pts in var_pts.items()}
+
+        # create submesh_pts from var_pts
+        submesh_pts = {}
+        for domain in geometry:
+            # Zero dimensional submesh case (only one point)
+            if issubclass(submesh_types[domain], pybamm.SubMesh0D):
+                submesh_pts[domain] = 1
+            # other cases
+            e
+
+---
+
+row_idx=113 model=model-vega job=run-15 task_id=jazzband__django-axes-1313 msg_idx=117
+docs/2_installation.rst:87:If you use ``settings.AXES_COOLOFF_TIME`` for configuring a callable that returns the cooloff time, it needs to accept at minimum a ``request`` argument of type ``HttpRequest`` from version 7 onwards. Example: ``AXES_COOLOFF_TIME = lambda request: timedelta(hours=2)`` (new call signature) instead of ``AXES_COOLOFF_TIME = lambda: timedelta(hours=2)`` (old cal signature). 
+docs/4_configuration.rst:26:| AXES_COOLOFF_TIME                                    | None          
+
+---
+
+row_idx=343 model=model-atlas job=run-10 task_id=textualize__rich-3296 msg_idx=193
+    def test_python_render_simple_indent_guides():
+        syntax = Syntax(
+            CODE,
+            lexer="python",
+            line_numbers=False,
+            theme="ansi_light",
+            code_width=60,
+            word_wrap=False,
+            indent_guides=True,
+        )
+        rendered_syntax = render(syntax)
+        print(repr(rendered_syntax))
+        expected = '\x1b[34mdef\x1b[0m \x1b[32mloop_first_last\x1b[0m(values: Iterable[T]) -> Iterable[Tuple[\x1b[36mb\x1b[0m\n\x1b[2;37m│
+
+---
+
+row_idx=50 model=model-flint job=run-08 task_id=deshaw__pyflyby-303 msg_idx=406
+__________________ test_scan_for_import_issues_type_comment_2 __________________
+
+    def test_scan_for_import_issues_type_comment_2():
+        code = dedent("""
+        from typing import Sequence
+        def foo(strings):
+            # type: (Sequence[str]) -> None
+            pass
+        """)
+        missing, unused = scan_for_import_issues(code)
+>       assert unused == []
+E       AssertionError: assert [(2, Import('...t Sequence'))] == []
+E         
+E         Left contains one more item: (
+
+---
+
+row_idx=311 model=model-cyan job=run-07 task_id=stravalib__stravalib-503 msg_idx=47
+
+src/stravalib/tests/unit/test_model.py:273: AssertionError
+=========================== short test summary info ============================
+FAILED src/stravalib/tests/unit/test_model.py::ModelTest::test_distance_units
+1 failed, 95 passed in 0.50s
+
+
+---
+
+row_idx=20 model=model-flint job=run-14 task_id=astropy__ccdproc-867 msg_idx=75
+Test 1: CCDData input (should work)...
+  SUCCESS: Got result with shape (100, 100)
+
+Test 2: Plain numpy array input (should fail with TypeError)...
+  GOOD: Raised TypeError as expected: ccddata is not a CCDData object.
+
+
+---
+
+row_idx=250 model=model-atlas job=run-10 task_id=pybamm-team__pybamm-947 msg_idx=88
+#
+# Tests for the Base Solver class
+#
+import casadi
+import pybamm
+import numpy as np
+from scipy.sparse import csr_matrix
+
+import unittest
+
+
+class TestBaseSolver(unittest.TestCase):
+    def test_base_solver_init(self):
+        solver = pybamm.BaseSolver(rtol=1e-2, atol=1e-4)
+        self.assertEqual(solver.rtol, 1e-2)
+        self.assertEqual(solver.atol, 1e-4)
+
+        solver.rtol = 1e-5
+        self.assertEqual(solver.rtol, 1e-5)
+        solver.rtol = 1e-7
+        self.assertEqual(solver.rtol, 
+
+---
+
+row_idx=199 model=model-vega job=run-15 task_id=plasmapy__plasmapy-346 msg_idx=99
+=========================== short test summary info ============================
+ERROR plasmapy/physics/tests/test_parameters_cython.py
+ERROR plasmapy/physics/tests/test_parameters_cython.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
+17 warnings, 2 errors in 3.16s
+
+
+---
+
+row_idx=274 model=model-atlas job=run-10 task_id=pypsa__linopy-432 msg_idx=201
+test/test_optimization.py:806: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Running HiGHS 1.14.0 (git hash: 7df0786): Copyright (c) 2026 under MIT licence terms
+Writing the model to /tmp/linopy-problem-2_qd7po4.mps
+Running HiGHS 1.14.0 (git hash: 7df0786): Copyright (c) 2026 under MIT licence terms
+Number of BV entries in BOUNDS section is 10
+MIP linopy-problem-2_qd7po4 has 10 rows; 20 cols; 20 nonzeros; 10 integer variables (10 binary)
+Coeffici
+
+---
+
+row_idx=60 model=model-delta job=run-12 task_id=elastic__curator-664 msg_idx=97
+     1	from .exceptions import *
+     2	from .utils import *
+     3	from datetime import timedelta, datetime, date
+     4	import time
+     5	import re
+     6	from .settings import *
+     7	import logging
+     8	
+     9	class SnapshotList(object):
+    10	    def __init__(self, client, repository=None):
+    11	        verify_client_object(client)
+    12	        if not repository:
+    13	            raise MissingArgument('No value for "repository" provided')
+    14	        if not repository_exists(
+
+---
+
+row_idx=127 model=model-orion job=run-05 task_id=keras-team__keras-nlp-143 msg_idx=53
+  • args=('<KerasTensor shape=(None, 4, 6), dtype=float32, sparse=False, ragged=False, name=keras_tensor_47>',)
+  • kwargs=<class 'inspect._empty'>
+FAILED keras_nlp/layers/transformer_encoder_test.py::TransformerEncoderTest::test_valid_call_with_mask - ValueError: Exception encountered when calling TransformerEncoder.call().
+
+[1mYou cannot add new elements of state (variables or sub-layers) to a layer that is already built. All state must be created in the `__init__()` method or in the `build()
+
+---
+
+row_idx=55 model=model-orion job=run-05 task_id=edgi-govdata-archiving__wayback-140 msg_idx=80
+    # NOTE: worth considering whether we should push this logic to a custom
+    # requests.adapters.HTTPAdapter
+    def send(self, *args, **kwargs):
+        total_time = 0
+        maximum = self.retries
+        retries = 0
+        while True:
+            result = None
+            try:
+                result = super().send(*args, **kwargs)
+                if retries >= maximum or not self.should_retry(result):
+                    if result.status_code == 429:
+                        raise RateLim
+
+---
+
+row_idx=115 model=model-delta job=run-12 task_id=jazzband__django-axes-885 msg_idx=541
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-9.0.3, pluggy-1.6.0
+Using --randomly-seed=601685867
+django: settings: tests.settings (from ini)
+rootdir: /workspace/repo
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, xdist-3.8.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, cov-3.0.0, django-4.5.2, timeout-2.4.0
+asyncio: mode=strict, debug=False, asyncio_default_fix
+
+---
+
+row_idx=56 model=model-delta job=run-12 task_id=elastic__curator-1019 msg_idx=155
+diff --git a/curator/actions.py b/curator/actions.py
+index 3cd4f20..f95ccc2 100644
+--- a/curator/actions.py
++++ b/curator/actions.py
+@@ -973,7 +973,7 @@ class DeleteSnapshots(object):
+             retry_interval=self.retry_interval, retry_count=self.retry_count):
+                 raise FailedExecution(
+                     'Unable to delete snapshot(s) because a snapshot is in '
+-                    'state "IN_PROGRESS"')
++                    'state "IN_PROGRESS" or a snapshot task is running.')
+
+---
+
+row_idx=292 model=model-flint job=run-08 task_id=qchackers__tqec-309 msg_idx=78
+=== Nodes in zx_graph ===
+  (0,0,0): NodeType.Z
+  (0,0,1): NodeType.Z
+
+=== Edges in zx_graph ===
+  (0,0,0) -> (0,0,1): direction=Z
+
+=== Analyzing corner cubes (simulating from_zx_graph logic) ===
+
+Node at (0,0,1):
+  Node type: NodeType.Z
+  Edge directions: {<Direction3D.Z: 2>}
+  Count: 1
+  Would be skipped (1 edge direction)
+
+Node at (0,0,0):
+  Node type: NodeType.Z
+  Edge directions: {<Direction3D.Z: 2>}
+  Count: 1
+  Would be skipped (1 edge direction)
+
+=== Corner cubes found: 0 ===
+
+NO CORNER 
+
+---
+
+row_idx=146 model=model-garnet job=run-13 task_id=litestar-org__polyfactory-510 msg_idx=63
+cachedir: .pytest_cache
+hypothesis profile 'default'
+Using --randomly-seed=2534638022
+rootdir: /workspace/repo
+configfile: pyproject.toml
+plugins: Faker-40.19.1, asyncio-1.4.0, xdist-3.8.0, cov-7.1.0, hypothesis-6.155.1, recording-0.13.4, randomly-4.1.0, mock-3.15.1, requests-mock-1.12.1, env-1.6.0, timeout-2.4.0
+asyncio: mode=auto, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 1 item
+
+tests/sqlalchemy_factory/test_sqlalch
+
+---
+
+row_idx=164 model=model-cyan job=run-01 task_id=opensearch-project__opensearch-py-394 msg_idx=94
+Saved working directory and index state WIP on (no branch): 3fcddc9 Updated Compatibility Matrix with the latest Client and OpenSearch Versions (#381)
+ERROR test_opensearchpy/test_async/test_helpers/test_document.py::test_save_no_index
+194 passed, 17 warnings, 3 errors in 3.78s
+ M CHANGELOG.md
+ M opensearchpy/client/utils.py
+ M test_opensearchpy/test_async/test_connection.py
+ M test_opensearchpy/test_client/test_utils.py
+ M test_opensearchpy/test_connection.py
+?? test_opensearchpy/TestHttpServer
+
+---
+
+row_idx=209 model=model-cyan job=run-07 task_id=psd-tools__psd-tools-336 msg_idx=97
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/psd_tools/test_main.py::test_main[argv0] - AttributeError: modul...
+1 failed, 810 passed, 19 xfailed, 2 xpassed, 15 warnings in 11.43s
+
+
+---
+
+row_idx=93 model=model-delta job=run-12 task_id=googlecloudplatform__cloud-sql-python-connector-304 msg_idx=261
+    with patch(
+        "google.cloud.sql.connector.connector.InstanceConnectionManager"
+    ) as mock_icm:
+        mock_icm.return_value = MockInstanceConnectionManager(enable_iam_auth=False)
+        conn = default_connector.connect(
+            connect_string,
+            "pg8000",
+            enable_iam_auth=False,
+        )
+        assert conn is True
+        # try to connect using enable_iam_auth=True, should raise error
+        pytest.raises(
+            ValueError,
+            default_con
+
+---
+
+row_idx=238 model=model-vega job=run-15 task_id=pybamm-team__pybamm-818 msg_idx=71
+FAILED tests/unit/test_solvers/test_solution.py::TestSolution::test_save - No...
+FAILED tests/unit/test_spatial_methods/test_scikit_finite_element.py::TestScikitFiniteElement::test_dirichlet_bcs
+FAILED tests/unit/test_spatial_methods/test_scikit_finite_element.py::TestScikitFiniteElement::test_neg_pos
+FAILED tests/unit/test_spatial_methods/test_scikit_finite_element.py::TestScikitFiniteElement::test_manufactured_solution
+FAILED tests/unit/test_spatial_methods/test_scikit_finite_element.py::TestS
+
+---
+
+row_idx=221 model=model-cyan job=run-07 task_id=pybamm-team__pybamm-529 msg_idx=193
+FAILED tests/unit/test_models/test_simple_ode_model.py::TestSimpleODEModel::test_solution
+FAILED tests/unit/test_quick_plot.py::TestQuickPlot::test_loqs_spm_base - Val...
+FAILED tests/unit/test_quick_plot.py::TestQuickPlot::test_simple_ode_model - ...
+FAILED tests/unit/test_parameters/test_update_parameters.py::TestUpdateParameters::test_update_geometry
+FAILED tests/unit/test_processed_variable.py::TestProcessedVariable::test_processed_var_2D_interpolation
+FAILED tests/unit/test_processed_variab

@@ -1,0 +1,9 @@
+error_type,count
+nonzero_exit,3482
+traceback,1600
+syntax_import,566
+file_not_found,288
+timeout,137
+cmd_not_found,73
+edit_no_match,27
+permission,9

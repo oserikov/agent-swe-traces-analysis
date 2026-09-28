@@ -1,0 +1,16 @@
+model,job,IL,OK,TL,WA
+model-atlas,run-10,2,16,0,22
+model-cyan,run-01,0,28,0,2
+model-cyan,run-07,0,19,0,11
+model-delta,run-03,0,7,0,13
+model-delta,run-12,0,18,2,20
+model-flint,run-04,1,4,0,0
+model-flint,run-06,13,2,0,3
+model-flint,run-08,9,9,0,12
+model-flint,run-14,0,6,0,1
+model-garnet,run-02,0,2,0,3
+model-garnet,run-09,0,6,0,3
+model-garnet,run-11,0,5,0,3
+model-garnet,run-13,0,3,0,5
+model-orion,run-05,0,40,3,17
+model-vega,run-15,1,53,0,6

@@ -1,0 +1,14 @@
+issue,count
+trace_ends_mid_tool_call,50
+unknown_tool:grep,5
+unknown_tool:git,3
+unknown_tool: bash,2
+unknown_tool:find,2
+"unknown_tool:run -h 2>&1 | head -30
+</arg_value>",1
+unknown_tool:task_complete,1
+"unknown_tool:grep -n ""sys \""\""\"" src/pip/_internal/req/req_dependency_group.py</arg_value>",1
+unknown_tool:make</arg_value>,1
+unknown_tool:dialog</arg_value>,1
+unknown_tool:run_constraints_error</arg_value>,1
+unknown_tool:execute,1
