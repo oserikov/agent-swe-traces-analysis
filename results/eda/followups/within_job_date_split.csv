@@ -1,0 +1,13 @@
+job,model,date,n_traces,reward_mean,asst_turns_median,n_IL,n_TL
+run-05,model-orion,2026-06-10,45,0.8,34.0,0,2
+run-05,model-orion,2026-06-11,15,0.27,68.0,0,1
+run-07,model-cyan,2026-07-04,12,0.67,14.5,0,0
+run-07,model-cyan,2026-07-10,18,0.61,53.5,0,0
+run-10,model-atlas,2026-06-14,11,0.45,80.0,0,0
+run-10,model-atlas,2026-06-15,29,0.38,126.0,2,0
+run-12,model-delta,2026-06-10,7,0.43,67.0,0,0
+run-12,model-delta,2026-06-11,33,0.45,120.0,0,2
+run-14,model-flint,2026-06-25,3,1.0,60.0,0,0
+run-14,model-flint,2026-06-26,4,0.75,88.0,0,0
+run-15,model-vega,2026-07-02,49,0.88,17.0,1,0
+run-15,model-vega,2026-07-10,11,0.91,72.0,0,0

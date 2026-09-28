@@ -400,6 +400,66 @@ def write_il_check(ds):
     pd.DataFrame(summary).to_csv(OUT_DIR / "il_check_by_model_job.csv", index=False)
 
 
+REPO_IN_PREAMBLE = re.compile(r"in the `([^`]+)` repository")
+INTERFACES_MARKER = "## Expected Interfaces"
+
+
+def write_within_job_scaffold(ds):
+    rows = []
+    for i, row in enumerate(ds):
+        conv = row["conversation"]
+        first_user_idx = next(k for k, t in enumerate(conv) if t.get("role") == "user")
+        first_user = conv[first_user_idx]["content"] or ""
+        preamble = mask_task_statement(first_user)
+        repo = REPO_IN_PREAMBLE.search(preamble)
+        if repo:
+            preamble = preamble.replace(repo.group(1), "<REPO>")
+        interfaces = first_user.split(INTERFACES_MARKER, 1)[1] if INTERFACES_MARKER in first_user else ""
+        date = DATE_LINE.search(row["system_prompt"])
+        rows.append(
+            {
+                "row_idx": i,
+                "model": row["model"],
+                "job": row["job"],
+                "status": row["status"],
+                "reward": row["reward"],
+                "asst_turns": sum(1 for t in conv if t.get("role") == "assistant"),
+                "date": date.group(1) if date else None,
+                "system_prompt_date_masked": DATE_LINE.sub("Current date: X", row["system_prompt"]),
+                "prompt_role": conv[0]["role"],
+                "tools": json.dumps(row["tools"], sort_keys=True),
+                "preamble_repo_masked": preamble,
+                "interfaces_intro": interfaces.strip().split("\n\n")[0],
+                "extra_non_agent_msgs": sum(
+                    1 for t in conv[first_user_idx + 1 :] if t.get("role") not in ("assistant", "tool")
+                ),
+            }
+        )
+    df = pd.DataFrame(rows)
+    grouped = df.groupby("job")
+    pd.DataFrame(
+        {
+            "model": grouped["model"].first(),
+            "n_traces": grouped.size(),
+            "system_prompts_date_masked": grouped["system_prompt_date_masked"].nunique(),
+            "prompt_roles": grouped["prompt_role"].nunique(),
+            "tools_schemas": grouped["tools"].nunique(),
+            "preambles_repo_masked": grouped["preamble_repo_masked"].nunique(),
+            "interfaces_intros": grouped["interfaces_intro"].nunique(),
+            "traces_with_extra_non_agent_msgs": grouped["extra_non_agent_msgs"].apply(lambda s: (s > 0).sum()),
+            "dates": grouped["date"].nunique(),
+        }
+    ).reset_index().to_csv(OUT_DIR / "within_job_scaffold.csv", index=False)
+    multi_date_jobs = grouped["date"].nunique().loc[lambda s: s > 1].index
+    df[df["job"].isin(multi_date_jobs)].groupby(["job", "model", "date"]).agg(
+        n_traces=("row_idx", "size"),
+        reward_mean=("reward", "mean"),
+        asst_turns_median=("asst_turns", "median"),
+        n_IL=("status", lambda s: (s == "IL").sum()),
+        n_TL=("status", lambda s: (s == "TL").sum()),
+    ).round(2).reset_index().to_csv(OUT_DIR / "within_job_date_split.csv", index=False)
+
+
 def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     ds = get_traces()
@@ -414,6 +474,7 @@ def main():
     write_unmatched_breakdown(ds)
     write_validation_failures(ds)
     write_il_check(ds)
+    write_within_job_scaffold(ds)
     print(f"Wrote follow-up outputs to {OUT_DIR}")
 
 

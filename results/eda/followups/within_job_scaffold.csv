@@ -1,0 +1,16 @@
+job,model,n_traces,system_prompts_date_masked,prompt_roles,tools_schemas,preambles_repo_masked,interfaces_intros,traces_with_extra_non_agent_msgs,dates
+run-01,model-cyan,30,1,1,1,1,1,0,1
+run-02,model-garnet,5,1,1,1,1,1,0,1
+run-03,model-delta,20,1,1,1,1,1,0,1
+run-04,model-flint,5,1,1,1,1,1,0,1
+run-05,model-orion,60,1,1,1,1,1,0,2
+run-06,model-flint,18,1,1,1,1,1,0,1
+run-07,model-cyan,30,1,1,1,1,1,0,2
+run-08,model-flint,30,1,1,1,1,1,0,1
+run-09,model-garnet,9,1,1,1,1,1,0,1
+run-10,model-atlas,40,1,1,1,1,1,0,2
+run-11,model-garnet,8,1,1,1,1,1,0,1
+run-12,model-delta,40,1,1,1,1,1,0,2
+run-13,model-garnet,8,1,1,1,1,1,0,1
+run-14,model-flint,7,1,1,1,1,1,0,2
+run-15,model-vega,60,1,1,1,1,1,0,2
