@@ -285,12 +285,12 @@ the next-longest `run-12` trace.
 Reward mean by model ranges from 0.35 (model-flint) to 0.883 (model-vega)
 (`grade_reward_by_model.csv`). Consistency check (OK with reward 0, or non-OK with reward 1) found
 *zero* violations across all 370 rows (`grade_consistency_anomalies.json` is `[]`) --- status and
-reward agree everywhere.
+reward agree everywhere. #todoai[6e984974-6ff0-4c9b-8a7c-8f5db89aa0c4 what are these abbreviations?]
 
 *Proxy family.* 30,444 requests at 200, 322 at 429, 1 at 503 (`proxy_status_code_counts.csv`).
 Non-200 traffic is not spread evenly: it is almost entirely `run-03` (mean non-200 rate 0.564 over
 that job's 20 traces, vs. 0.0 for 12 of the other 14 jobs) and `run-14` (0.098) --- see
-`proxy_rate_by_job.csv`. Since `run-03` is exclusively model-delta (`crosstab_model_job.csv`), this
+`proxy_rate_by_job.csv`. Since `run-03` is exclusively model-delta #todooleg[] (`crosstab_model_job.csv`), this
 surfaces as a model-level number too: model-delta's per-trace non-200 rate averages 0.194 vs. 0.0
 for five of the other six models (`proxy_rate_by_model.csv`). Worst single trace: row 225
 (model-flint/run-14/`pybamm-team__pybamm-602`), 28/63 non-200 (`proxy_per_trace.csv`).
