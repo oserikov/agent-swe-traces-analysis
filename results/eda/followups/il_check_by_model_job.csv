@@ -1,0 +1,6 @@
+model,job,n_traces,n_IL,IL_asst_turns,nonIL_max_asst_turns,nonIL_at_or_above_200_or_100_cap,IL_chars_min_k,IL_chars_max_k,nonIL_chars_max_k,nonIL_larger_than_smallest_IL,IL_last_turn_over_median_max
+model-atlas,run-10,40,2,200 200,200,4,286,637,617,17,1.53
+model-flint,run-04,5,1,200,165,0,397,397,251,0,0.83
+model-flint,run-06,18,13,100 100 100 100 100 100 100 100 100 100 100 100 174,58,0,86,404,164,4,4.4
+model-flint,run-08,30,9,200 200 200 200 200 200 200 200 200,200,1,350,590,396,3,4.99
+model-vega,run-15,60,1,200,189,0,413,413,492,3,1.28

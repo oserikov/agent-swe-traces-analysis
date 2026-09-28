@@ -347,6 +347,59 @@ def write_unmatched_breakdown(ds):
     (OUT_DIR / "unmatched_examples.txt").write_text("\n".join(text))
 
 
+def message_chars(turn: dict) -> int:
+    calls = turn.get("tool_calls")
+    return (
+        len(turn.get("content") or "")
+        + len(turn.get("reasoning_content") or "")
+        + (len(json.dumps(calls)) if calls else 0)
+    )
+
+
+def write_il_check(ds):
+    rows = []
+    for i, row in enumerate(ds):
+        conv = row["conversation"]
+        assistant = [t for t in conv if t.get("role") == "assistant"]
+        out_lengths = pd.Series([message_chars(t) for t in assistant])
+        rows.append(
+            {
+                "row_idx": i,
+                "model": row["model"],
+                "job": row["job"],
+                "status": row["status"],
+                "asst_turns": len(assistant),
+                "conversation_chars": sum(message_chars(t) for t in conv),
+                "last_asst_chars": int(out_lengths.iloc[-1]) if len(out_lengths) else 0,
+                "median_asst_chars": float(out_lengths.median()) if len(out_lengths) else 0.0,
+            }
+        )
+    df = pd.DataFrame(rows)
+    df.to_csv(OUT_DIR / "il_check_per_trace.csv", index=False)
+    summary = []
+    for (model, job), group in df.groupby(["model", "job"]):
+        il, other = group[group["status"] == "IL"], group[group["status"] != "IL"]
+        if il.empty:
+            continue
+        summary.append(
+            {
+                "model": model,
+                "job": job,
+                "n_traces": len(group),
+                "n_IL": len(il),
+                "IL_asst_turns": " ".join(str(t) for t in sorted(il["asst_turns"])),
+                "nonIL_max_asst_turns": int(other["asst_turns"].max()),
+                "nonIL_at_or_above_200_or_100_cap": int(other["asst_turns"].isin([100, 200]).sum()),
+                "IL_chars_min_k": int(il["conversation_chars"].min() // 1000),
+                "IL_chars_max_k": int(il["conversation_chars"].max() // 1000),
+                "nonIL_chars_max_k": int(other["conversation_chars"].max() // 1000),
+                "nonIL_larger_than_smallest_IL": int((other["conversation_chars"] > il["conversation_chars"].min()).sum()),
+                "IL_last_turn_over_median_max": round(float((il["last_asst_chars"] / il["median_asst_chars"]).max()), 2),
+            }
+        )
+    pd.DataFrame(summary).to_csv(OUT_DIR / "il_check_by_model_job.csv", index=False)
+
+
 def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     ds = get_traces()
@@ -360,6 +413,7 @@ def main():
     write_scaffold_diff_examples(ds, reruns, df, variants)
     write_unmatched_breakdown(ds)
     write_validation_failures(ds)
+    write_il_check(ds)
     print(f"Wrote follow-up outputs to {OUT_DIR}")
 
 
