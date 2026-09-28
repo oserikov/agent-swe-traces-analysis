@@ -1,0 +1,66 @@
+# The 50 traces that end on an unresolved tool call
+
+Source: rows with `trace_ends_mid_tool_call` in `results/eda/malformed_turns.csv`. Per-trace table:
+`mid_tool_call_endings.csv`. Python aggregation only; last-turn text was read truncated.
+
+## Categories (assigned in order; every trace gets exactly one)
+
+| category | rule | IL | OK | TL | WA | total |
+|---|---|---|---|---|---|---|
+| step_cap | assistant turns == exactly 100 (flint/run-06) or 200 (flint/run-04, flint/run-08, atlas/run-10, vega/run-15) | 25 | 3 | 0 | 0 | 28 |
+| proxy_429_x4_at_end | proxy log ends in 4 consecutive 429s | 0 | 3 | 0 | 9 | 12 |
+| time_limit_TL | status TL | 0 | 0 | 4 | 0 | 4 |
+| run03_short_unexplained | delta/run-03, 429-heavy, but log ends on 200s | 0 | 1 | 0 | 2 | 3 |
+| long_unexplained | none of the above | 1 | 2 | 0 | 0 | 3 |
+| total | | 26 | 9 | 4 | 11 | 50 |
+
+## Observations (numbers only; the harness logic behind them is inferred)
+
+- **IL ≈ step cap.** 25/26 IL traces stop at exactly 100 or 200 assistant turns. The one exception is row 89
+  (flint/run-06, 174 turns), which is past the 100 turns where 12 other run-06 traces stopped. So the cap is not strictly uniform
+  within the job. In the 5 capped (model, job) cells, every trace with exactly 100 or 200 turns ends mid-tool-call.
+  In atlas/run-10, 2 traces have exactly 100 turns and end cleanly (OK and WA), so 100 is not atlas's cap.
+  In capped traces `n_proxy_requests == n_asst_turns` (no retries). Best reading: IL = the step/iteration limit was hit.
+  The pending call was never executed.
+- **3 OK traces also hit the 200 cap** (rows 275, 343 atlas/run-10; 333 flint/run-08). Same ending as IL,
+  but they were graded OK. That's consistent with grading done on the repo state left at the cap, not on the IL label.
+  Unclear why these 3 got OK and not IL.
+- **429 retry exhaustion.** 12 traces (11 delta/run-03 plus row 225 flint/run-14) have a proxy log ending
+  in exactly 4 consecutive 429s. Across all 27 run-03/run-14 traces, the longest run of 429s is never above 4. Every trace
+  whose log *ends* on a 4-run stops mid-tool-call (12/12). Traces with a 4-run earlier that was followed by 200s
+  continued (e.g. rows 25, 41, 98, 103, 276 end cleanly). In run-03, `n_proxy - n_asst == n_429` for these traces:
+  each 429 is a retry that produced no turn. Pattern consistent with "3 retries, then abort". These traces
+  were still graded OK (36, 225, 282) or WA (9). So a WA here may reflect the proxy killing the trace, not a wrong fix.
+  Examples: row 82 (delta/run-03, WA) died after 1 assistant turn while writing `repro.py`.
+  Row 225 (flint/run-14, OK) died on `read independent_variable.py` after 35 turns, 28 of its 63 requests being 429.
+  n_429 values in run-03 are 4/7/10/13/16 (4+3k); 9 of 20 run-03 traces have exactly 16.
+- **TL (4).** Row 57 (delta/run-12, 845 turns) ends on `sleep 20; pytest ...`. Row 263 (delta/run-12,
+  1,786 turns, the dataset max) ends on `cat pygfx/materials/_base.py`. Rows 214/215 (orion/run-05) end at only
+  87/99 turns but have 0.6M/1.07M chars. TL does not match a turn count, so it is presumably wall-clock.
+  The 5th TL trace ends cleanly.
+- **run03_short_unexplained (95, 147, 281):** they had 4-runs of 429s mid-trace but end on 200s. No
+  visible reason in the log for stopping. Row 281 (OK) ends on an `edit` of `pyfakefs/helpers.py` that was never applied.
+- **long_unexplained:** row 89 (IL, see above); row 140 (cyan/run-01, OK, 101 turns, ends on
+  `curl` of a GitHub commit diff, i.e. the model went to fetch the upstream fix); row 168 (delta/run-12, OK,
+  1,213 turns, ends on `cat pyproject.toml`). No 429s in any of the three.
+
+## What was the last action? (heuristic on the final tool call)
+
+| status | inspect (read/cat/grep/find/git log) | run-tests/diff | edit/write | other bash |
+|---|---|---|---|---|
+| IL | 10 | 8 | 2 | 6 |
+| OK | 3 | 1 | 2 | 3 |
+| TL | 2 | 1 | 1 | 0 |
+| WA | 8 | 0 | 0 | 3 |
+
+None of the 50 ends on a "submit"/"complete"-style call. Capped traces are mostly still exploring or re-running
+tests. The 429 group is almost all inspection, because it dies early.
+
+## Uncertainty
+- 429/abort and step-cap readings are inferred from counts; the harness code is not available.
+- The step cap differs by job (100 vs 200) and is violated once (row 89).
+- The last-action classification is regex-based on the command string.
+
+Out of scope, noted for Part 1: flint's final-turn reasoning often contains hostile or frustrated asides
+("this whole test suite is garbage" row 68, "see if this garbage finally passes" row 62, "not that I have any faith left"
+row 158, "the issue text is garbage" row 363).

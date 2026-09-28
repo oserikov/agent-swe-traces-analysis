@@ -1,0 +1,8 @@
+model,n_traces,n_distinct_tasks,n_rerun_pairs,rerun_pairs_same_job,rerun_pairs_same_fingerprint,rerun_pairs_reward_differs
+model-atlas,40,40,0,0,0,0
+model-cyan,60,42,18,0,0,7
+model-delta,60,59,1,0,1,1
+model-flint,60,55,5,1,1,0
+model-garnet,30,28,2,0,2,0
+model-orion,60,60,0,0,0,0
+model-vega,60,60,0,0,0,0

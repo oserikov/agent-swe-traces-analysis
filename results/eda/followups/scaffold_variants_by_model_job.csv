@@ -1,0 +1,16 @@
+model,job,n_traces,dates,prompt_roles,n_system_prompts_date_masked,tools_variants
+model-atlas,run-10,40,2026-06-14 2026-06-15,developer,1,T2
+model-cyan,run-01,30,2026-06-12,system,1,T2
+model-cyan,run-07,30,2026-07-04 2026-07-10,developer,1,T2
+model-delta,run-03,20,2026-06-10,developer,1,T1
+model-delta,run-12,40,2026-06-10 2026-06-11,developer,1,T1
+model-flint,run-04,5,2026-07-02,system,1,T2
+model-flint,run-06,18,2026-06-12,developer,1,T2
+model-flint,run-08,30,2026-07-06,system,1,T2
+model-flint,run-14,7,2026-06-25 2026-06-26,system,1,T2
+model-garnet,run-02,5,2026-06-10,developer,1,T1
+model-garnet,run-09,9,2026-06-18,system,1,T2
+model-garnet,run-11,8,2026-06-18,system,1,T2
+model-garnet,run-13,8,2026-06-18,system,1,T2
+model-orion,run-05,60,2026-06-10 2026-06-11,system,1,T1
+model-vega,run-15,60,2026-07-02 2026-07-10,system,1,T2

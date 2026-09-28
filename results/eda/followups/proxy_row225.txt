@@ -1,0 +1,35 @@
+row_idx=225 model=model-flint job=run-14 task_id=pybamm-team__pybamm-602 status=OK
+n_proxy_requests=63 n_200=35 n_non200=28 n_assistant_turns=35
+request sequence (run-length): 429x1 200x1 429x2 200x2 429x1 200x1 429x1 200x1 429x1 200x1 429x1 200x2 429x3 200x4 429x1 200x2 429x2 200x4 429x1 200x2 429x2 200x2 429x2 200x2 429x1 200x1 429x1 200x1 429x1 200x1 429x1 200x1 429x1 200x2 429x1 200x5 429x4
+last message role=assistant has_tool_calls=True
+
+All traces of job run-14 (same columns):
+  row  20 model-flint OK requests=63 non200=0 asst_turns=63 rle=200x63
+  row 149 model-flint WA requests=136 non200=0 asst_turns=136 rle=200x136
+  row 216 model-flint OK requests=60 non200=0 asst_turns=60 rle=200x60
+  row 225 model-flint OK requests=63 non200=28 asst_turns=35 rle=429x1 200x1 429x2 200x2 429x1 200x1 429x1 200x1 429x1 200x1 429x1 200x2 429x3 200x4 429x1 200x2 429x2 200x4 429x1 200x2 429x2 200x2 429x2 200x2 429x1 200x1 429x1 200x1 429x1 200x1 429x1 200x1 429x1 200x2 429x1 200x5 429x4
+  row 321 model-flint OK requests=235 non200=16 asst_turns=219 rle=200x20 429x1 200x22 429x2 200x12 429x1 200x13 429x2 200x1 429x1 200x17 429x1 200x26 429x3 200x1 429x2 200x60 429x1 200x27 429x2 200x20
+  row 339 model-flint OK requests=44 non200=4 asst_turns=40 rle=429x3 200x22 429x1 200x18
+  row 342 model-flint OK requests=37 non200=3 asst_turns=34 rle=429x2 200x32 429x1 200x2
+
+All traces of run-03 (for comparison):
+  row  25 model-delta OK requests=28 non200=16 asst_turns=12 rle=200x1 429x3 200x3 429x3 200x1 429x3 200x2 429x3 200x4 429x4 200x1
+  row  36 model-delta OK requests=30 non200=16 asst_turns=14 rle=200x2 429x3 200x3 429x3 200x2 429x3 200x1 429x3 200x6 429x4
+  row  41 model-delta WA requests=30 non200=16 asst_turns=14 rle=200x1 429x3 200x3 429x3 200x2 429x3 200x2 429x3 200x4 429x4 200x2
+  row  48 model-delta WA requests=30 non200=16 asst_turns=14 rle=200x2 429x3 200x3 429x3 200x2 429x3 200x2 429x3 200x5 429x4
+  row  49 model-delta WA requests=31 non200=16 asst_turns=15 rle=200x2 429x3 200x4 429x3 200x2 429x3 200x2 429x3 200x5 429x4
+  row  82 model-delta WA requests=5 non200=4 asst_turns=1 rle=200x1 429x4
+  row  95 model-delta WA requests=14 non200=7 asst_turns=7 rle=200x2 429x3 200x3 429x4 200x2
+  row  98 model-delta WA requests=30 non200=16 asst_turns=14 rle=200x2 429x3 200x3 429x3 200x2 429x3 200x2 429x3 200x4 429x4 200x1
+  row 103 model-delta OK requests=31 non200=16 asst_turns=15 rle=200x2 429x3 200x3 429x3 200x2 429x3 200x2 429x3 200x5 429x4 200x1
+  row 144 model-delta WA requests=10 non200=7 asst_turns=3 rle=200x1 429x3 200x2 429x4
+  row 147 model-delta WA requests=32 non200=16 asst_turns=16 rle=200x2 429x3 200x3 429x3 200x2 429x3 200x2 429x3 200x6 429x4 200x1
+  row 173 model-delta WA requests=19 non200=10 asst_turns=9 rle=200x1 429x3 200x2 429x3 200x6 429x4
+  row 234 model-delta WA requests=15 non200=10 asst_turns=5 rle=200x2 429x3 200x1 429x3 200x2 429x4
+  row 260 model-delta WA requests=29 non200=16 asst_turns=13 rle=200x1 429x3 200x3 429x3 200x2 429x3 200x2 429x3 200x5 429x4
+  row 276 model-delta OK requests=23 non200=13 asst_turns=10 rle=200x2 429x3 200x3 429x3 200x2 429x3 200x1 429x4 200x2
+  row 281 model-delta OK requests=29 non200=16 asst_turns=13 rle=200x2 429x3 200x3 429x3 200x1 429x3 200x2 429x3 200x4 429x4 200x1
+  row 282 model-delta OK requests=21 non200=13 asst_turns=8 rle=200x2 429x3 200x3 429x3 200x1 429x3 200x2 429x4
+  row 303 model-delta OK requests=47 non200=15 asst_turns=32 rle=200x2 429x3 200x3 429x3 200x2 429x3 200x2 429x3 200x6 429x3 200x17
+  row 334 model-delta WA requests=6 non200=4 asst_turns=2 rle=200x2 429x4
+  row 354 model-delta WA requests=28 non200=16 asst_turns=12 rle=200x2 429x3 200x3 429x3 200x1 429x3 200x2 429x3 200x4 429x4

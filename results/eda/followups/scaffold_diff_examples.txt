@@ -1,0 +1,25 @@
+===== system_prompt: 1 same-model rerun pairs differ ONLY in system_prompt; example below
+--- row 166 model-flint run-04 parquery__icontract-236
++++ row 167 model-flint run-08 parquery__icontract-236
+@@ -29,3 +29,3 @@
+ - Always read pi .md files completely and follow links to related docs (e.g., tui.md for TUI API details)
+-Current date: 2026-07-02
++Current date: 2026-07-06
+ Current working directory: /workspace/repo
+
+===== tools: 0 same-model rerun pairs differ ONLY in tools.
+Diff between the dataset's distinct tools schemas (first trace of each variant):
+T1 used by: model-delta/run-03, model-delta/run-12, model-garnet/run-02, model-orion/run-05
+T2 used by: model-atlas/run-10, model-cyan/run-01, model-cyan/run-07, model-flint/run-04, model-flint/run-06, model-flint/run-08, model-flint/run-14, model-garnet/run-09, model-garnet/run-11, model-garnet/run-13, model-vega/run-15
+--- T1
++++ T2
+@@ -31,3 +31,3 @@
+   "function": {
+-   "description": "Execute a bash command in the current working directory. Returns stdout and stderr. Output is truncated to last 2000 lines or 50KB (whichever is hit first). If truncated, full output is saved to a temp file. Optionally provide a timeout in seconds.",
++   "description": "Execute a bash command in the current working directory. Returns stdout and stderr. Output is truncated to last 2000 lines or 50KB (whichever is hit first). If truncated, full output is saved to a temp file. Commands are killed after 60 seconds by default; pass timeout to override.",
+    "name": "bash",
+@@ -40,3 +40,3 @@
+      "timeout": {
+-      "description": "Timeout in seconds (optional, no default timeout)",
++      "description": "Timeout in seconds (default: 60)",
+       "type": "number"

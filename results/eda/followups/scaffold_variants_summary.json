@@ -1,0 +1,9 @@
+{
+  "distinct_system_prompts_raw": 12,
+  "distinct_system_prompts_date_masked": 1,
+  "distinct_tools_schemas": 2,
+  "traces_per_tools_variant": {
+    "T2": 245,
+    "T1": 125
+  }
+}

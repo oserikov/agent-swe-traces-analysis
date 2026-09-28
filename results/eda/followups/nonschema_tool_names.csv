@@ -1,0 +1,20 @@
+row_idx,model,job,task_id,status,msg_idx,name,arguments
+42,model-orion,run-05,ctfd__ctfd-2767,OK,36,' bash',"{""command"": ""python -c \""\nfrom CTFd import create_app\nfrom CTFd.models import Flags\nfrom CTFd.schemas.flags import FlagSchema\nimport sys\n\napp = "
+42,model-orion,run-05,ctfd__ctfd-2767,OK,38,' bash',"{""command"": ""python -c \""print('test')\""""}"
+62,model-flint,run-08,encode__django-rest-framework-9360,IL,256,'run -h 2>&1 | head -30\n</arg_value>',{}
+155,model-atlas,run-10,mila-udem__fuel-217,OK,194,'task_complete',{}
+158,model-flint,run-04,oceanparcels__parcels-2091,IL,2,'find',"{""pattern"": ""xgrid""}"
+160,model-orion,run-05,opendatacube__odc-geo-124,WA,6,'grep',"{""pattern"": ""def reproject"", ""path"": ""odc/geo"", ""output"": ""line""}"
+182,model-orion,run-05,peopledoc__workalendar-373,WA,22,'grep',"{""command"": ""grep -n \""Turkey\"" /workspace/repo/workalendar/tests/test_europe.py || echo \""Not found\""""}"
+272,model-flint,run-08,pypa__pip-13065,IL,234,"'grep -n ""sys \\""\\""\\"" src/pip/_internal/req/req_dependency_group.py</arg_value>'",{}
+272,model-flint,run-08,pypa__pip-13065,IL,372,'make</arg_value>',{}
+298,model-delta,run-12,quantconnect__lean-cli-486,OK,482,'git',"{""args"": [""push"", ""--force"", ""origin"", ""HEAD:fix-init-unauth""]}"
+298,model-delta,run-12,quantconnect__lean-cli-486,OK,505,'git',"{""command"": ""status""}"
+298,model-delta,run-12,quantconnect__lean-cli-486,OK,507,'git',"{""command"": ""status""}"
+307,model-orion,run-05,rigetticomputing__pyquil-312,OK,11,'grep',"{""command"": ""grep -rn \""ISA(\"" /workspace/repo/pyquil/ --include=\""*.py\""""}"
+307,model-orion,run-05,rigetticomputing__pyquil-312,OK,11,'grep',"{""command"": ""grep -rn \""\\.name\\b\"" /workspace/repo/pyquil/device.py""}"
+323,model-flint,run-08,textualize__rich-2226,OK,4,'find',"{""path"": ""/workspace/repo"", ""pattern"": ""*_rich_traceback_omit""}"
+323,model-flint,run-08,textualize__rich-2226,OK,232,'dialog</arg_value>',{}
+353,model-flint,run-08,tqdm__tqdm-378,IL,237,'run_constraints_error</arg_value>',{}
+366,model-orion,run-05,xlsform__pyxform-485,WA,10,'grep',"{""command"": ""grep -r \""default\"" /workspace/repo/pyxform --include=\""*.py\"" -l""}"
+366,model-orion,run-05,xlsform__pyxform-485,WA,40,'execute',"{""command"": ""cd /workspace/repo && python test_issue.py 2>&1"", ""timeout"": 30}"

@@ -1,0 +1,8 @@
+row_idx,group,task_id,status,reward,ends,n_msgs,n_asst,n_proxy_requests,proxy_minus_asst,n_tool_calls,consec_identical_msgs,repeated_call_ids,repeated_result_ids,n_bash,frac_bash_repeat,longest_identical_call_run,frac_tool_output_repeat,n_reasoning,frac_reasoning_repeat,repeat_onset_call_idx,onset_frac_of_calls
+369,target,zopefoundation__zope.interface-335,OK,1,assistant,1723,861,863,2,860,0,0,0,756,0.439,2,0.441,6,0.167,338.0,0.393
+115,target,jazzband__django-axes-885,OK,1,assistant,1625,812,814,2,811,0,0,0,755,0.636,2,0.382,3,0.0,23.0,0.028
+57,target,elastic__curator-560,TL,0,assistant+open_tool_calls,1691,845,845,0,845,0,0,0,836,0.394,5,0.235,4,0.0,523.0,0.619
+168,target,parquery__icontract-236,OK,1,assistant+open_tool_calls,2427,1213,1213,0,1213,0,0,0,1077,0.515,4,0.44,5,0.0,130.0,0.107
+263,target,pygfx__pygfx-121,TL,0,assistant+open_tool_calls,3573,1786,1786,0,1786,0,0,0,1786,0.994,5,0.996,2,0.0,0.0,0.0
+72,baseline,feature-engine__feature_engine-531,OK,1,assistant,221,110,110,0,109,0,0,0,95,0.274,1,0.193,7,0.0,,
+304,baseline,rigetticomputing__pyquil-119,WA,0,assistant,221,110,110,0,109,0,0,0,96,0.25,2,0.358,8,0.0,,

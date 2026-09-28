@@ -1,0 +1,8 @@
+model,job,tool,n,n_traces
+model-atlas,run-10,edit,1,1
+model-cyan,run-07,edit,7,5
+model-flint,run-04,edit,2,2
+model-flint,run-08,edit,17,12
+model-garnet,run-11,edit,1,1
+model-orion,run-05,read,1,1
+model-vega,run-15,edit,15,12
