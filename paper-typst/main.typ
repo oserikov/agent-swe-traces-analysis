@@ -14,6 +14,11 @@
   leading: 0.1em,
 )]
 
+#let todo_done_ai(body) = margin-note(stroke: rgb("#888888"), margin-right: page-right-margin, page-width: note-col-width)[#par(
+  [#text(body, size: 5pt, fill: rgb("#888888"))],
+  leading: 0.1em,
+)]
+
 #set document(title: "Model Behavior & Infrastructure Investigation")
 #set page(margin: (top: 2.501cm, bottom: 2.5cm, left: page-left-margin, right: page-right-margin))
 #set text(size: 11pt)
@@ -261,8 +266,9 @@ model-garnet is spread thin across four jobs (`run-02`/`run-09`/`run-11`/`run-13
 model-delta and model-flint are the only models that reappear across jobs with different traffic
 patterns (delta: `run-03`=20, `run-12`=40; flint: `run-04`=5, `run-06`=18, `run-08`=30, `run-14`=7)
 --- see `crosstab_model_job.csv`. Every `task_id` appears at most twice for a given model
-(`reruns_model_task.csv`: 26 (model, task_id) pairs have 2 traces, none have more).
-#todoai[bb8efc78-f4bc-4eb5-b9dc-673e39fec042 how many individual tasks are there?]
+(`reruns_model_task.csv`: 26 (model, task_id) pairs have 2 traces, none have more). 253 distinct
+`task_id`s across the whole dataset (`counts_per_task.csv`).
+#todo_done_ai[bb8efc78-f4bc-4eb5-b9dc-673e39fec042 how many individual tasks are there?]
 
 *Lengths.* Per-trace assistant-turn/tool-call/char counts by model and job are in
 `lengths_by_model.csv`, `lengths_by_job.csv`, `lengths_per_trace.csv`;
