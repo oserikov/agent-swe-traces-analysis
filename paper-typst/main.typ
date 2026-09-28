@@ -293,7 +293,9 @@ per-tool-name call counts in `tool_call_counts_per_trace.csv`. Aggregate tool-ca
 field is not one of the four schema tools at all (see Malformed below). Mean tool-output chars per
 trace ranges from ~53k (model-vega) to ~372k (model-delta) (`lengths_by_model.csv`), driven by a
 small number of very long traces rather than a uniform shift. The longest trace by turns is row
-263 (model-delta/run-12/`pygfx__pygfx-121`, 3,573 conversation messages); the largest by tool
+263 (model-delta/run-12/`pygfx__pygfx-121`, 3,573 conversation
+messages)#footnote[`uv run scripts/eda_followups.py` $arrow$ `results/eda/followups/il_check_per_trace.csv`, column
+`n_messages`. `lengths_per_trace.csv` counts only assistant turns (1,786 for this row).]; the largest by tool
 output is row 369 (model-delta/run-12/`zopefoundation__zope.interface-335`, 3.24M characters).
 `envelope_max_by_model_job.csv` reports separate column maxima, which must not be attributed to
 one row.
@@ -308,7 +310,9 @@ docstring), so the readings below are inferred from the data, not a documented m
 unambiguous (reward 1, 218/370). WA mostly ends cleanly (106/121 with `last_role = assistant`, no
 open tool call), consistent with WA = wrong answer: the agent finished and the result was graded
 incorrect. TL traces mostly end mid tool call (4/5), and they share no turn count (rows 214 and
-215 stop at 87 and 99 turns), so TL reads as a time limit, presumably wall-clock. All 26 IL
+215 stop at 87 and 99 turns#footnote[`uv run scripts/eda_followups.py` $arrow$
+`results/eda/followups/il_check_per_trace.csv`, column `asst_turns`.]), so TL reads as a time
+limit, presumably wall-clock. All 26 IL
 traces end mid tool call (`envelope_end_status.csv`).
 
 _Reading of IL: step cap._ In this paper a *step cap* is a per-job maximum number of assistant
@@ -327,7 +331,10 @@ rest of the paper uses IL in this sense only. Evidence for (`followups/il_check_
 
 _Why this stays an inference._ No source defines the codes. The take-home brief and the dataset
 don't, and neither the system prompt nor the fixed part of the user prompt mentions any turn,
-step, token or context limit. The evidence is also not clean:
+step, token or context limit.#footnote[`uv run scripts/eda_followups.py` $arrow$
+`results/eda/followups/prompt_limit_words.txt`: a regex for turn/step/iteration/budget/limit/token/context
+finds 0 sentences in the one date-masked system prompt and in the 77 distinct first-user preambles
+(the text before `## Issue`).] The evidence is also not clean:
 - Row 89 (flint/`run-06`) is IL at 174 turns, while the other 12 IL traces in that job stop at 100.
   Its size, 147k characters, is unremarkable too.
 - Three traces hit the 200 cap but were graded OK: rows 275 and 343 (atlas/`run-10`) and 333
@@ -338,7 +345,8 @@ step, token or context limit. The evidence is also not clean:
   is therefore ruled out only by the size spread above, which is too wide to be a tokenizer effect.
   It is not ruled out by a direct measurement.
 - The label set OK / WA / TL / IL mirrors competitive-programming judge verdicts, where IL usually
-  stands for "idleness limit exceeded". If the harness borrowed those names, IL may just be its
+  stands for "idleness limit exceeded".#footnote[Background knowledge of judge conventions, not a
+  finding from this dataset; no script backs it.] If the harness borrowed those names, IL may just be its
   nearest label for "stopped before finishing".
 Only the harness code or the dataset authors can confirm the reading.
 #todo_done_ai[6e984974-6ff0-4c9b-8a7c-8f5db89aa0c4 what are these abbreviations?]
@@ -368,7 +376,9 @@ _Row 225, and what a 429 does to a trace_ (`followups/proxy_row225.txt`, `proxy_
 requests = assistant turns + non-200 responses exactly, and row 225 is one of them (35 turns + 28
 429s = 63). Its 429s come in bursts of 1--4 spread over the whole run, while the other six `run-14`
 traces have 0--16. The log ends on four 429s in a row, with the last tool call (a `read` of
-`independent_variable.py`) still open. That ending is a pattern, not a one-off. No trace in the
+`independent_variable.py`) still open.#footnote[`uv run scripts/eda_followups.py` $arrow$
+`results/eda/followups/proxy_row225.txt` for the request sequence, `mid_tool_call_endings.csv`
+(column `last_calls`) for the open call.] That ending is a pattern, not a one-off. No trace in the
 dataset ends on a run of 1--3 non-200s, and all 12 traces that end on 4 or more end mid tool
 call. All 12 were still graded: 9 WA, 3 OK (rows 36, 225, 282), none
 IL.#footnote[Validate the counts in this paragraph: `uv run scripts/validate_claims.py proxy-tail`.
@@ -434,17 +444,26 @@ tool-call markup split in the wrong place. Three of those four traces are IL.
 #todo_done_ai[f9575326-6c0a-46f7-81ca-a3a322af0036 for these 19, what is modelxtask attribution?]
 
 _Why the 50 end mid call_ (an agent pass over truncated final turns, using Python aggregates only:
-`followups/mid_tool_call_endings.md`, per-trace `mid_tool_call_endings.csv`). Five groups:
+`followups/mid_tool_call_endings.md`, per-trace `mid_tool_call_endings.csv`).#footnote[The agent's
+grouping is now rule-based: `uv run scripts/eda_followups.py` (`write_mid_tool_call_endings`)
+$arrow$ `results/eda/followups/mid_tool_call_endings.csv` and `_summary.csv`. The rules are
+applied in order: 100 or 200 assistant turns $arrow$ step cap; proxy log ends on 4+ non-200s
+$arrow$ 429 retries exhausted; status TL; otherwise unexplained, split by whether the trace saw any
+429. They reproduce the agent's label for all 50 traces. The `.md` file keeps the agent's
+narrative, including a "last action" table that the script does not reproduce.] Five groups:
 - *Step cap, 28 traces (25 IL, 3 OK).* They stop at exactly 100 or 200 assistant turns, the step
   caps defined under "Reading of IL" above, and in those traces requests = turns (no retries).
   Rows 275, 333 and 343 hit the cap but were graded OK.
 - *429 retries exhausted, 12 traces (9 WA, 3 OK).* See Proxy above.
-- *TL, 4 traces.* They don't share a turn count (rows 214/215 stop at 87/99 turns with 0.6M/1.07M
-  characters), so the limit is presumably wall-clock.
+- *TL, 4 traces.* They don't share a turn count (rows 214/215 stop at 87/99 turns with 0.66M/1.14M
+  characters of conversation), so the limit is presumably wall-clock.
 - *Unexplained, 6 traces.* Three model-delta/`run-03` traces (95, 147, 281) had 429 bursts but
   end on a 200. Three long ones show no visible cause: row 89, IL at 174 turns in a job capped at 100;
   row 140, model-cyan OK, whose last call `curl`s the upstream GitHub commit diff; and row 168.
-None of the 50 ends on a "submit" or "complete"-style call.
+None of the 50 ends on a "submit" or "complete"-style call.#footnote[`mid_tool_call_endings.csv`:
+column `last_calls` holds each trace's open call (row 140's `curl` of a
+`github.com/litestar-org/polyfactory/commit/...` URL), and `last_call_submit_like` (regex
+`submit|task_complete|finish`) is false for all 50.]
 
 *Reruns and configurations.* Most of the 253 tasks were run once: 161 have a single trace, 59 were
 run once each by two different models, and the rest by up to four models
@@ -545,14 +564,21 @@ already produced even though its last tool call was never resolved in the log.
 - The step-cap reading of IL has exceptions. 3 traces at the cap were graded OK (rows 275, 333,
   343), row 89 is IL at 174 turns in a 100-cap job, and 6 mid-call endings have no visible cause
   (rows 89, 95, 140, 147, 168, 281). Worth asking the dataset authors what IL means.
-- Row 140 (model-cyan, OK) ends by `curl`-ing the upstream GitHub commit diff for its task. Check
+- Row 140 (model-cyan, OK) ends by `curl`-ing the upstream GitHub commit diff for its
+  task.#footnote[`uv run scripts/eda_followups.py` $arrow$
+  `results/eda/followups/mid_tool_call_endings.csv`, row 140, column `last_calls`.] Check
   whether models fetch reference fixes from the network.
 - model-flint uses the word "garbage" in its assistant text (visible or hidden) in 12/60 traces,
   against 3/60 for cyan, 1/60 each for orion and vega, and 0 for atlas, delta and
   garnet.#footnote[`uv run scripts/validate_claims.py flint-garbage`.] Examples aim it at the
   tests or the issue: "this whole test suite is garbage" (row 68), "the issue text is garbage"
   (row 363), "see if this garbage finally passes" (row 62; `followups/mid_tool_call_endings.md`).
-  What the other nine instances target has not been classified.
+  What the other nine instances target has not been classified.#footnote[Excluding "garbage
+  collect…" changes only the other models: `uv run scripts/eda_followups.py` $arrow$
+  `results/eda/followups/garbage_mentions.csv` and `garbage_mentions_by_model.csv` give flint 12/60
+  traces (15 messages, all in `reasoning_content`), cyan 2/60, orion 1/60 and vega 0/60. The three
+  remaining non-flint uses describe invalid data ("garbage depth values", "produces garbage"; rows
+  264, 265, 309), not the tests or the task.]
 - 27 traces have 1--4 more successful model requests than logged assistant turns (row 105 has one
   fewer; `followups/proxy_vs_turns.csv`), so a few model responses may be missing from those
   logs.#footnote[`uv run scripts/validate_claims.py proxy-tail`.]
@@ -561,7 +587,12 @@ already produced even though its last tool call was never resolved in the log.
   findings below check these against source messages. An agent pass that used Python aggregates only
   and never opened raw transcripts (`followups/long_trace_loops.md`) found no logging duplication
   in any of the five largest delta/`run-12` traces: 0 identical consecutive messages, 0 repeated
-  call IDs, and proxy requests equal to turns or turns + 2. Row 263 is a genuine loop.
+  call IDs, and proxy requests equal to turns or turns + 2.#footnote[The agent's computation is now
+  in `scripts/eda_followups.py` (`write_long_trace_loops`) $arrow$
+  `results/eda/followups/long_trace_loops.csv` (duplication and repeat statistics for rows 369,
+  115, 57, 168, 263 and baselines 72, 304) and `long_trace_top_commands.txt` (top 5 bash commands
+  per trace, including row 263's 947 and 830). Every column matches the agent's original numbers.
+  The `.md` file keeps the agent's narrative.] Row 263 is a genuine loop.
   `cat pygfx/materials/_base.py` $times$947 and a `python -c "print(open(...).read())"` of the same
   file $times$830 make up 1,777 of its 1,786 calls, starting from call 0 and running until TL. The
   other four (rows 369, 115, 168 OK; 57 TL) are long edit--test cycles. 39--64% of their bash
@@ -764,11 +795,11 @@ for generation breakdown in 2/40 atlas traces, low that it caused the grade.
 === 9. Model-cyan narrates an unintroduced collaborator
 
 *Category:* behavioral. *Scope:* model-cyan, both jobs.
-“Marcus and I” or “the team and I” appears in 82 visible messages across 26/60 cyan traces, and
+“Marcus” or “the team and I” appears in 82 visible messages across 26/60 cyan traces, and
 in 0/310 other-model traces. Row 2, messages 46 and 100 and row 84, message 153 attribute work
 or verification to Marcus. None of the dataset's prompts introduces him. *Confidence:* high for
 the stylistic pattern, low for any claim about an actual collaborator outside the record.
-*Validation:* Search visible assistant content for “Marcus and I” or “the team and I” and search system and user prompts for Marcus. Look for 82 mentions across 26/60 cyan traces, zero other-model traces, and no prompt introducing him.
+*Validation:* Search visible assistant content case-sensitively for “Marcus” or “the team and I” and search system and user prompts for Marcus. Look for 82 matching messages across 26/60 cyan traces, zero other-model traces, and no prompt introducing him.
 
 === 10. Model-vega speaks of code as a patient
 
@@ -876,6 +907,29 @@ markup. Prompt role differs between these jobs.
 invalid string; the agent recovers and earns `OK`. The other 29 traces show no such marker, so
 this is one interface incident rather than a model-wide rate.
 *Validation:* Tabulate garnet statuses, search visible assistant content for `<｜DSML｜`, and inspect row 358 messages 51–53 and its grade. Look for 16/30 `OK`, the marker only in row 358, a rejected string-valued `edit` argument followed by a read, and row 358 graded `OK`.
+
+== Reproduce the directly countable findings
+
+From the repository root, run `uv run --frozen scripts/verify_baseline_codex.py`. It reads the
+cached `data/agent-traces` dataset and prints one line for each of findings 3, 4, 5, 8, 9, 10,
+11, 12, 14, and 16. The script contains the exact field filters and counting rules; the expected
+output is:
+
+```text
+03 proxy429=259/322 affected=20/20 endings=unresolved:14,tool:5,final:1
+04 majority_repeat=8/18 majority_IL=8 job_IL=13
+05 messages=3573 calls=1786 cat=947 python_print=830 bash=1786 edit=0 write=0 status=TL
+08 row105=263626 row283=202425 non_atlas_max=2988
+09 cyan_messages=82 cyan_traces=26/60 other_messages=0 prompt_mentions=0
+10 vega_hits=101 vega_traces=47/60 other_hits=0
+11 orion_over_300k=13/60 peer_over_300k=0/310 median=79883 row26=1037127 row215=902804
+12 delta=282/9906 run03=55/229 run12=227/9677 flint=6795/6795
+14 malformed_calls=5 traces=4 not_found=5
+16 unresolved=50/370 IL=26 WA=11 TL=4 OK=9
+```
+
+These checks establish the recorded counts and field values. Inspect the cited messages for
+claims about repeated prose, intent, recovery, or cause.
 
 = Hypothesis screening: claims and how they are validated
 
@@ -1101,3 +1155,17 @@ judge was shown, log/sample/message index given for lookup in `inspect view`):
 Full per-(trace, hypothesis) rows, including unconfirmed screen-only hits, are in
 `results/oleg_hits.jsonl`; the full per-model breakdown is in `results/oleg_prevalence.csv`; merged
 `.eval` logs (original `grade` plus all 13 `oleg-*` scores) are `results/oleg/*-oleg.eval`.
+
+== Reproducibility
+
+Run `scripts/run_oleg_pipeline.sh` from the repo root with `OPENROUTER_API_KEY` set in `.env`: it
+chains `pilot-select` (seeded, so the same 16 pilot traces are picked every time) through the pilot,
+`pilot-report` (chooses the screener), Stage 1 screening, `select-confirm` (the budget governor),
+Stage 2 confirmation, and `merge`, each step callable on its own via `uv run scripts/oleg_judge.py
+<subcommand>` if only part of the run needs repeating. Two things will not reproduce exactly: the
+judge calls carry no fixed seed, so individual verdicts vary run to run even though the aggregate
+shape (say-do-gap common, hardcode/test-peek/cross-attempt near-zero) should hold; and the script's
+`--budget`/`--cost-per-call` defaults are this run's own numbers, which already underran real
+Stage 2 cost by about 10% (\$35.90 actual vs. the \$35 cap) -- a fresh run should recompute
+remaining budget from a live `GET /api/v1/key` check and take `--cost-per-call` from its own
+pilot report, not reuse the ones baked into the script.
