@@ -37,6 +37,8 @@
   #text(size: 18pt, weight: "bold")[Model Behavior \& Infrastructure Investigation]
 
   Oleg Serikov
+
+  #link("https://github.com/oserikov/agent-swe-traces-analysis")
   
   #datetime.today().display("[month repr:long] [day], [year]")
 ]
