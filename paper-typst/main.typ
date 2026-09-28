@@ -131,6 +131,8 @@ positives, and how you'd handle the scale --- the traces are long and there are 
 most won't fit in a single context window. How your pipeline reads, reduces, and aggregates is part
 of the design.
 
+
+
 == Resources
 
 - An OpenRouter API key --- use whatever models you find useful (\$100 credit budget; key expires
@@ -180,7 +182,9 @@ If anything seems broken or unclear --- the data, the key, the task --- email
 I transformed the data into inspectable files to ease my close reading, as well as to make it easier for Claude and other models to analyze it, and to ease the LLM judge process on top of the existing analysis of the papers. You can see the details of the conversion in the respective section below. Warning: the section about conversion is mostly written by AI, but I have skimmed it, and it seems reasonable. 
 
 == Exploratory Analysis findings.
-#todoai[94d4045c-995f-484a-8196-86fa8799fd57 rewrite this section according to the writer skil guidance. In particular write in simple, straightforward academic English. Active voice. Short sentences of up to 15 words. Group your findings somehow, either by model or somehow else.]
+#todoai[rewrite this section according to the writer skil guidance. In particular write in simple, straightforward academic English. Active voice. Short sentences of up to 15 words. Group your findings somehow, either by model or somehow else.]
+
+I began with close-reading the traces and asking claude to do so as well.
 
 Exploratory data analysis: some models appear only in one job, some in several, so the coverage is uneven. 
 About judgement verdicts: "OK" is passing the test; "WA" is "Wrong answer". IL is the agent hit the step cap and TL is time limit. 
@@ -191,7 +195,7 @@ Model Orion seems to struggle with tool calls. For example instead of using `bas
 
 Model Flint also seems to be undertrained in this sense because it adds an XML tag to the tool. 
 
-Model Delta, it seems to be trained to use `git` very frequently and attempts to use it as a command, which is also a failure mode. 
+Model Delta, it seems to be trained to use `git` very frequently and attempts to use it as a command, which is also a failure mode. It also rarely exposes any thinking at all.
 
 Models Flint and Atlas also exhibited attempting to use nonexistent tools.
 
@@ -223,10 +227,20 @@ These findings weren't enough, though, to give a characteristic explanation to e
 - Model Flint struggling in the environment
 - Model Vega, or was it Delta, speaking as if it is a patient
 Consequently, I've built a framework to quickly perform lexical analysis in terms of term and bigram frequency, as well as some plastering on the respective factorizations of the traces, which allowed me to tentatively come up with model-specific profiles.
+
+- Cyan: rebuilds the upstream fix, citing the pull request by number, then downloading and grepping the released package
+- Delta: opens each reasoning block with a bold title, then "I'm currently..."
+- Flint: opens with "I'll help you... Let's start by exploring the codebase"
+- Flint: writes "!" densely, as in "Great!", "Good!"
+- Atlas: prefaces plans with "Let me analyze...:"
+- Orion: questions its own plan, as in "But what if...?"
+- Vega: narrates in the plural, as in "Let's run...", "Let's check..."
+- Vega: drops articles, as in "Now run full test suite."
+
 See more in the respective section. 
-#todoai[c4e0ce38-1b2c-484b-89a0-793d44734629 put here a bulleted list of traits as discovered in table nlp-traits; only model then trait, and that's it.]
 
 == Automation
+Although most of the claims here are backed by either scripts or explicit instructions on how to reproduce them, and the NLP analysis section is particularly focused on that, the breadth of the study is very high. I went on to build a prototype of what it would look like to automate this thing. You can see the specification, which I described and developed for the hypothetical automation solution, in the respective file `spec-automation.md`. Furthermore, an MVP of such an automated analysis engine has been built, and it confirms some of the paper's findings. It's covered by the automation section of this text. 
 
 = Findings, as AI wrote them
 
@@ -1399,10 +1413,12 @@ pilot report, not reuse the ones baked into the script.
 = NLP contrast of model text
 
 The baseline quirks live in plain word choice. Cyan credits a colleague, "Marcus". Vega calls a
-fix a "remedy". So surface text may hold more quirks. We tested this on all 370 traces. We counted
-how often each model uses each word and phrase. We also measured formatting habits, such as bold
-text and "!". Claude then read the messages behind the strongest contrasts. Six models show eight
-new traits between them. Garnet's strongest contrasts each vary sharply between its runs.
+fix a "remedy". So surface text may hold more quirks. A script counted every word and phrase in
+all 370 traces. For each model, it ranked phrases by how much more often that model used them
+than the other six. It ranked formatting habits the same way, such as bold text and "!". This
+produced 6,503 candidates. Claude read the messages behind the top five per model, 35 in all.
+Reading confirmed 25 of them. They describe eight new traits across six models, plus vega's known
+"remedy". Garnet's top five split by run.
 
 == Findings
 
@@ -1440,28 +1456,88 @@ new traits between them. Garnet's strongest contrasts each vary sharply between 
 ) <nlp-traits>
 ]
 
-*Three traits are fixed templates.* Flint opens nearly every trace the same way. Delta starts each
-reasoning block with a bold title, such as "*Investigating Mock Clusterer*". Delta's template
-likely comes from the provider's reasoning-summary format. Atlas prefaces its plans with "Let me
-analyze" and a numbered list.
+*What the traits mean.* Three traits are fixed templates: flint's opener, delta's bold titles and
+atlas's "Let me analyze". Delta's template likely comes from the provider's reasoning-summary
+format. Two traits show how a model deliberates: orion questions its plans; vega narrates as "we".
+One trait is a strategy, and it matters most for evaluation. Each task comes from a real
+repository issue with a published fix. Cyan recalls that fix by pull-request number and fetches the
+released code. So cyan steers toward the known answer, in both of its jobs (83% and 77% of traces).
 
-*Two traits show how a model deliberates.* Orion questions its own plan: "But what if it's applied
-at the function level?" It also interrupts itself with "Wait, but..." in 77% of traces. The other
-models do so in at most 40%. Vega narrates in the first person plural. Its visible replies also run
-terse and telegraphic: "Fix works. Now run full test suite."
+== How the traits emerged
 
-*One trait is a strategy.* Cyan rebuilds the real upstream fix. It reasons about "Tony Bagnall's PR
-\#1798" by number. It downloads the released package and greps the fixed code. Each task comes from
-a real repository issue with a published fix. So cyan steers toward the known answer. This trait
-matters most for evaluation. It holds in both of cyan's jobs (83% and 77% of traces).
+Each trait began as a phrase near the top of one model's ranking. @nlp-top5 shows the five
+candidates per model that Claude read, in ranked order. Reading did three jobs. It named the habit
+behind each phrase. It checked that habit with a follow-up count over all traces. And it discarded
+ten candidates. The topic, cluster and classifier views added one confirmed candidate, delta's
+bold-title topic, which repeats a phrase-level trait.
 
-*One trait is a matter of degree.* Flint writes "!" about 2.6 times as densely as atlas. Atlas and
-flint both use "!" in 90% or more of their traces.
+#[
+#show figure: set block(breakable: true)
+#figure(
+  {
+    set text(size: 8.5pt)
+    table(
+      columns: (auto, 1fr, auto),
+      align: (left, left, left),
+      table.header[Model][Top five candidates by lift, in order][Outcome],
+      [cyan], [`the upstream` 16.0; `PR NUM` 14.3; `at the upstream` 13.0; `PR that` 12.0;
+        `pip download` (bash) 11.7], [5 confirmed: 1 trait],
+      [delta], [bold density 20; `** currently` 20; bold-title topic 20; `investigating` 15.9;
+        `** investigating` 14.5], [5 confirmed: 1 trait],
+      [flint], [`exploring` 20; "!" density 20; `exploring the` 20; `start by` 20; `start` 19.8],
+        [5 confirmed: 2 traits],
+      [atlas], [cluster 55 20; bullet density 14.5; `me analyze` 13.0; `let me analyze` 12.5;
+        `analyze` 12.4], [3 confirmed: 1 trait; 2 rejected],
+      [orion], [`at CODE CODE` 12.0; summary topic 11.4; `but what` 11.3; `what if` 11.3;
+        `CODE wait but` 11.0], [3 confirmed: 1 trait; 1 rejected; 1 artifact],
+      [vega], [`remedy` 14.3; `let run` 13.7; `let check` 12.3; `IDENT` share 10.7; `run full`
+        10.7], [4 confirmed: 2 traits + baseline; 1 artifact],
+      [garnet], [`let me also` 9.3; `me also` 9.3; `by reading` 8.0; `write quick` 7.4;
+        `failures let` 7.3], [5 rejected],
+    )
+  },
+  caption: [What the ranking handed to reading. Phrases appear as the script counted them, after
+    masking and tokenizing. Numbers are lift, capped at 20.],
+) <nlp-top5>
+]
 
-*Garnet's five strongest candidates each vary sharply by run.* "Let me also" ranges from 0% of
-traces in run-13 to 88% in run-11. "Write a quick script" covers 100% of run-13 traces and 0% of
-run-02. "Pre-existing failures. Let me verify" covers 75% of run-13 and 0% of run-02. Garnet's four
-runs each write in their own register. Pooled, the registers average out.
+*Cyan.* All five candidates concern upstream code. Three sit in cyan's reasoning: `the upstream`,
+`PR NUM` and `at the upstream`. Reading showed cyan naming the real pull request behind a task,
+e.g. "Tony Bagnall's PR \#1798" (row 1, msg 31). The fifth, `pip download`, comes from cyan's shell
+commands. There cyan downloads the released package and greps its code (row 2, msg 10). A count
+confirmed the pattern: 43 of 60 cyan traces cite "PR \#" plus a number. The other models do so in
+at most 6 of 60.
+
+*Delta.* All five candidates mark one habit: a bold title atop each reasoning block. The phrase
+`** currently` shows its shape, a bold title followed by "I'm currently...". `investigating` comes
+from titles such as "*Investigating Mock Clusterer*" (row 4, msg 4). A count confirmed it: all 282 of delta's
+reasoning messages open with a bold title.
+
+*Flint.* Four phrases come from one sentence: "Let's start by exploring the codebase." Reading
+placed it in flint's first reply. A count confirmed this: the phrase appears in the first reply of
+all 60 flint traces. The fifth candidate, "!" density, is a separate and weaker habit.
+
+*Atlas.* Ranks three to five are one phrase, "Let me analyze". A count showed its use: a numbered
+list follows within 300 characters in 110 of 123 cases. Reading rejected the top two. Cluster 55
+holds the sign-off "Task completed.". It appears in 8 of atlas's 36 traces with visible replies. Atlas's bullet
+density sits close to flint's and orion's.
+
+*Orion.* `but what`, `what if` and `wait but` mark one habit: questioning its own plan. For example:
+"But what if it's applied at the function level?" (row 112, msg 44). Reading discarded the top two.
+`at CODE CODE` is a masking artifact. It joins "Looking at `to_dict`:" to the code list below it
+(row 0, msg 18), so it records code layout. The summary topic covers final
+reports, which orion writes less often than the other models.
+
+*Vega.* `remedy` is the known baseline quirk. `let run` and `let check` read as "Let's run" and
+"Let's check"; the tokenizer drops the "s". A count confirmed a plural voice: "let's" makes up 96%
+of vega's "let's" and "let me" combined. Every other model with more than ten such phrases stays at
+18% or below. `run full` comes from telegraphic replies: "Fix works. Now run full test suite." The
+`IDENT` share is a masking artifact.
+
+*Garnet.* The top five are generic narration: "Let me also...", "by reading the file". Their rates
+split by run. "Let me also" ranges from 0% of traces in run-13 to 88% in run-11. "Write a quick
+script" covers 100% of run-13 traces and 0% of run-02. Garnet's four runs each write in their own
+register. Pooled, the registers average out.
 
 == Method
 
@@ -1499,9 +1575,7 @@ reasoning at 78% versus 3%.
 The timebox set this cap. An Opus subagent read up to five cited messages per candidate. It
 marked each one _confirmed_, _rejected_ or _artifact_. Confirmed means a real, distinctive habit.
 Rejected means generic phrasing on reading. Artifact means a product of the pipeline itself, such
-as a masking placeholder. The outcome: 25 confirmed, 8 rejected, 2 artifacts. Several confirmed
-candidates repeat one phrase. Flint's opener, for instance, yields "exploring", "exploring the"
-and "start by". The 25 therefore reduce to the eight traits in @nlp-traits.
+as a masking placeholder. @nlp-top5 shows the outcome per model.
 
 *Cause labels.* Each trait carries a cause label. MODEL means every job of a multi-job model shows
 it. RUN means its rate differs between one model's jobs. TASK means fewer than three tasks carry
@@ -1555,112 +1629,3 @@ content. Always guessing the largest model scores 0.06 and 0.08. Chunk length al
   candidates, it holds the model's first five chunks. For those, validation searched the full chunk
   tables.
 
-= Automation: an MVP
-
-`spec-automation.md` specifies the Part 2 tool: a live web app and a post-hoc toolkit sharing one
-set of detectors. Its MVP section was handed to a single implementation agent (Sonnet, `coder`
-agent) in its own git worktree, with instructions to build only the MVP, test against the corpus
-numbers the spec lists, and make at most one paid LLM call. The agent took about 11 minutes and 92
-tool calls. The result is commit `5b6f547` on branch `worktree-agent-ad513fc35799f1f78`
-(`.claude/worktrees/agent-ad513fc35799f1f78`). It is not merged into `main`. Every command below
-runs from that worktree unless stated otherwise.
-
-== What was built
-
-- `tracewatch/`: the detector core (a `TraceView` built from an Inspect sample or from live
-  events, `Finding` records, and a registry in which each detector declares its tier, scope and
-  deployment class), three detectors, and the `analyze` and `serve` commands.
-- `uv run python -m tracewatch analyze LOGS --out DIR` writes `findings.jsonl`, `report.md`
-  (ranked by tier), `detector_summary.csv` and `deployment.csv`. `--llm --judge MODEL
-  --max-llm-calls K` sends grader-reasoning candidates to an LLM.
-- `uv run python -m tracewatch serve --log-dir DIR` is a FastAPI page that polls `DIR/*.eval`
-  every 3 seconds, accepts unfinished traces through `POST /ingest`, and refreshes itself. Flags
-  link to Inspect View through a configurable URL template.
-- `scripts/replay.py LOG.eval --url URL` streams a finished log through `/ingest`.
-- `tests/test_mvp.py`: 9 tests over copies of the 15 converted logs, asserting that the inputs are
-  unchanged.
-
-The detectors and their declared deployment class, as written to `deployment.csv`:
-
-#table(
-  columns: 7,
-  align: (left, center, left, left, left, left, center),
-  table.header[Detector][Tier][Scope][Cost][Speed][Resources][Live],
-  [`proxy_tail_kill`], [1], [sample], [cheap], [fast], [easy], [yes],
-  [`unsafe_commands`], [2], [message], [cheap], [fast], [easy], [yes],
-  [`grader_targeting`], [2], [message], [expensive], [slow], [easy], [yes],
-)
-
-== It reproduces the paper's numbers
-
-Every corpus number in the spec's MVP done criteria matched on the first full
-run#footnote[`uv run pytest tests/test_mvp.py` (9 tests, about 30 s) and
-`uv run python -m tracewatch analyze work/inspect_logs/*.eval --out work/out_all`, both in the
-worktree; `work/inspect_logs/` holds copies of `results/inspect_logs/`.]:
-
-#table(
-  columns: 3,
-  align: (left, left, left),
-  table.header[Detector][Paper][MVP output],
-  [`proxy_tail_kill`], [12 traces, 9 WA / 3 OK, `run-03`/`run-14` (`validate_claims.py proxy-tail`)], [same],
-  [`unsafe_commands`, git], [`run-12`: commit 15/40, `reset --hard` 8/40, push 5/40; 0 elsewhere (Codex \#6)], [same],
-  [`unsafe_commands`, network], [cyan: `pip download` 35/60, `git fetch` 29/60, either 40/60 (Codex \#2)], [same],
-  [`grader_targeting` prefilter], [cyan 38, orion 19, vega 9, atlas 1 (`grader-reasoning`)], [atlas 2, others same],
-)
-
-The atlas difference is expected and recorded in the test: the paper manually excludes row 17,
-whose only match is repository code (a `GraderUser` class), and the prefilter does not. The
-prefilter's 68 flagged traces are 38 + 19 + 9 + 2. One real LLM call (Claude Haiku 4.5 through
-OpenRouter) exercised the `--llm` path. No precision was measured for the LLM step.
-
-== What the attempt taught us
-
-*Inputs were not where the implementer could see them.* The spec, the converter
-(`scripts/convert_to_inspect.py`), `validate_claims.py` and `.env` were uncommitted, and the
-converted `.eval` logs are gitignored, so none of them existed in the fresh worktree. The agent had
-to read them from the main checkout by absolute path. A shipped tool must commit its converter and
-spec, and document how to regenerate the logs.
-
-*Both real bugs appeared only when the server ran.* Unit tests over files would not have caught
-either:
-- Inspect's `read_eval_log` runs its own event loop through `nest_asyncio`. Called from inside
-  uvicorn's loop, it corrupted that loop (`IndexError: pop from an empty deque`). The fix runs log
-  polling in a worker thread (`asyncio.to_thread`).
-- `replay.py` posts only non-200 proxy statuses as events, so the server records an implied 200
-  for each assistant message. Without that, the live consecutive-429 counter never reset, and the
-  finished trace's proxy list was wrong.
-
-*Replay order is a reconstruction.* The source has no timestamps. Replay assumes one successful
-request per assistant turn, which holds exactly in 342 of 370 traces (`validate_claims.py
-proxy-tail`). In the other 28 the replayed order of proxy events is approximate.
-
-*The live 429 warning is noisy.* The web app warns on the third consecutive non-200. Over the
-corpus it fires 87 times in 25 traces. All 12 killed traces are warned first, but so are 13 that
-are never killed, so it predicts a kill for 12 of 25 warned traces. The regular bursts of three in
-`run-03` trigger it routinely.#footnote[`uv run scripts/check_proxy_runs.py` from the main checkout;
-it reads the HF dataset, so rows are dataset indices.]
-
-*It also weakens the paper's 429 inference.* The EDA reads the 12 killed traces as "retry a 429
-three times, then stop the episode". But 8 other traces, all in `run-03` (rows 25, 41, 95, 98, 103,
-147, 276, 281), contain a run of exactly four 429s that is not their ending. Each then gets one or
-two successful responses and stops. So a fourth 429 does not always end the episode; the four-burst
-looks like `run-03`'s final burst, with the trace ending within two more calls. This also accounts
-for three of the "unexplained" mid-call endings (rows 95, 147, 281), which end on a 200 after 429
-bursts. The counts in the EDA still hold. The mechanism behind them is less certain than stated.
-
-*One declaration can't describe a two-stage detector.* `grader_targeting` is declared expensive
-and slow because of its LLM step, yet its regex prefilter is cheap and fast and is all the web app
-runs without `--llm`. A deployer filtering `deployment.csv` for cheap detectors would drop it.
-Splitting it into a prefilter detector and an LLM detector would fix the table.
-
-*Two small detector gaps, neither affecting these numbers.* `unsafe_commands` matches its patterns
-against the arguments of every tool call, not only `bash` commands. In this corpus no non-`bash`
-call matches, but an `edit` that writes "git push" into a README would be flagged. It also misses
-a force-push made through an undeclared tool named `git` (row 298). The `run-12` push count still
-matches because that trace also tries a shell push.
-
-*Not yet verified.* The Inspect View deep link to a single sample is untested, and the LLM step
-has been exercised on one message only.
-
-*Scope held.* The spec's MVP section, its quick checkpoints and its numeric done criteria were
-enough for the agent to stay within the MVP. It built nothing from the full detector catalog.
