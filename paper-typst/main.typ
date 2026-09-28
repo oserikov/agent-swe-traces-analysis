@@ -187,9 +187,11 @@ table rows. Principles followed:
   score value, `conversation` $arrow$ messages) or, when Inspect has no native slot for it
   (`system_prompt`, `tools`, `proxy_requests`, `job`, `trial`, `task_id`), under
   `EvalSample.metadata["source_*"]`.
-- *One log per `(job, model)`*, matching the dataset's 15 distinct pairs, so each log has one
-  coherent model/run identity; one sample per source row, keyed by `trial` (already unique across
-  the full table).
+- *The atomic unit is the sample, not the log.* Every source row becomes exactly one
+  `EvalSample`, keyed by `trial` (already unique across the full table) --- 370 rows in, 370
+  samples out, none merged or dropped. Samples are then filed into logs by `(job, model)`, matching
+  the dataset's 15 distinct pairs, purely so each log's top-level model/run identity is truthful;
+  this filing is a grouping choice, not a reduction in trace count.
 - *Never collapse distinctions the source keeps separate.* Visible `content` and hidden
   `reasoning_content` become separate content blocks (text vs. `ContentReasoning`) even when one
   side is empty; `developer`-role messages display as Inspect `system` messages but keep
@@ -199,7 +201,9 @@ table rows. Principles followed:
 - *Flag, don't fix, data anomalies.* Anything the converter can't cleanly represent is recorded in
   `metadata["conversion_exceptions"]` on the sample rather than repaired or dropped.
 
-Result: 15 logs, 370 samples, written via `write_eval_log()`. The full-table smoke check (read
+Result: 15 logs, 370 samples, written via `write_eval_log()` to `results/inspect_logs/`
+(`{job}_{model}.eval`, e.g. `run-05_model-orion.eval`; gitignored as a rebuildable artifact ---
+regenerate with `uv run scripts/convert_to_inspect.py`). The full-table smoke check (read
 every log back with `read_eval_log()`, compare sample counts, `(job, model, trial)` uniqueness,
 score/status/message-role/proxy-count fidelity against the source) passed in full, ran in under 4
 seconds. The converter surfaced one genuine data anomaly worth carrying into Part 1: 10 tool
@@ -207,6 +211,40 @@ messages across the table (all in `run-10` / model-atlas) carry a `tool_call_id`
 any preceding tool call in that trace --- including one off-by-one-character ID
 (`A03VHoId2` vs. the call's actual `A03VHoIdv`) --- which the converter kept verbatim and flagged
 rather than silently repairing.
+
+=== What's inside each run
+
+A `job` is a batch, not a single task: each one bundles many distinct `task_id`s (repo + issue
+pairs) run under one fixed model, so `job` $eq.not$ `task`. One `(job, model)` log holds one row
+per trial in that batch, and the batch sizes vary widely (5 to 60 traces per job):
+
+#table(
+  columns: (auto, auto, auto, auto, auto),
+  align: (left, left, right, right, right),
+  table.header([*job*], [*model*], [*traces*], [*unique tasks*], [*reruns*]),
+  [run-01], [model-cyan], [30], [30], [0],
+  [run-02], [model-garnet], [5], [5], [0],
+  [run-03], [model-delta], [20], [20], [0],
+  [run-04], [model-flint], [5], [5], [0],
+  [run-05], [model-orion], [60], [60], [0],
+  [run-06], [model-flint], [18], [18], [0],
+  [run-07], [model-cyan], [30], [30], [0],
+  [run-08], [model-flint], [30], [29], [1],
+  [run-09], [model-garnet], [9], [9], [0],
+  [run-10], [model-atlas], [40], [40], [0],
+  [run-11], [model-garnet], [8], [8], [0],
+  [run-12], [model-delta], [40], [40], [0],
+  [run-13], [model-garnet], [8], [8], [0],
+  [run-14], [model-flint], [7], [7], [0],
+  [run-15], [model-vega], [60], [60], [0],
+)
+
+*reruns* = traces minus unique tasks, i.e. how many trials in that job repeat a `task_id` already
+attempted elsewhere in the same job. Only `run-08` has one: 30 trials over 29 distinct tasks, so
+one task was attempted twice under `model-flint` within that batch. Every other job runs each of
+its tasks exactly once. Note this counts reruns *within* a job only --- the same `task_id` can
+still recur *across* different `(job, model)` pairs (e.g. under a different model), which this
+table does not show.
 
 == EDA
 
@@ -224,6 +262,7 @@ model-delta and model-flint are the only models that reappear across jobs with d
 patterns (delta: `run-03`=20, `run-12`=40; flint: `run-04`=5, `run-06`=18, `run-08`=30, `run-14`=7)
 --- see `crosstab_model_job.csv`. Every `task_id` appears at most twice for a given model
 (`reruns_model_task.csv`: 26 (model, task_id) pairs have 2 traces, none have more).
+#todoai[bb8efc78-f4bc-4eb5-b9dc-673e39fec042 how many individual tasks are there?]
 
 *Lengths.* Per-trace assistant-turn/tool-call/char counts by model and job are in
 `lengths_by_model.csv`, `lengths_by_job.csv`, `lengths_per_trace.csv`;
