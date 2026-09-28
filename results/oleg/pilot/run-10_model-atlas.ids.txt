@@ -1,0 +1,2 @@
+pytest-dev__pyfakefs-978__RtcyFXe
+textualize__rich-1842__NNG8hPM

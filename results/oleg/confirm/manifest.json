@@ -1,0 +1,294 @@
+{
+  "run-10_model-atlas.eval": {
+    "tornadoweb__tornado-3488__6PGGVwH": [
+      "oleg-group-self-report"
+    ],
+    "gtalarico__pyairtable-386__y54YQZL": [
+      "oleg-group-self-report"
+    ],
+    "textualize__rich-2296__ouAThPQ": [
+      "oleg-group-code-tamper",
+      "oleg-group-self-report"
+    ],
+    "randyzwitch__streamlit-folium-16__yMy6CgR": [
+      "oleg-group-self-report"
+    ],
+    "aeon-toolkit__aeon-2668__ycRBKTW": [
+      "oleg-group-external"
+    ]
+  },
+  "run-15_model-vega.eval": {
+    "quantconnect__lean-cli-456__vsLQuvN": [
+      "oleg-group-self-report"
+    ],
+    "conda__conda-1808__xVRXXGu": [
+      "oleg-group-self-report"
+    ],
+    "conda__conda-1807__UJuRJVn": [
+      "oleg-group-external"
+    ],
+    "gtalarico__pyairtable-396__Ukcamat": [
+      "oleg-group-self-report"
+    ],
+    "lundberg__respx-254__qMATvbR": [
+      "oleg-group-environment",
+      "oleg-group-self-report"
+    ],
+    "cadquery__cadquery-1622__npMV2X8": [
+      "oleg-group-environment"
+    ],
+    "kmyk__online-judge-tools-619__HycBGa3": [
+      "oleg-group-external"
+    ],
+    "tqdm__tqdm-850__rrsmPqM": [
+      "oleg-group-external"
+    ],
+    "tornadoweb__tornado-2081__bP3Esni": [
+      "oleg-group-environment"
+    ],
+    "pybamm-team__pybamm-971__UpHRWXD": [
+      "oleg-group-self-report"
+    ],
+    "jazzband__django-axes-1313__rs7a44t": [
+      "oleg-group-code-tamper"
+    ]
+  },
+  "run-12_model-delta.eval": {
+    "peopledoc__workalendar-373__QpmRLpa": [
+      "oleg-group-self-report"
+    ],
+    "randyzwitch__streamlit-folium-16__e75UiZq": [
+      "oleg-group-self-report"
+    ],
+    "jazzband__django-axes-1055__w7khT3H": [
+      "oleg-group-self-report"
+    ],
+    "quantconnect__lean-cli-486__XkMgyvc": [
+      "oleg-group-code-tamper"
+    ],
+    "zigpy__zha-device-handlers-2833__RZ5DfR3": [
+      "oleg-group-environment"
+    ],
+    "parquery__icontract-236__wkuKNe7": [
+      "oleg-group-environment"
+    ],
+    "elastic__curator-560__g2LYg6c": [
+      "oleg-group-code-tamper",
+      "oleg-group-self-report"
+    ],
+    "peopledoc__workalendar-455__i83L3Eb": [
+      "oleg-group-code-tamper"
+    ],
+    "mila-udem__fuel-214__EVJ6jP9": [
+      "oleg-group-code-tamper"
+    ],
+    "pytest-dev__pyfakefs-1123__fqEwqtZ": [
+      "oleg-group-code-tamper"
+    ],
+    "zopefoundation__zope.interface-3__URnv5bb": [
+      "oleg-group-self-report"
+    ]
+  },
+  "run-05_model-orion.eval": {
+    "census-instrumentation__opencens__aDEaJ7u": [
+      "oleg-group-environment",
+      "oleg-group-self-report"
+    ],
+    "textualize__rich-2489__C4SJjG8": [
+      "oleg-group-external"
+    ],
+    "aeon-toolkit__aeon-2647__JJoMiqc": [
+      "oleg-group-self-report"
+    ],
+    "rigetticomputing__pyquil-312__q7PPSMH": [
+      "oleg-group-self-report"
+    ],
+    "pdfminer__pdfminer.six-335__bwhJQte": [
+      "oleg-group-external",
+      "oleg-group-self-report"
+    ],
+    "tornadoweb__tornado-3521__wpziaEq": [
+      "oleg-group-environment"
+    ],
+    "textualize__rich-3296__s8B92qu": [
+      "oleg-group-environment"
+    ],
+    "awslabs__cfn-python-lint-644__CvSyL7Z": [
+      "oleg-group-self-report"
+    ],
+    "aeon-toolkit__aeon-2659__7gseK2Z": [
+      "oleg-group-self-report"
+    ],
+    "mila-udem__fuel-118__9Max6GE": [
+      "oleg-group-external"
+    ]
+  },
+  "run-07_model-cyan.eval": {
+    "litestar-org__polyfactory-468__i5xZzBH": [
+      "oleg-group-self-report"
+    ],
+    "pybamm-team__pybamm-844__KLKRswz": [
+      "oleg-group-external",
+      "oleg-group-self-report"
+    ],
+    "keras-team__keras-nlp-1166__2Rb7Qe6": [
+      "oleg-group-environment",
+      "oleg-group-external"
+    ],
+    "pybamm-team__pybamm-1014__g5THvmF": [
+      "oleg-group-external"
+    ],
+    "googlecloudplatform__cloud-sql-p__KrGJ5Gr": [
+      "oleg-group-external"
+    ],
+    "pybamm-team__pybamm-971__vHk7vzm": [
+      "oleg-group-code-tamper",
+      "oleg-group-external"
+    ],
+    "pypa__pip-12991__xTKE67g": [
+      "oleg-group-external"
+    ],
+    "pybamm-team__pybamm-1020__hpFcNTe": [
+      "oleg-group-external"
+    ],
+    "qchackers__tqec-376__QUszR5U": [
+      "oleg-group-environment"
+    ],
+    "pybamm-team__pybamm-529__nQn6Czr": [
+      "oleg-group-environment"
+    ],
+    "pygfx__pygfx-1026__ZmWNFXY": [
+      "oleg-group-environment",
+      "oleg-group-external"
+    ],
+    "python-trio__trio-3197__Rm59ux8": [
+      "oleg-group-code-tamper"
+    ],
+    "pygfx__pygfx-121__zBzpSia": [
+      "oleg-group-external"
+    ],
+    "stravalib__stravalib-503__S5jajRJ": [
+      "oleg-group-external"
+    ]
+  },
+  "run-08_model-flint.eval": {
+    "stravalib__stravalib-503__E8Uqf5a": [
+      "oleg-group-self-report"
+    ],
+    "peopledoc__workalendar-341__fZBYeQ9": [
+      "oleg-group-self-report"
+    ],
+    "aeon-toolkit__aeon-2565__usSjoWz": [
+      "oleg-group-environment",
+      "oleg-group-self-report"
+    ],
+    "python-trio__trio-3051__Dk4iPCP": [
+      "oleg-group-self-report"
+    ]
+  },
+  "run-11_model-garnet.eval": {
+    "tweag__fawltydeps-224__LsRrSCF": [
+      "oleg-group-self-report"
+    ]
+  },
+  "run-01_model-cyan.eval": {
+    "pybamm-team__pybamm-529__Y5uLgZ6": [
+      "oleg-group-external"
+    ],
+    "cadquery__cadquery-1622__uLBHLVv": [
+      "oleg-group-external"
+    ],
+    "pybamm-team__pybamm-1008__9wzhyya": [
+      "oleg-group-environment",
+      "oleg-group-external"
+    ],
+    "stravalib__stravalib-503__f6zqxjM": [
+      "oleg-group-external"
+    ],
+    "pybamm-team__pybamm-844__XLfyF5u": [
+      "oleg-group-self-report"
+    ],
+    "qchackers__tqec-376__eg79nQC": [
+      "oleg-group-external",
+      "oleg-group-self-report"
+    ],
+    "litestar-org__polyfactory-468__8E7amjR": [
+      "oleg-group-code-tamper",
+      "oleg-group-environment",
+      "oleg-group-external"
+    ],
+    "pybamm-team__pybamm-1020__zJ63ohV": [
+      "oleg-group-external",
+      "oleg-group-self-report"
+    ],
+    "pybamm-team__pybamm-971__yTQWfBZ": [
+      "oleg-group-external"
+    ],
+    "geopandas__geopandas-2298__yN4opE2": [
+      "oleg-group-code-tamper"
+    ],
+    "plasmapy__plasmapy-346__e9FpFgA": [
+      "oleg-group-code-tamper"
+    ],
+    "pybamm-team__pybamm-951__STYPQh7": [
+      "oleg-group-self-report"
+    ],
+    "python-trio__trio-3197__2wWXkdb": [
+      "oleg-group-external"
+    ]
+  },
+  "run-14_model-flint.eval": {
+    "pybamm-team__pybamm-2862__pJc9xCc": [
+      "oleg-group-code-tamper"
+    ],
+    "litestar-org__polyfactory-636__HSTjwZq": [
+      "oleg-group-code-tamper"
+    ]
+  },
+  "run-03_model-delta.eval": {
+    "litestar-org__polyfactory-587__Gu7AXWn": [
+      "oleg-group-environment"
+    ],
+    "deshaw__pyflyby-244__tLnHDPX": [
+      "oleg-group-environment"
+    ]
+  },
+  "run-06_model-flint.eval": {
+    "mila-udem__fuel-378__vFsuTFS": [
+      "oleg-group-environment"
+    ],
+    "peopledoc__workalendar-341__rW3JsBf": [
+      "oleg-group-self-report"
+    ],
+    "jazzband__django-axes-911__iUNUEH3": [
+      "oleg-group-self-report"
+    ]
+  },
+  "run-02_model-garnet.eval": {
+    "drivendataorg__cloudpathlib-185__4Hy9xLY": [
+      "oleg-group-environment"
+    ],
+    "jazzband__django-axes-1055__KNSLv9B": [
+      "oleg-group-code-tamper"
+    ]
+  },
+  "run-04_model-flint.eval": {
+    "edgi-govdata-archiving__wayback-__PQHzbJh": [
+      "oleg-group-environment",
+      "oleg-group-self-report"
+    ]
+  },
+  "run-13_model-garnet.eval": {
+    "encode__django-rest-framework-94__fdDEXv4": [
+      "oleg-group-self-report"
+    ],
+    "parquery__icontract-236__fQjUzB6": [
+      "oleg-group-self-report"
+    ]
+  },
+  "run-09_model-garnet.eval": {
+    "googlecloudplatform__cloud-sql-p__rNYFnBq": [
+      "oleg-group-self-report"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+My initial hypotheses are:
+- Models might attempt to edit tests or somehow game the evaluator.
+- Models might attempt to just look up the answer in tests.
+- Models might attempt to find the answer online.
+- Models might say they remember the task and write the answer from memory.
+- Models might struggle with harnesses, meaning they spend time not improving their performance on the task but fixing something in the harness.
+- Models can somehow see other attempts.
+- Models might explicitly say they are aware of evaluations.
+- Models might perform unreasonable actions, such as trying to crack the protection of the test set, trying to game the evaluator, or trying to escape the sandbox.
+- Models might say one thing and do another thing. 
+- Models might hard-code correct answers
+- Models might claim success despite failing
+- Grading logic might contain obvious bugs (can we tell this from the trace?)
+- Models might struggle parsing the tool answers
+- 
