@@ -1,0 +1,26 @@
+field,topic,top_terms,dominant_model,lift,n_tasks,n_units,is_candidate,verdict_rule
+reasoning,0,"TASKWORD, and, on, when, of, the, should, with, variables, by, internal, mapping",model-cyan,2.250439339808803,148,2109,False,UNCLEAR
+reasoning,1,"CODE, in, and, calls, wait, returns, looking, then, so, uses, with, method",model-orion,1.874178758365126,201,5517,False,UNCLEAR
+reasoning,2,"me, let, check, what, look, find, try, this, read, import, create, first",model-flint,2.730301304731273,117,617,False,UNCLEAR
+reasoning,3,"NUM, position, with, so, in, lines, ->, from, has, seconds, dec, march",model-orion,1.2309940887502662,167,2170,False,UNCLEAR
+reasoning,4,"IDENT, self, none, def, and, python, with, format, in, tf, model, class",model-orion,1.0674341410346315,165,1819,False,UNCLEAR
+reasoning,5,"might, tests, that, be, any, functionality, new, testing, are, look, checking, there",model-flint,1.665683569928499,127,687,False,UNCLEAR
+reasoning,6,"is, when, this, not, that, issue, which, the, called, so, but, being",model-flint,1.4495178367053652,154,1157,False,UNCLEAR
+reasoning,7,"at, look, looking, understand, how, code, the, repository, actually, online, again, method",model-flint,1.1928544161375876,173,736,False,UNCLEAR
+reasoning,8,"tests, sure, make, all, pass, run, suite, the, everything, existing, perfect, broken",model-flint,1.8186321510782888,130,491,False,UNCLEAR
+reasoning,9,"if, check, there, or, are, also, any, project, something, one, similar, option",model-flint,1.8728717062862175,143,611,False,UNCLEAR
+reasoning,10,"we, that, can, ll, do, need, but, let, also, re, have, edit",model-garnet,6.774417154663374,69,521,True,TASK
+reasoning,11,"test, files, this, suite, the, expects, file, with, passes, full, updated, been",model-flint,1.4841790023737778,167,996,False,UNCLEAR
+reasoning,12,"**, on, added, currently, ##, investigating, within, to, method, ve, modified, focus",model-delta,25.275518428513564,127,823,True,TASK
+reasoning,13,"run, again, script, let, me, this, see, the, debug, confirm, to, test",model-flint,3.0116474073960213,74,370,True,TASK
+reasoning,14,"more, carefully, issue, the, says, code, read, wait, actually, re, sphinx, loaded",model-flint,1.5682031897778852,106,445,False,UNCLEAR
+reasoning,15,"the, in, issue, of, and, current, method, from, with, code, that, function",model-cyan,2.5981401455062634,144,905,False,UNCLEAR
+reasoning,16,"expected, interfaces, what, should, the, issue, says, behavior, description, interface, be, tests",model-orion,1.6051116331821709,131,826,False,UNCLEAR
+reasoning,17,"now, good, works, update, understand, great, verify, correctly, issue, it, see, function",model-flint,2.8370157154974547,90,406,False,UNCLEAR
+reasoning,18,"it, but, be, should, so, would, actually, doesn, wait, as, an, if",model-orion,1.5402310011824183,134,545,False,UNCLEAR
+reasoning,19,"to, need, add, update, understand, how, and, use, class, handle, implement, parameter",model-cyan,2.8020459349305717,171,979,False,UNCLEAR
+reasoning,20,"file, PATH, see, read, the, understand, in, to, how, current, structure, rewrite",model-flint,1.8998089341812447,172,786,False,UNCLEAR
+reasoning,21,"fix, verify, works, the, script, by, syntax, correctly, that, perfect, import, complete",model-flint,1.6628720336052438,136,810,False,UNCLEAR
+reasoning,22,"changes, my, failures, pre, are, verify, existing, failing, change, unrelated, by, git",model-flint,1.1082077223136682,152,843,False,UNCLEAR
+reasoning,23,"for, search, recent, log, git, specifically, files, existing, algorithm, format, or, models",model-flint,1.5425304567546512,126,467,False,UNCLEAR
+reasoning,24,"line, lines, error, numbers, on, exact, around, edit, see, blank, let, directive",model-atlas,1.9922371545842659,91,751,False,UNCLEAR

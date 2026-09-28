@@ -1,0 +1,8 @@
+model,size,sum,precision
+model-atlas,14,8.0,0.57
+model-cyan,70,57.0,0.81
+model-delta,20,16.0,0.8
+model-flint,27,20.0,0.74
+model-garnet,16,11.0,0.69
+model-orion,22,10.0,0.45
+model-vega,24,19.0,0.79

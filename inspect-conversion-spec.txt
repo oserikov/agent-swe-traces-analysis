@@ -1,0 +1,53 @@
+# Inspect AI conversion spec
+
+## Purpose and scope
+
+Convert the take-home's table of coding-agent traces into Inspect AI evaluation logs for reading in Inspect View. The source table remains authoritative. Conversion does not rerun the agents or regrade their work. One source row is one Inspect `EvalSample`; group samples into logs by `job` and `model` so a log has a coherent run and model identity. Preserve the original `trial` and message indexes for citations back to the table.
+
+The [task description](paper-typst/main.typ) names the fields.
+## Column mapping
+
+| Source column | Inspect destination | Rule |
+| --- | --- | --- |
+| `model` | Log model identity; `EvalSample.metadata["source_model"]` | Keep the codename verbatim. Do not substitute a provider or model version that the table does not identify. |
+| `job` | Log run identity; `EvalSample.metadata["source_job"]` | Keep `run-XX` verbatim. This is the source run label, not an Inspect completion status. |
+| `trial` | `EvalSample.id`; `EvalSample.metadata["source_trial"]` | Use as the attempt identifier. Check uniqueness within each log; retain the verbatim value even if a unique composite ID is needed. |
+| `task_id` | `EvalSample.metadata["source_task_id"]` | Keep the coding task ID. Repeated tasks remain separate samples when their trials differ. |
+| `status` | `EvalSample.scores["grade"].metadata["status"]` | Preserve `OK`, `WA`, `IL`, or `TL` verbatim. Show the recorded status in the score explanation. |
+| `reward` | `EvalSample.scores["grade"].value` | Preserve numeric `0` or `1`. A zero is a scored failure, including for `IL` and `TL`; it is not an unscored sample. |
+| `n_proxy_requests` | `EvalSample.metadata["n_proxy_requests"]` | Preserve the count and check it against the array length when both exist. |
+| `proxy_requests` | `EvalSample.metadata["proxy_requests"]` | Preserve entries and order, including non-200 statuses. Convert to model-call events only if the full data establishes which request belongs to which call or retry. |
+| `system_prompt` | `EvalSample.metadata["source_system_prompt"]` | Preserve it separately. The actual system or developer message comes from `conversation`; compare the two rather than silently replacing either. |
+| `tools` | `EvalSample.metadata["source_tools"]` | Preserve the exact supplied schemas. If reconstructing model-call events, their tool definitions may also be attached there. Do not imply that these tools were executed by Inspect. |
+| `conversation` | `EvalSample.messages` | Convert every message in order, retaining its source index in message metadata. Mapping details follow. |
+
+The source table's `status` is a *sample grading verdict*. Set the imported Inspect log's top-level `status` to `success` when the conversion produces a complete, valid log. That top-level field describes log completion; it does not mean every sample passed.
+
+## Conversation and score rules
+
+1. Map source `system`, `user`, `assistant`, and `tool` roles to their corresponding Inspect chat-message types. Inspect has no `developer` chat-message role: display a source `developer` message as `ChatMessageSystem` and set its message metadata `source_role` to `developer`. Preserve the original role of every message in metadata, along with message order, text, and any source IDs. If another source role or content type has no direct Inspect representation, retain the original message in metadata and report the conversion exception; do not drop it.
+2. For each assistant message, put visible `content` in a text content block and `reasoning_content`, when present, in a separate `ContentReasoning` block. Preserve the distinction even if one side is empty. The field name `reasoning_content` does not mean the converter can recover reasoning absent from the source.
+3. Convert assistant `tool_calls` to Inspect tool calls, preserving function name, arguments, call ID, and order. Convert tool results to tool messages linked by call ID. If an ID is missing, generate a stable local ID from the source trial and message/call indexes, and record that it was generated. Preserve unmatched or malformed calls/results as source metadata and flag them for review.
+4. Populate `EvalSample.input` from the source task prompt when one is identifiable in `conversation`. Populate `EvalSample.output` from the final assistant response when one exists. Do not fabricate an ideal `target` patch or final answer; use the version-appropriate empty/default target required by Inspect and leave a metadata note that no target was supplied.
+5. Use one score named `grade`: `Score(value=reward, metadata={"status": status}, explanation=f"Recorded verdict: {status}")`. If the full dataset has an actual grader explanation, preserve that instead or alongside this label. The status label alone is **not** a diagnosis of why a run failed. Keep `WA`, `IL`, and `TL` distinct even though they may all have `reward=0`.
+6. Preserve extra source fields in sample metadata under their original names. Do not infer timestamps, token counts, request-to-turn alignment, or grading rationale from counts or narrative text.
+
+## Output and validation
+
+Write Inspect logs through the supported `write_eval_log()` API, preferably as `.eval` files for long traces. Inspect View should display the message history, tool calls/results, reasoning blocks, score, and source metadata. Keep a link or path to the original source table with each output batch.
+
+Run this smoke check on the **full, untruncated table** after conversion; it should take under one minute for 370 rows:
+
+- Read every generated log back with `read_eval_log()`. The total sample count equals the number of source rows, and `(job, model, trial)` identifies each source attempt exactly once.
+- For every sample, `grade.value` equals source `reward`, `grade.metadata.status` equals source `status`, and source `reward=0` remains a numeric zero score. Every log has top-level `status="success"`.
+- The converted message count and ordered `source_role` metadata match the source `conversation` (a source `developer` role displays as Inspect `system`). Compare the text and reasoning fields, tool names/arguments/results, and source message indexes; report any unrepresentable field rather than silently losing it.
+- `n_proxy_requests == len(proxy_requests)` wherever both fields are present. Report mismatches as source-data findings, not conversion fixes.
+- Open one passing and one failing sample in Inspect View and confirm that the score and verdict are visible, reasoning is separate from visible text, and tool results follow their calls.
+
+
+## Inspect references
+
+- [Evaluation log and sample fields](https://inspect.aisi.org.uk/reference/inspect_ai.log.html)
+- [Chat messages and reasoning content](https://inspect.aisi.org.uk/reference/inspect_ai.model.html)
+- [Score fields](https://inspect.aisi.org.uk/reference/inspect_ai.scorer.html)
+- [Log file API and `.eval` format](https://inspect.aisi.org.uk/eval-logs.html)

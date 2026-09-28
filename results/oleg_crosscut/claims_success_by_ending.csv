@@ -1,0 +1,16 @@
+model,ending,n,claims,failed,claims_and_failed
+model-atlas,final message,36,31,22,17
+model-atlas,open call,3,0,2,0
+model-cyan,final message,59,59,13,13
+model-cyan,open call,1,0,0,0
+model-delta,final message,37,37,19,19
+model-delta,open call,13,0,9,0
+model-delta,tool result,6,0,3,0
+model-flint,final message,35,35,16,16
+model-flint,open call,25,0,23,0
+model-garnet,final message,30,28,14,12
+model-orion,final message,56,53,17,16
+model-orion,open call,2,0,2,0
+model-orion,tool result,2,1,1,0
+model-vega,final message,58,57,6,5
+model-vega,open call,1,0,1,0

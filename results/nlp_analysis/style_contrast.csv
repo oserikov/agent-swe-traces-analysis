@@ -1,0 +1,106 @@
+source,field,model,label,p_value,median_ratio,median_model,median_rest,n_tasks,verdict_rule
+style,content,model-flint,emoji_per_1k,4.069928714085093e-12,1.0,0.0,0.0,55,UNCLEAR
+style,content,model-vega,emoji_per_1k,0.0005362674859760411,1.0,0.0,0.0,60,MODEL-or-RUN (confounded)
+style,content,model-delta,headers_per_1k,9.49510256856641e-09,0.19301800779476605,0.0,0.6329846709541362,37,TASK
+style,content,model-orion,headers_per_1k,2.2406067272870641e-10,4.665263686733852,1.7324247794515966,0.2523977788995457,54,MODEL-or-RUN (confounded)
+style,content,model-vega,headers_per_1k,5.644428594364101e-12,0.15080997685780406,0.0,0.8525149190110827,60,MODEL-or-RUN (confounded)
+style,content,model-atlas,bullets_per_1k,0.0002467978488830083,2.031404041615085,3.460376282782212,1.5444015444015444,36,TASK
+style,content,model-delta,bullets_per_1k,9.525576568834755e-07,0.13536481595073882,0.0,2.0007765925401078,37,TASK
+style,content,model-orion,bullets_per_1k,2.2912923970491477e-07,2.2308276393938344,3.6406380636242477,1.4591439688715953,54,MODEL-or-RUN (confounded)
+style,content,model-vega,bullets_per_1k,7.298412536884174e-10,0.11743622844615956,0.0,2.3540489642184554,60,MODEL-or-RUN (confounded)
+style,content,model-cyan,bold_per_1k,0.0008775584687575555,1.7585202223293397,1.7845531216941488,0.9358038555118847,42,MODEL
+style,content,model-delta,bold_per_1k,6.253350735081445e-10,0.1166948768042695,0.0,1.3863290276413764,37,TASK
+style,content,model-orion,bold_per_1k,1.2036658972361776e-13,2.7825134027712,2.887062812109619,0.9202453987730062,54,MODEL-or-RUN (confounded)
+style,content,model-vega,bold_per_1k,8.407547504412046e-06,0.3849644739398371,0.439672449179786,1.4347202295552368,60,MODEL-or-RUN (confounded)
+style,content,model-flint,bang_per_1k,2.1500981238383124e-19,5.702535596689554,0.44735899244558114,0.0,55,UNCLEAR
+style,content,model-vega,bang_per_1k,0.0006197343721195488,1.0,0.0,0.0,60,MODEL-or-RUN (confounded)
+style,content,model-flint,masked_share,1.7822619165721265e-07,0.7621563642964071,0.12089874238791856,0.1634980988593156,55,MODEL
+style,content,model-orion,masked_share,2.7186992781485407e-12,1.3209218496560169,0.19591155611180644,0.1445221445221445,54,MODEL-or-RUN (confounded)
+style,content,model-vega,masked_share,1.6035916088907613e-12,0.6969798670189927,0.1111222020568663,0.16621983914209115,60,MODEL-or-RUN (confounded)
+style,content,model-orion,masked_share_PATH,0.0002357676276322386,1.0,0.0,0.0,54,MODEL-or-RUN (confounded)
+style,content,model-vega,masked_share_PATH,1.709184710107709e-12,6.230060533309841,0.002842508161657098,0.0,60,MODEL-or-RUN (confounded)
+style,content,model-orion,masked_share_NUM,7.050319633790677e-07,1.8479228701450707,0.03048893846439859,0.015602836879432624,54,MODEL-or-RUN (confounded)
+style,content,model-vega,masked_share_NUM,1.360086986380651e-06,0.5777258648318594,0.010393223787649907,0.019417475728155338,60,MODEL-or-RUN (confounded)
+style,content,model-delta,masked_share_IDENT,0.00035657487700538766,0.21470548156140734,0.0,0.002883784322850874,37,TASK
+style,content,model-orion,masked_share_IDENT,1.5962160000716778e-05,0.20397741877397746,0.0,0.003076923076923077,54,MODEL-or-RUN (confounded)
+style,content,model-vega,masked_share_IDENT,1.6786450491756247e-07,10.736465177398157,0.007676701570680628,0.0,60,MODEL-or-RUN (confounded)
+style,content,model-cyan,masked_share_CODE,2.3691045990052556e-06,1.4482914957328854,0.10303295421405657,0.06859205776173286,42,MODEL
+style,content,model-flint,masked_share_CODE,2.979491711141576e-13,0.5555844877467894,0.04572554606623255,0.08888888888888889,55,MODEL
+style,content,model-orion,masked_share_CODE,1.6667161630650308e-15,1.7571467247447206,0.12456896551724138,0.06734434561626429,54,MODEL-or-RUN (confounded)
+style,content,model-vega,masked_share_CODE,1.4286803393332217e-08,0.6406853659554042,0.05381064955533041,0.08860759493670886,60,MODEL-or-RUN (confounded)
+style,content,model-vega,masked_share_TASKWORD,0.00016507696380448737,0.6859577029362564,0.02597489316239316,0.03968253968253968,60,MODEL-or-RUN (confounded)
+style,content,model-atlas,script_CYRILLIC_share,,,,,36,TASK
+style,content,model-cyan,script_CYRILLIC_share,,,,,42,UNCLEAR
+style,content,model-delta,script_CYRILLIC_share,,,,,37,TASK
+style,content,model-flint,script_CYRILLIC_share,,,,,55,UNCLEAR
+style,content,model-garnet,script_CYRILLIC_share,,,,,28,TASK
+style,content,model-orion,script_CYRILLIC_share,,,,,54,MODEL-or-RUN (confounded)
+style,content,model-vega,script_CYRILLIC_share,,,,,60,MODEL-or-RUN (confounded)
+style,content,model-atlas,script_HIRAGANA_share,,,,,36,TASK
+style,content,model-cyan,script_HIRAGANA_share,,,,,42,UNCLEAR
+style,content,model-delta,script_HIRAGANA_share,,,,,37,TASK
+style,content,model-flint,script_HIRAGANA_share,,,,,55,UNCLEAR
+style,content,model-garnet,script_HIRAGANA_share,,,,,28,TASK
+style,content,model-orion,script_HIRAGANA_share,,,,,54,MODEL-or-RUN (confounded)
+style,content,model-vega,script_HIRAGANA_share,,,,,60,MODEL-or-RUN (confounded)
+style,reasoning,model-cyan,emoji_per_1k,0.0006827846895206479,1.0,0.0,0.0,42,TASK
+style,reasoning,model-delta,emoji_per_1k,0.0008735226083221565,1.0,0.0,0.0,57,TASK
+style,reasoning,model-flint,emoji_per_1k,5.336632774441064e-05,1.0,0.0,0.0,55,UNCLEAR
+style,reasoning,model-orion,emoji_per_1k,9.22375752779442e-07,1.0,0.0,0.0,60,MODEL-or-RUN (confounded)
+style,reasoning,model-vega,emoji_per_1k,0.0009870816243936708,1.0,0.0,0.0,57,MODEL-or-RUN (confounded)
+style,reasoning,model-atlas,headers_per_1k,4.98819187624593e-13,5.252504727158578,0.041203695951875556,0.0,40,TASK
+style,reasoning,model-cyan,headers_per_1k,1.2513391921487131e-05,1.0,0.0,0.0,42,TASK
+style,reasoning,model-delta,headers_per_1k,1.8607500059366263e-05,1.0,0.0,0.0,57,TASK
+style,reasoning,model-flint,headers_per_1k,2.412862116429002e-05,1.0,0.0,0.0,55,UNCLEAR
+style,reasoning,model-vega,headers_per_1k,2.2652656102844356e-05,1.0,0.0,0.0,57,MODEL-or-RUN (confounded)
+style,reasoning,model-atlas,bullets_per_1k,2.4643283699029618e-14,14.5492115317518,1.4526905488062232,0.0,40,TASK
+style,reasoning,model-cyan,bullets_per_1k,2.422228898810055e-13,0.24607502287220193,0.0,0.32848813336618216,42,TASK
+style,reasoning,model-delta,bullets_per_1k,2.277117372018527e-13,0.2573260869497207,0.0,0.30943785456420836,57,TASK
+style,reasoning,model-flint,bullets_per_1k,3.677525690650682e-12,10.673649063204687,1.0371687336679074,0.0,55,MODEL
+style,reasoning,model-orion,bullets_per_1k,1.4127665251138057e-15,10.474735661023717,1.0158420595140627,0.0,60,MODEL-or-RUN (confounded)
+style,reasoning,model-vega,bullets_per_1k,3.98319079858116e-13,0.25820311614473807,0.0,0.3080226219011445,57,MODEL-or-RUN (confounded)
+style,reasoning,model-atlas,bold_per_1k,5.789570954564112e-05,8.316906681138493,0.2985627033062304,0.0,40,TASK
+style,reasoning,model-cyan,bold_per_1k,1.2925004639729398e-10,0.3671561185266915,0.0,0.07033214354790499,42,TASK
+style,reasoning,model-delta,bold_per_1k,2.1248645929445016e-37,76.86571672886589,3.0956624789576406,0.0,57,TASK
+style,reasoning,model-vega,bold_per_1k,1.338781004906731e-14,0.3369522462202075,0.0,0.08029425825265551,57,MODEL-or-RUN (confounded)
+style,reasoning,model-vega,allcaps_share,0.00023156814540328352,0.22302646327041195,0.0005027652086475615,0.004315689041574077,57,MODEL-or-RUN (confounded)
+style,reasoning,model-atlas,bang_per_1k,1.5469980534313724e-10,11.557214051894173,0.3604417277083419,0.0,40,TASK
+style,reasoning,model-cyan,bang_per_1k,4.4860371780998785e-11,0.5014794477358905,0.0,0.033940299014034316,42,TASK
+style,reasoning,model-delta,bang_per_1k,1.0923107387270778e-11,0.5411781005778736,0.0,0.028946073465134455,57,TASK
+style,reasoning,model-flint,bang_per_1k,1.7188545198395695e-28,28.408100304222316,0.9357604173124565,0.0,55,MODEL
+style,reasoning,model-vega,bang_per_1k,3.6192156520339907e-11,0.5464008867920718,0.0,0.02834304699637482,57,MODEL-or-RUN (confounded)
+style,reasoning,model-atlas,masked_share,2.508437556196143e-05,1.254596958030836,0.1496895921846513,0.11688311688311688,40,TASK
+style,reasoning,model-cyan,masked_share,2.175897310455867e-06,0.8227996541216444,0.09902246331876016,0.12292682926829268,42,TASK
+style,reasoning,model-orion,masked_share,4.042769785655498e-13,1.305175752621246,0.1522894896094636,0.11388159813356664,60,MODEL-or-RUN (confounded)
+style,reasoning,model-vega,masked_share,1.8857218238600907e-06,0.8305142889910481,0.1,0.12285076883918011,57,MODEL-or-RUN (confounded)
+style,reasoning,model-delta,masked_share_PATH,1.1182905415603885e-23,0.12057499583202119,0.0,0.0010754340144415425,57,TASK
+style,reasoning,model-atlas,masked_share_NUM,7.208647987894406e-09,2.005390446261138,0.0231685019034698,0.010700132100396302,40,TASK
+style,reasoning,model-delta,masked_share_NUM,1.3147926868022662e-14,0.10380349492458325,0.0,0.014689081116370165,57,TASK
+style,reasoning,model-flint,masked_share_NUM,1.0788897131345696e-06,1.790095548058448,0.020705186524100506,0.010815583268954862,55,MODEL
+style,reasoning,model-orion,masked_share_NUM,1.2587159158958446e-05,1.4998941172230826,0.017900636426307986,0.011367550809507406,60,MODEL-or-RUN (confounded)
+style,reasoning,model-vega,masked_share_NUM,1.5037990454554713e-12,0.10352166381845791,0.0,0.014733703119761438,57,MODEL-or-RUN (confounded)
+style,reasoning,model-delta,masked_share_IDENT,1.2842643800356448e-13,0.09449567073871243,0.0,0.011631827376938637,57,TASK
+style,reasoning,model-vega,masked_share_IDENT,0.0003076881936839997,2.037371202005382,0.018018018018018018,0.008225694208703917,57,MODEL-or-RUN (confounded)
+style,reasoning,model-cyan,masked_share_HEX,3.0552433866410563e-13,1.0,0.0,0.0,42,TASK
+style,reasoning,model-atlas,masked_share_CODE,5.202486381372608e-05,1.6721926790649149,0.0648211159961884,0.037037037037037035,40,TASK
+style,reasoning,model-cyan,masked_share_CODE,2.1486895905630875e-09,0.4826601483500805,0.020520414639306116,0.04712041884816754,42,TASK
+style,reasoning,model-delta,masked_share_CODE,0.0003624945700335289,1.4974556119863836,0.057693323346680876,0.03710027941633033,57,TASK
+style,reasoning,model-flint,masked_share_CODE,0.00043340267000975687,0.6299904081595246,0.02573861695784653,0.04337899543378995,55,MODEL
+style,reasoning,model-garnet,masked_share_CODE,0.00031232071538912114,1.6199711450091743,0.06283741359136599,0.037144938091769844,28,TASK
+style,reasoning,model-orion,masked_share_CODE,5.0001937280006145e-15,2.1617746636355535,0.07813427853211122,0.03383458646616541,60,MODEL-or-RUN (confounded)
+style,reasoning,model-vega,masked_share_CODE,6.06144723914311e-16,0.28358066222841705,0.010221465076660987,0.04689860433348075,57,MODEL-or-RUN (confounded)
+style,reasoning,model-delta,masked_share_TASKWORD,0.00036688839878016183,1.3553570422545176,0.044840347907302555,0.032138228941684666,57,TASK
+style,reasoning,model-atlas,script_CYRILLIC_share,,,,,40,TASK
+style,reasoning,model-cyan,script_CYRILLIC_share,,,,,42,TASK
+style,reasoning,model-delta,script_CYRILLIC_share,,,,,57,TASK
+style,reasoning,model-flint,script_CYRILLIC_share,,,,,55,UNCLEAR
+style,reasoning,model-garnet,script_CYRILLIC_share,,,,,28,TASK
+style,reasoning,model-orion,script_CYRILLIC_share,,,,,60,MODEL-or-RUN (confounded)
+style,reasoning,model-vega,script_CYRILLIC_share,,,,,57,MODEL-or-RUN (confounded)
+style,reasoning,model-atlas,script_HIRAGANA_share,,,,,40,TASK
+style,reasoning,model-cyan,script_HIRAGANA_share,,,,,42,TASK
+style,reasoning,model-delta,script_HIRAGANA_share,,,,,57,TASK
+style,reasoning,model-flint,script_HIRAGANA_share,,,,,55,UNCLEAR
+style,reasoning,model-garnet,script_HIRAGANA_share,,,,,28,TASK
+style,reasoning,model-orion,script_HIRAGANA_share,,,,,60,MODEL-or-RUN (confounded)
+style,reasoning,model-vega,script_HIRAGANA_share,,,,,57,MODEL-or-RUN (confounded)

@@ -1,0 +1,16 @@
+{
+  "reasoning": {
+    "macro_f1_embeddings": 0.3564069972523514,
+    "macro_f1_length_only": 0.15425524121798762,
+    "n_units": 26387,
+    "macro_f1_always_majority": 0.06,
+    "majority_class_share": 0.26653276234509415
+  },
+  "content": {
+    "macro_f1_embeddings": 0.31548771001004533,
+    "macro_f1_length_only": 0.12252335913806996,
+    "n_units": 2419,
+    "macro_f1_always_majority": 0.08,
+    "majority_class_share": 0.38941711451012817
+  }
+}

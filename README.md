@@ -1,92 +1,53 @@
-# template-cc
+# Model Behavior & Infrastructure Investigation
 
-A template repository for Python projects with nix/direnv/uv and containerized Claude Code experiments.
+A take-home investigation of coding-agent traces from seven models: atlas, cyan, delta, flint,
+garnet, orion and vega. The report lives in `paper-typst/main.typ`.
 
-## Development
+## How to reproduce the findings
 
-<details>
-  <summary>System setup (one-time)</summary>
+**Use `paper-typst/main.typ` as the documentation.** It gives concrete steps to reproduce each
+finding: the script to run, the command, and the expected counts. This README only summarizes.
+Build the PDF with `ninja` from the repo root (`paper-typst/main.typ` → `paper-typst/main.pdf`).
 
-```bash
-# Install Nix
-sh <(curl -L https://nixos.org/nix/install) --daemon
-mkdir -p ~/.config/nix
-echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
-exit # the commands below need a fresh shell
+## What the work covers
 
-# Install direnv
-nix profile install nixpkgs#direnv nixpkgs#nix-direnv
+1. **Pre-processing.** The raw traces become Inspect AI logs, for close reading and LLM judging.
+2. **Exploratory analysis.** A close reading of the traces, by hand and with Claude.
+3. **Baseline.** Codex ran the task as given. Its findings were then grounded in reproducible
+   checks.
+4. **LLM-judge screening.** A cheap model screens each trace against a list of hypotheses. Opus
+   then validates what the cheap model flagged.
+5. **NLP-style analysis.** Term and bigram frequencies, plus clustering, build a lexical profile of
+   each model.
+6. **Automation.** A spec (`spec-automation.md`) and an MVP of an automated analysis engine. The
+   MVP reproduces some of the report's findings.
 
-# Install direnv shell hook
-if [[ "$SHELL" == *"/zsh" ]]; then
-    echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc
-elif [[ "$SHELL" == *"/bash" ]]; then
-    echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
-elif [[ "$SHELL" == *"/fish" ]]; then
-    echo 'direnv hook fish | source' >> ~/.config/fish/config.fish
-else
-    echo "Can't set up direnv hook for your $SHELL, please set it up manually"
-fi
+## Key findings
 
-# Setup nix-direnv
-mkdir -p ~/.config/direnv
-echo 'source $HOME/.nix-profile/share/nix-direnv/direnvrc' >> ~/.config/direnv/direnvrc
+- **Evaluation awareness.** Every prompt says a test suite will check the result. Cyan reasons
+  about the grader in 38/60 traces, orion in 19/60, vega in 9/60. Flint and garnet never do.
+- **Cyan** often credits an unseen collaborator, "Marcus" (26/60 traces). It looks up solutions
+  online. In `run-01` it applied the project's upstream fix in 21/30 traces, and all 21 passed.
+  Network access worked only in `run-01`. In `run-07` its score fell from 28/30 to 19/30. It probes
+  for credentials unprompted, in 20/60 traces.
+- **Delta** writes very little visible text. One trace re-reads a single file 1,777 times. Another
+  disables a type check to pass validation. It commits heavily with `git` and calls a `git` tool
+  that does not exist.
+- **Orion, flint and atlas** call undeclared tools. Flint leaks markup into tool names. Flint also
+  struggles with the environment: it says one thing and does another.
+- **Secrets.** Orion and vega try to expose environment secrets when baited. Cyan does so without
+  bait.
+- **Lexical profiles.** Flint opens with "I'll help you..." and writes "Great!" densely. Vega
+  narrates in the plural ("Let's run...") and drops articles. Vega also speaks of code as a medical
+  patient.
 
-# Install pre-commit
-nix profile install nixpkgs#pre-commit
-```
-
-</details>
-
-### Project setup
-
-After cloning, copy `.env.example` to `.env` and fill in any keys.
-
-```bash
-direnv allow
-pre-commit install && pre-commit run --all-files
-```
-
-### Daily workflow
+## Setup
 
 ```bash
-cd my-project       # automatically loads environment via direnv
-uv run my_script.py # run Python scripts
-uv add requests     # add dependencies
-ninja               # builds the paper (paper-typst/main.typ → paper-typst/main.pdf)
-git commit           # checks format, lints, and type checks via pre-commit
+direnv allow        # loads the nix + uv environment
+uv run <script>     # runs a Python script
+ninja               # compiles the paper
 ```
 
-### Files to know
-
-- `flake.nix` — system dependencies (uv, typst, ninja, nix tools)
-- `pyproject.toml` — Python dependencies and ruff config
-- `.envrc` — direnv config that activates nix + uv
-- `.pre-commit-config.yaml` — commit hooks (ruff, ty, nixfmt, uv-lock)
-- `build.ninja` — build targets (`ninja paper` compiles the Typst paper)
-- `paper-typst/main.typ` — paper source
-- `.github/workflows/paper.yml` — CI: builds paper, uploads as release on main
-- `experiment/run_experiment.sh` — containerized experiment runner (devcontainers + Claude Code agents)
-- `experiment/.devcontainer/` — Dockerfile, firewall, permission bypass for agent containers
-- `experiment/AGENT_PROMPT.md.template` — prompt template with `{{TASK_ID}}` and `{{CONDITION}}` placeholders
-
-### Running experiments
-
-```bash
-# 1. Define tasks (one ID per line)
-echo -e "task1\ntask2\ntask3" > experiment/tasks.txt
-
-# 2. Place data per condition
-mkdir -p experiment/data/my_condition
-cp my_resources.txt experiment/data/my_condition/
-
-# 3. Customize the prompt template
-vim experiment/AGENT_PROMPT.md.template
-
-# 4. Run
-./experiment/run_experiment.sh --conditions my_condition --budget 50
-
-# 5. Results are in experiment/results/my_condition/*.jsonl
-```
-
-Each agent runs in a firewalled Docker container (no internet) with full tool access (bash, Python, file I/O). Agents use Claude Opus 4.6 with `--dangerously-skip-permissions`. See `CLAUDE.md` for details and gotchas.
+Copy `.env.example` to `.env` and fill in keys. LLM judging needs `OPENROUTER_API_KEY`. See
+`CLAUDE.md` for the containerized-experiment harness and the Colab GPU loop.

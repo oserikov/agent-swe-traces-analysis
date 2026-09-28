@@ -1,0 +1,26 @@
+field,topic,top_terms,dominant_model,lift,n_tasks,n_units,is_candidate,verdict_rule
+content,0,"CODE, in, of, with, when, it, to, and, added, property, as, returns",model-vega,0.5733076581247222,140,215,False,UNCLEAR
+content,1,"the, issue, to, me, from, original, see, current, code, of, exact, match",model-flint,1.764865287404242,24,31,False,UNCLEAR
+content,2,"run, suite, full, test, regressions, for, unit, works, broader, to, no, once",model-vega,1.6238447608342699,82,136,False,UNCLEAR
+content,3,"TASKWORD, for, with, of, key, logic, to, only, instead, should, when, existing",model-vega,0.8039813877810186,91,214,False,UNCLEAR
+content,4,"now, run, tests, let, remedy, relevant, again, sanity, broader, functions, handle, end",model-vega,1.2839702760084926,30,34,False,UNCLEAR
+content,5,"pre, existing, unrelated, failures, change, are, these, to, confirm, our, environment, failure",model-vega,1.6141340612678192,63,140,False,UNCLEAR
+content,6,"exploring, start, codebase, ll, by, help, you, understanding, issue, the, problem, this",model-flint,3.505630523614939,61,68,True,MODEL
+content,7,"tests, pass, all, also, run, new, let, existing, complete, relevant, including, checks",model-vega,1.4473846747732098,47,55,False,UNCLEAR
+content,8,"IDENT, for, good, use, with, none, check, class, model, let, those, but",model-vega,2.1525384038965902,43,136,False,UNCLEAR
+content,9,"look, at, understand, me, better, let, expected, to, how, what, files, behavior",model-flint,1.4601004811020968,56,91,False,UNCLEAR
+content,10,"**, ##, CODE, NUM, the, added, to, summary, changes, updated, was, is",model-orion,11.426547000472366,27,29,True,TASK
+content,11,"PATH, in, import, now, for, usage, file, redo, good, lost, reference, usages",model-vega,2.2683474876150034,28,60,False,UNCLEAR
+content,12,"test, file, let, behavior, write, script, quick, expected, create, reproduce, to, with",model-vega,1.3125029488086812,38,45,False,UNCLEAR
+content,13,"update, to, match, need, use, now, new, expected, support, these, also, docstring",model-vega,1.3379186069332192,64,119,False,UNCLEAR
+content,14,"NUM, in, with, ##, PR, diff, python, baseline, line, on, of, same",model-cyan,1.6088361045130644,50,75,False,UNCLEAR
+content,15,"add, to, entry, for, exception, property, debug, import, output, CHANGELOG, happening, changelog",model-vega,1.7635254393369655,50,83,False,UNCLEAR
+content,16,"check, if, for, let, there, me, any, are, already, regressions, how, also",model-vega,1.0760893741785462,60,105,False,UNCLEAR
+content,17,"is, that, this, it, issue, but, in, when, not, bug, failure, as",model-flint,1.8099821443754784,52,95,False,UNCLEAR
+content,18,"verify, me, works, let, correctly, with, correct, changes, by, write, running, implementation",model-flint,1.5127416749179219,71,124,False,UNCLEAR
+content,19,"final, create, one, perfect, time, me, let, verification, diff, comprehensive, everything, of",model-flint,1.846597667276181,53,91,False,UNCLEAR
+content,20,"fix, upstream, me, apply, works, actual, let, this, commit, it, can, merge",model-flint,1.6403597997566766,40,81,False,UNCLEAR
+content,21,"implement, first, ll, let, me, in, access, function, no, based, scratch, design",model-vega,0.9337965643698127,55,88,False,UNCLEAR
+content,22,"more, me, debug, carefully, let, what, happening, see, output, understand, trace, to",model-flint,3.28264943457189,38,100,True,MODEL
+content,23,"and, marcus, team, are, up, clean, will, files, functions, the, complete, simplify",model-cyan,3.601871875775517,37,67,True,TASK
+content,24,"my, changes, without, restore, let, failures, good, before, unrelated, exist, introduce, too",model-vega,1.3870627799215831,61,137,False,UNCLEAR
