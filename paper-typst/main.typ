@@ -285,15 +285,24 @@ the next-longest `run-12` trace.
 Reward mean by model ranges from 0.35 (model-flint) to 0.883 (model-vega)
 (`grade_reward_by_model.csv`). Consistency check (OK with reward 0, or non-OK with reward 1) found
 *zero* violations across all 370 rows (`grade_consistency_anomalies.json` is `[]`) --- status and
-reward agree everywhere. #todoai[6e984974-6ff0-4c9b-8a7c-8f5db89aa0c4 what are these abbreviations?]
+reward agree everywhere. These four codes are the harness's own grading labels; they are not
+spelled out anywhere in the take-home brief or the dataset (no HF dataset card, no field
+docstring), so the readings below are inferred from the data, not a documented mapping. OK is
+unambiguous (reward 1, 218/370). Among the non-OK statuses, IL and TL are almost always traces
+that end mid tool-call --- 26/26 IL rows and 4/5 TL rows have `ends_mid_tool_call = true`
+(`envelope_end_status.csv`) --- consistent with IL = an illegal/invalid termination (e.g. no
+submission ever produced) and TL = a time- or step-limit cutoff; WA mostly ends cleanly instead
+(106/121 with `last_role = assistant`, no open tool call), consistent with WA = wrong answer, i.e.
+the agent finished normally and something was graded and scored incorrect. Treat this as our best
+inference, not ground truth. #todoai[6e984974-6ff0-4c9b-8a7c-8f5db89aa0c4 what are these abbreviations?]
 
 *Proxy family.* 30,444 requests at 200, 322 at 429, 1 at 503 (`proxy_status_code_counts.csv`).
 Non-200 traffic is not spread evenly: it is almost entirely `run-03` (mean non-200 rate 0.564 over
 that job's 20 traces, vs. 0.0 for 12 of the other 14 jobs) and `run-14` (0.098) --- see
-`proxy_rate_by_job.csv`. Since `run-03` is exclusively model-delta #todooleg[] (`crosstab_model_job.csv`), this
+`proxy_rate_by_job.csv`. Since `run-03` is exclusively model-delta #todooleg[what's so special about model delta?] (`crosstab_model_job.csv`), this
 surfaces as a model-level number too: model-delta's per-trace non-200 rate averages 0.194 vs. 0.0
 for five of the other six models (`proxy_rate_by_model.csv`). Worst single trace: row 225
-(model-flint/run-14/`pybamm-team__pybamm-602`), 28/63 non-200 (`proxy_per_trace.csv`).
+(model-flint/run-14/`pybamm-team__pybamm-602`), 28/63 non-200 (`proxy_per_trace.csv`) #todooleg[what happened there?].
 
 *Tool-result errors.* Taxonomy hit counts across all tool messages (30,708 total):
 non-zero exit 3,482, traceback 1,600, syntax/import error 566, file-not-found 288, timeout 137,
@@ -304,10 +313,10 @@ are sampled verbatim in `tool_error_unmatched_sample.txt` for manual triage.
 
 *Malformed turns.* 69 issues total (`malformed_turns.csv`, `malformed_turns_summary.csv`): 50
 traces end with an assistant turn that still has open `tool_calls` (no matching tool result ever
-arrives), and 19 tool-call `name` fields fall outside the four declared tools (`bash`/`read`/`write`/`edit`)
+arrives) #todooleg[for these 50, could you ask an agent to peek what happened there?], and 19 tool-call `name` fields fall outside the four declared tools (`bash`/`read`/`write`/`edit`)
 --- values like `"grep -n \"sys\" ..."`, `"run -h 2>&1 | head -30\n</arg_value>"`, or
 `"task_complete"` (rows 42, 62, 155, 158, 160, 182, 272, 298, 307, 323, 353, 366 ---
-full list in `malformed_turns.csv`), which look like raw command/argument text leaking into the
+full list in `malformed_turns.csv`) #todooleg[for these 19, what is modelxtask attribution?], which look like raw command/argument text leaking into the
 `name` slot rather than a model calling an undeclared tool. Zero unparsable JSON tool-call
 arguments found. Zero task_ids have more than one distinct task-statement hash
 (`task_statement_variants.csv` is empty) --- the underlying issue text is stable per task_id.
@@ -325,7 +334,7 @@ stricter rerun-rerun definitions, only a handful of (model, task_id) pairs repea
 model-flint/`pybamm-team__pybamm-612`, model-garnet/`encode__django-rest-framework-9455`,
 model-garnet/`geopandas__geopandas-2286`) or an identical job
 (`rerun_rerun_by_job.csv`: only model-flint/`pybamm-team__pybamm-612`/`run-08`) --- of the 26
-(model, task_id) reruns, most are *not* same-fingerprint, same-job repeats.
+(model, task_id) reruns, most are *not* same-fingerprint, same-job repeats. #todooleg[what this means, in the normal language? what is rerun count for models and tasks, and what qualitatively do your findings ]
 
 *Envelope.* Max turns/chars per (model, job) in `envelope_max_by_model_job.csv`. Cross-tabbing
 status against how a trace ends (`envelope_end_status.csv`) gives a clean signal: *all* 26 IL
