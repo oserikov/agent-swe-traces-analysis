@@ -1,0 +1,42 @@
+== row 369 zopefoundation__zope.interface-335 top bash commands:
+  73x pytest src/zope/interface/
+  40x git status
+  37x python3 -m unittest discover -v -s src -p "test_*.py" zope.interface
+  16x pytest src/zope/interface/common/
+  11x git diff src/zope/interface/interface.py src/zope/interface/common/builtins.py src/zope/interface/common/collections.py 
+== row 115 jazzband__django-axes-885 top bash commands:
+  43x pytest tests/
+  39x git status
+  37x pytest tests/ -k 'test_log_data_truncated'
+  34x cat -n tests/test_logging.py | sed -n '75,85p'
+  30x git diff HEAD~1 HEAD
+== row 57 elastic__curator-560 top bash commands:
+  28x pytest test/integration/test_es_repo_mgr.py::TestCLIRepositoryCreate::test_create_fs_repository_success
+  27x python test/run_tests.py
+  19x docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
+  16x git status
+  14x docker ps
+== row 168 parquery__icontract-236 top bash commands:
+  71x python /tmp/spam.py
+  35x python /tmp/test.py
+  34x python -m mypy --strict icontract tests tests_3_8
+  28x git status
+  25x pytest tests
+== row 263 pygfx__pygfx-121 top bash commands:
+  947x cat pygfx/materials/_base.py
+  830x python -c "print(open('pygfx/materials/_base.py').read())"
+  1x bash -c 'grep -ri "meshslice" pygfx/'
+  1x sh -c 'cat pygfx/renderers/wgpu/meshrender.py'
+  1x rg uniform_type pygfx
+== row 72 feature-engine__feature_engine-531 top bash commands:
+  13x pytest tests/test_encoding/test_mean_encoder.py
+  4x pytest tests/
+  3x git diff feature_engine/encoding/base_encoder.py
+  3x git diff feature_engine/encoding/mean_encoding.py
+  3x pytest tests/test_encoding/test_count_frequency_encoder.py
+== row 304 rigetticomputing__pyquil-119 top bash commands:
+  5x pytest pyquil/tests/test_paulis.py
+  5x git diff pyquil/paulis.py
+  4x pytest -qq pyquil/tests/test_paulis.py
+  4x git diff
+  4x git status

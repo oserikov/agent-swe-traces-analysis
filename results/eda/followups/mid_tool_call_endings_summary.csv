@@ -1,0 +1,6 @@
+category,IL,OK,TL,WA
+proxy_429_x4_at_end,0,3,0,9
+step_cap,25,3,0,0
+time_limit_TL,0,0,4,0
+unexplained_after_429s,0,1,0,2
+unexplained_no_429s,1,2,0,0

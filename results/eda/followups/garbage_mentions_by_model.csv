@@ -1,0 +1,8 @@
+model,n_traces,traces_with_garbage,messages_with_garbage
+model-atlas,40,0,0
+model-cyan,60,2,3
+model-delta,60,0,0
+model-flint,60,12,15
+model-garnet,30,0,0
+model-orion,60,1,1
+model-vega,60,0,0

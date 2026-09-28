@@ -13,6 +13,7 @@ import itertools
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 import pandas as pd
@@ -369,6 +370,7 @@ def write_il_check(ds):
                 "job": row["job"],
                 "status": row["status"],
                 "asst_turns": len(assistant),
+                "n_messages": len(conv),
                 "conversation_chars": sum(message_chars(t) for t in conv),
                 "last_asst_chars": int(out_lengths.iloc[-1]) if len(out_lengths) else 0,
                 "median_asst_chars": float(out_lengths.median()) if len(out_lengths) else 0.0,
@@ -460,6 +462,178 @@ def write_within_job_scaffold(ds):
     ).round(2).reset_index().to_csv(OUT_DIR / "within_job_date_split.csv", index=False)
 
 
+STEP_CAPS = (100, 200)
+SUBMIT_LIKE = re.compile(r"\b(submit|task_complete|finish(ed)?)\b", re.IGNORECASE)
+
+
+def truncate(text: str, n: int = 160) -> str:
+    return (text or "").replace("\n", "\\n")[:n]
+
+
+def describe_call(tc: dict) -> str:
+    fn = tc.get("function") or {}
+    return f"{fn.get('name')}:{json.dumps(fn.get('arguments'), sort_keys=True)}"
+
+
+def write_mid_tool_call_endings(ds, df: pd.DataFrame, proxy: pd.DataFrame):
+    rows = []
+    for i in df.index[df["ends_mid_tool_call"]]:
+        conv = ds[int(i)]["conversation"]
+        last_calls = conv[-1].get("tool_calls") or []
+        rec, px = df.loc[i], proxy.loc[i]
+        if rec["n_assistant_turns"] in STEP_CAPS:
+            category = "step_cap"
+        elif px["trailing_non200"] >= 4:
+            category = "proxy_429_x4_at_end"
+        elif rec["status"] == "TL":
+            category = "time_limit_TL"
+        elif px["n_non200"] > 0:
+            category = "unexplained_after_429s"
+        else:
+            category = "unexplained_no_429s"
+        rows.append(
+            {
+                "row_idx": int(i),
+                "model": rec["model"],
+                "job": rec["job"],
+                "task_id": rec["task_id"],
+                "status": rec["status"],
+                "n_asst_turns": int(rec["n_assistant_turns"]),
+                "n_messages": len(conv),
+                "n_proxy_requests": int(rec["n_proxy_requests"]),
+                "n_non200": int(px["n_non200"]),
+                "trailing_non200": int(px["trailing_non200"]),
+                "conversation_chars": sum(message_chars(t) for t in conv),
+                "last_calls": truncate(" ; ".join(describe_call(tc) for tc in last_calls), 240),
+                "last_call_submit_like": any(SUBMIT_LIKE.search(describe_call(tc)) for tc in last_calls),
+                "category": category,
+            }
+        )
+    out = pd.DataFrame(rows)
+    out.to_csv(OUT_DIR / "mid_tool_call_endings.csv", index=False)
+    out.groupby(["category", "status"]).size().unstack(fill_value=0).to_csv(
+        OUT_DIR / "mid_tool_call_endings_summary.csv"
+    )
+
+
+LONG_TRACE_TARGETS = [369, 115, 57, 168, 263]
+LONG_TRACE_BASELINE = [72, 304]
+
+
+def first_repeat_flags(items: list) -> list[bool]:
+    seen: set = set()
+    flags = []
+    for item in items:
+        flags.append(item in seen)
+        seen.add(item)
+    return flags
+
+
+def write_long_trace_loops(ds):
+    rows, details = [], []
+    for idx in LONG_TRACE_TARGETS + LONG_TRACE_BASELINE:
+        row = ds[idx]
+        conv = row["conversation"]
+        assistant = [t for t in conv if t.get("role") == "assistant"]
+        tools = [t for t in conv if t.get("role") == "tool"]
+        calls = [tc for t in assistant for tc in (t.get("tool_calls") or [])]
+        signature = [
+            (t.get("role"), t.get("content"), t.get("reasoning_content"), json.dumps(t.get("tool_calls"), sort_keys=True))
+            for t in conv
+        ]
+        call_keys = [describe_call(tc) for tc in calls]
+        bash_cmds = [
+            str(((tc.get("function") or {}).get("arguments") or {}).get("command", ""))
+            for tc in calls
+            if (tc.get("function") or {}).get("name") == "bash"
+        ]
+        outputs = [t.get("content") or "" for t in tools]
+        longest = run = 1 if call_keys else 0
+        for a, b in itertools.pairwise(call_keys):
+            run = run + 1 if a == b else 1
+            longest = max(longest, run)
+        flags = first_repeat_flags(call_keys)
+        window = 50
+        onset = next((k for k in range(len(flags) - window + 1) if sum(flags[k : k + window]) > window / 2), None)
+        rows.append(
+            {
+                "row_idx": idx,
+                "group": "target" if idx in LONG_TRACE_TARGETS else "baseline",
+                "task_id": row["task_id"],
+                "status": row["status"],
+                "n_messages": len(conv),
+                "n_asst": len(assistant),
+                "n_proxy_requests": row["n_proxy_requests"],
+                "proxy_minus_asst": row["n_proxy_requests"] - len(assistant),
+                "consec_identical_msgs": sum(a == b for a, b in itertools.pairwise(signature)),
+                "repeated_call_ids": len(calls) - len({tc.get("id") for tc in calls}),
+                "repeated_result_ids": len(tools) - len({t.get("tool_call_id") for t in tools}),
+                "n_bash": len(bash_cmds),
+                "frac_bash_repeat": round(sum(first_repeat_flags(bash_cmds)) / len(bash_cmds), 3) if bash_cmds else 0.0,
+                "longest_identical_call_run": longest,
+                "frac_tool_output_repeat": round(sum(first_repeat_flags(outputs)) / len(outputs), 3) if outputs else 0.0,
+                "repeat_onset_call_idx": onset,
+            }
+        )
+        details.append(f"== row {idx} {row['task_id']} top bash commands:")
+        details += [f"  {n}x {truncate(cmd, 120)}" for cmd, n in Counter(bash_cmds).most_common(5)]
+    pd.DataFrame(rows).to_csv(OUT_DIR / "long_trace_loops.csv", index=False)
+    (OUT_DIR / "long_trace_top_commands.txt").write_text("\n".join(details) + "\n")
+
+
+GARBAGE = re.compile(r"\bgarbage\b(?![- ]collect)", re.IGNORECASE)
+
+
+def write_garbage_mentions(ds):
+    rows = []
+    for i, row in enumerate(ds):
+        conv = row["conversation"]
+        last_asst = max((k for k, t in enumerate(conv) if t.get("role") == "assistant"), default=-1)
+        for k, turn in enumerate(conv):
+            if turn.get("role") != "assistant":
+                continue
+            for field in ("content", "reasoning_content"):
+                match = GARBAGE.search(turn.get(field) or "")
+                if match:
+                    text = turn.get(field) or ""
+                    rows.append(
+                        {
+                            "row_idx": i,
+                            "model": row["model"],
+                            "job": row["job"],
+                            "msg_idx": k,
+                            "field": field,
+                            "final_assistant_turn": k == last_asst,
+                            "snippet": truncate(text[max(0, match.start() - 80) : match.end() + 60], 160),
+                        }
+                    )
+    out = pd.DataFrame(rows)
+    out.to_csv(OUT_DIR / "garbage_mentions.csv", index=False)
+    traces = {row["model"]: 0 for row in ds}
+    msgs = dict(traces)
+    if not out.empty:
+        traces.update(out.groupby("model")["row_idx"].nunique().to_dict())
+        msgs.update(out.groupby("model").size().to_dict())
+    per_model = pd.Series([r["model"] for r in ds]).value_counts()
+    pd.DataFrame(
+        {"n_traces": per_model, "traces_with_garbage": pd.Series(traces), "messages_with_garbage": pd.Series(msgs)}
+    ).rename_axis("model").reset_index().to_csv(OUT_DIR / "garbage_mentions_by_model.csv", index=False)
+
+
+LIMIT_WORDS = re.compile(r"[^.\n]*\b(turns?|steps?|iterations?|budget|limits?|tokens?|context)\b[^.\n]*", re.IGNORECASE)
+
+
+def write_prompt_limit_words(ds):
+    lines = []
+    system_prompts = sorted({DATE_LINE.sub("Current date: X", r["system_prompt"]) for r in ds})
+    preambles = sorted({mask_task_statement(first_user_message(r["conversation"])) for r in ds})
+    for label, texts in (("system_prompt (date masked)", system_prompts), ("first-user preamble (before ## Issue)", preambles)):
+        hits = sorted({m.group(0).strip() for text in texts for m in LIMIT_WORDS.finditer(text)})
+        lines.append(f"== {label}: {len(texts)} distinct texts, {len(hits)} sentences mentioning turn/step/iteration/budget/limit/token/context")
+        lines += [f"  {truncate(h, 200)}" for h in hits]
+    (OUT_DIR / "prompt_limit_words.txt").write_text("\n".join(lines) + "\n")
+
+
 def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     ds = get_traces()
@@ -475,6 +649,10 @@ def main():
     write_validation_failures(ds)
     write_il_check(ds)
     write_within_job_scaffold(ds)
+    write_mid_tool_call_endings(ds, df, proxy)
+    write_long_trace_loops(ds)
+    write_garbage_mentions(ds)
+    write_prompt_limit_words(ds)
     print(f"Wrote follow-up outputs to {OUT_DIR}")
 
 
