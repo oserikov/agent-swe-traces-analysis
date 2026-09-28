@@ -1,0 +1,10 @@
+{
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "device": "cuda",
+  "gpu": "Tesla T4",
+  "shape": [
+    7600,
+    384
+  ],
+  "encode_seconds": 7.11
+}

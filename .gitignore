@@ -1,0 +1,24 @@
+.direnv/
+.venv/
+__pycache__/
+*.egg-info/
+.env
+.cursor/
+.ninja_log
+paper-typst/main.pdf
+
+# Experiment runtime artifacts
+experiment/logs/
+experiment/traces/
+experiment/results/
+experiment/state_*.json
+
+
+# Inspect eval logs (default log dir)
+logs/
+
+# Large result arrays (regenerate via tasks/ on Colab)
+results/**/*.npy
+
+# Per-session verification checklist (local only)
+VERIFY.md

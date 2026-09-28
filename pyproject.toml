@@ -1,0 +1,42 @@
+[project]
+name = "agent-swe-traces-analysis"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "gensim>=4.4.0",
+    "inspect-ai>=0.3.271",
+    "matplotlib>=3.11.2",
+    "nltk>=3.10.3",
+    "openai>=3.19.2",
+    "pandas>=3.0.6",
+    "plotly>=7.1.0",
+    "pyarrow>=25.0.1",
+    "pyldavis>=3.4.1",
+    "python-dotenv>=1.2.3",
+    "seaborn>=0.13.2",
+]
+
+[dependency-groups]
+dev = [
+  "ruff>=0.12.5",
+  "ty>=0.0.1a18",
+]
+
+[tool.ruff.lint]
+select = [
+  "E",
+  "F",
+  "UP",
+  "B",
+  "SIM",
+  "I",
+]
+ignore = [
+  "E501",
+]
+
+[tool.ty.analysis]
+# provided at run time via `uv run --with` (ats05 colab-mcp clone; Colab's torch stack)
+allowed-unresolved-imports = ["colab_mcp.**", "torch", "sentence_transformers"]
